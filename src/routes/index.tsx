@@ -246,9 +246,11 @@ function HowItWorks() {
 }
 
 const reasons = [
-  { icon: ShieldCheck, title: "Reliable & consistent", desc: "Trained staff, defined SOPs, and quality you can count on every day." },
-  { icon: Wallet, title: "Cost-effective sourcing", desc: "Direct procurement keeps your monthly facility costs predictable." },
-  { icon: Layers, title: "One-stop solution", desc: "Cleaning, supplies and equipment — all from a single partner." },
+  { icon: ShieldCheck, title: "Reliable & consistent supply", desc: "Quality products, in stock and dispatched on schedule — every time." },
+  { icon: Wallet, title: "Competitive pricing", desc: "Direct procurement and bulk rates keep your facility costs low." },
+  { icon: FileText, title: "GST-compliant billing", desc: "Proper invoices for clean accounting and effortless input credit." },
+  { icon: Clock, title: "Timely delivery", desc: "Same-day and next-day dispatch across Hyderabad and Secunderabad." },
+  { icon: Layers, title: "One-stop procurement", desc: "Cleaning, chemicals, tools and office essentials — from one supplier." },
   { icon: Headphones, title: "Easy ordering & support", desc: "WhatsApp, call or email — we respond fast and resolve faster." },
 ];
 
