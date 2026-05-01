@@ -346,22 +346,73 @@ function MonthlyCombo() {
   );
 }
 
+const industries = [
+  "Corporates & Offices",
+  "Hospitals & Clinics",
+  "Educational Institutions",
+  "Retail & Showrooms",
+  "Hotels & Restaurants",
+  "Co-working Spaces",
+];
+
+function Trust() {
+  return (
+    <section className="border-y border-border bg-secondary/40">
+      <div className="mx-auto max-w-6xl px-6 py-20">
+        <div className="grid gap-10 md:grid-cols-[1fr_1.4fr] md:items-center">
+          <div>
+            <p className="mb-3 text-sm font-medium uppercase tracking-[0.2em] text-primary">
+              Trusted by businesses
+            </p>
+            <h2 className="text-3xl font-semibold md:text-4xl">
+              Professional, dependable operations.
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              We supply corporates, hospitals, clinics, institutions and
+              commercial spaces across Hyderabad and Secunderabad.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            {industries.map((i) => (
+              <span
+                key={i}
+                className="rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-foreground/80 shadow-[var(--shadow-soft)]"
+              >
+                {i}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function CTA() {
   return (
     <section className="mx-auto max-w-4xl px-6 py-24 text-center">
       <h2 className="text-4xl font-semibold md:text-6xl">
-        Let us simplify your operations.
+        Let us handle your cleaning supply needs.
       </h2>
       <p className="mx-auto mt-5 max-w-xl text-muted-foreground">
-        Tell us about your office once. We'll handle cleaning, supplies and
-        everything in between — month after month.
+        Share your requirement once. We'll deliver the right products on time,
+        every time — with proper GST billing.
       </p>
       <div className="mt-8 flex flex-wrap justify-center gap-3">
         <Button asChild variant="hero" size="lg">
           <a href="#contact">Get Quote <ArrowRight className="h-4 w-4" /></a>
         </Button>
         <Button asChild variant="soft" size="lg">
-          <a href={WHATSAPP} target="_blank" rel="noreferrer">Talk to Us</a>
+          <a href={`tel:+${PHONE_RAW}`}><Phone className="h-4 w-4" /> Contact Us</a>
+        </Button>
+        <Button
+          asChild
+          size="lg"
+          className="rounded-full bg-[#25D366] text-white shadow-[var(--shadow-elegant)] hover:bg-[#1ebe5a] hover:-translate-y-0.5 transition-all duration-300"
+        >
+          <a href={WHATSAPP} target="_blank" rel="noreferrer">
+            <MessageCircle className="h-4 w-4" /> WhatsApp
+          </a>
         </Button>
       </div>
     </section>
