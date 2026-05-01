@@ -18,6 +18,11 @@ import {
   MapPin,
   ArrowRight,
   Check,
+  SprayCan,
+  Droplets,
+  Building2,
+  FileText,
+  Clock,
 } from "lucide-react";
 import heroImg from "@/assets/hero-office.jpg";
 
