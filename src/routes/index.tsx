@@ -98,28 +98,39 @@ function Hero() {
             B2B Cleaning & Facility Partner · Hyderabad
           </div>
           <h1 className="text-balance text-5xl font-semibold leading-[1.05] md:text-6xl">
-            One Partner for All Your{" "}
+            Reliable Supply of{" "}
             <span className="bg-[image:var(--gradient-primary)] bg-clip-text text-transparent">
               Cleaning & Facility
             </span>{" "}
-            Needs
+            Essentials
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-            From housekeeping services to monthly supplies — we simplify
-            operations for offices and businesses in Hyderabad.
+            Your trusted partner for housekeeping materials, cleaning chemicals,
+            and office supplies in Hyderabad.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button asChild variant="hero" size="lg">
               <a href="#contact">
-                Request a Quote <ArrowRight className="h-4 w-4" />
+                Get a Quote <ArrowRight className="h-4 w-4" />
               </a>
             </Button>
             <Button asChild variant="soft" size="lg">
-              <a href="#contact">Contact Us</a>
+              <a href={`tel:+${PHONE_RAW}`}>
+                <Phone className="h-4 w-4" /> Call Now
+              </a>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              className="rounded-full bg-[#25D366] text-white shadow-[var(--shadow-elegant)] hover:bg-[#1ebe5a] hover:-translate-y-0.5 transition-all duration-300"
+            >
+              <a href={WHATSAPP} target="_blank" rel="noreferrer">
+                <MessageCircle className="h-4 w-4" /> WhatsApp Us
+              </a>
             </Button>
           </div>
           <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-muted-foreground">
-            {["Trusted by offices", "Single point of contact", "Monthly billing"].map((t) => (
+            {["GST-compliant billing", "Timely delivery", "Monthly supply"].map((t) => (
               <div key={t} className="flex items-center gap-2">
                 <Check className="h-4 w-4 text-primary" />
                 {t}
