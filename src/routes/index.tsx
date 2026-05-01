@@ -421,10 +421,10 @@ function CTA() {
 
 function Contact() {
   const items = [
-    { icon: Phone, label: "Phone", value: PHONE, href: `tel:${PHONE.replace(/\s/g, "")}` },
+    { icon: Phone, label: "Phone", value: PHONE, href: `tel:+${PHONE_RAW}` },
     { icon: Mail, label: "Email", value: EMAIL, href: `mailto:${EMAIL}` },
-    { icon: MessageCircle, label: "WhatsApp", value: "Chat with us", href: WHATSAPP },
-    { icon: MapPin, label: "Location", value: "Hyderabad, Telangana" },
+    { icon: FileText, label: "GSTIN", value: GSTIN },
+    { icon: MapPin, label: "Address", value: ADDRESS, href: MAPS_URL },
   ];
   return (
     <section id="contact" className="border-t border-border bg-secondary/40">
@@ -438,9 +438,25 @@ function Contact() {
               Reach out — we usually reply within an hour.
             </h2>
             <p className="mt-5 text-muted-foreground">
-              Share your requirement and we'll send a customised quotation for
-              your office in Hyderabad.
+              Share your requirement and we'll send a customised, GST-compliant
+              quotation for your business in Hyderabad.
             </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Button
+                asChild
+                size="lg"
+                className="rounded-full bg-[#25D366] text-white shadow-[var(--shadow-elegant)] hover:bg-[#1ebe5a] hover:-translate-y-0.5 transition-all duration-300"
+              >
+                <a href={WHATSAPP} target="_blank" rel="noreferrer">
+                  <MessageCircle className="h-4 w-4" /> WhatsApp Us
+                </a>
+              </Button>
+              <Button asChild variant="soft" size="lg">
+                <a href={`tel:+${PHONE_RAW}`}>
+                  <Phone className="h-4 w-4" /> Call {PHONE}
+                </a>
+              </Button>
+            </div>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             {items.map(({ icon: Icon, label, value, href }) => {
@@ -450,7 +466,7 @@ function Contact() {
                     <Icon className="h-5 w-5" />
                   </div>
                   <p className="text-xs uppercase tracking-wider text-muted-foreground">{label}</p>
-                  <p className="mt-1 font-medium">{value}</p>
+                  <p className="mt-1 text-sm font-medium leading-relaxed break-words">{value}</p>
                 </div>
               );
               return href ? (
