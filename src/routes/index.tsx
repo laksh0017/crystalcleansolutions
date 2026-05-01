@@ -41,9 +41,16 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-const WHATSAPP = "https://wa.me/919999999999";
-const PHONE = "+91 99999 99999";
-const EMAIL = "hello@crystalcleansolutions.in";
+const PHONE_RAW = "919391937991";
+const WHATSAPP = `https://wa.me/${PHONE_RAW}?text=${encodeURIComponent(
+  "Hi Crystal Clean Solutions, I'd like a quote for cleaning & facility supplies.",
+)}`;
+const PHONE = "+91 93919 37991";
+const EMAIL = "crystalcleansolutions.hyd@gmail.com";
+const ADDRESS =
+  "37, Sitaram Nagar Colony, Diamond Point Rd, Sikh Village, Secunderabad, Hyderabad, Telangana 500009";
+const GSTIN = "36DGXPM2881K1ZG";
+const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ADDRESS)}`;
 
 function Nav() {
   return (
