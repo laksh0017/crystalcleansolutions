@@ -206,10 +206,10 @@ function Services() {
 }
 
 const steps = [
-  { icon: ClipboardList, title: "Share your requirement", desc: "Tell us about your office and what you need." },
-  { icon: FileCheck2, title: "Get a custom quotation", desc: "We send a clear, itemised proposal — no surprises." },
-  { icon: Truck, title: "We deliver & maintain", desc: "Onboard staff, supplies and schedules — done for you." },
-  { icon: CalendarCheck, title: "Monthly supply & support", desc: "Recurring delivery and a single point of contact." },
+  { icon: ClipboardList, title: "Share your requirement", desc: "Send us your list — by call, WhatsApp or email." },
+  { icon: FileCheck2, title: "Get a customized quotation", desc: "Receive a clear, GST-compliant proposal — no surprises." },
+  { icon: Truck, title: "Fast delivery to your location", desc: "Prompt dispatch across Hyderabad and Secunderabad." },
+  { icon: CalendarCheck, title: "Ongoing supply & support", desc: "Recurring orders with a dedicated point of contact." },
 ];
 
 function HowItWorks() {
