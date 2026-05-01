@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import {
   Sparkles,
-  Package,
+  
   Repeat,
   ClipboardList,
   FileCheck2,
@@ -18,7 +18,7 @@ import {
   MapPin,
   ArrowRight,
   Check,
-  SprayCan,
+  
   Droplets,
   Building2,
   FileText,
