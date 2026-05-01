@@ -221,7 +221,7 @@ function HowItWorks() {
             How it works
           </p>
           <h2 className="text-4xl font-semibold md:text-5xl">
-            From enquiry to monthly autopilot — in four steps.
+            From enquiry to delivery — in four simple steps.
           </h2>
         </div>
         <div className="mt-14 grid gap-6 md:grid-cols-4">
