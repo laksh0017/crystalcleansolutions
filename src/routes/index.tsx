@@ -156,18 +156,23 @@ function Hero() {
 const services = [
   {
     icon: Sparkles,
-    title: "Housekeeping & Cleaning",
-    desc: "Daily, deep and specialized cleaning by trained staff — for offices, retail and commercial spaces.",
+    title: "Housekeeping Materials & Cleaning Supplies",
+    desc: "Mops, dusters, brooms, garbage bags, tissues, dispensers — everyday essentials in stock.",
   },
   {
-    icon: Package,
-    title: "Facility Supplies",
-    desc: "Cleaning chemicals, tissues, dispensers, tools and equipment — sourced and delivered reliably.",
+    icon: Droplets,
+    title: "Cleaning Chemicals & Tools",
+    desc: "Floor cleaners, disinfectants, hand wash, sanitizers and professional-grade equipment.",
+  },
+  {
+    icon: Building2,
+    title: "Office & Facility Essentials",
+    desc: "Pantry, washroom and stationery supplies — everything your facility runs on.",
   },
   {
     icon: Repeat,
-    title: "Monthly Supply Solutions",
-    desc: "Subscription-based recurring supply so your office never runs out. One invoice, zero hassle.",
+    title: "Monthly Supply & Bulk Orders",
+    desc: "Recurring supply with priority pricing for offices, hospitals and institutions.",
   },
 ];
 
@@ -176,13 +181,13 @@ function Services() {
     <section id="services" className="mx-auto max-w-6xl px-6 py-24">
       <div className="max-w-2xl">
         <p className="mb-3 text-sm font-medium uppercase tracking-[0.2em] text-primary">
-          Services & Solutions
+          What We Offer
         </p>
         <h2 className="text-4xl font-semibold md:text-5xl">
-          Three pillars. One reliable partner.
+          Everything your facility needs — from one supplier.
         </h2>
       </div>
-      <div className="mt-14 grid gap-6 md:grid-cols-3">
+      <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {services.map(({ icon: Icon, title, desc }) => (
           <div
             key={title}
@@ -191,7 +196,7 @@ function Services() {
             <div className="mb-6 grid h-12 w-12 place-items-center rounded-xl bg-accent text-primary">
               <Icon className="h-6 w-6" />
             </div>
-            <h3 className="text-xl font-semibold">{title}</h3>
+            <h3 className="text-base font-semibold leading-snug">{title}</h3>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{desc}</p>
           </div>
         ))}
