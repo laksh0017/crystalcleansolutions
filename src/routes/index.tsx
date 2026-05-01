@@ -25,17 +25,17 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Crystal Clean Solutions — Cleaning & Facility Partner in Hyderabad" },
+      { title: "Crystal Clean Solutions — Cleaning & Facility Supplies in Hyderabad" },
       {
         name: "description",
         content:
-          "One partner for all your cleaning, housekeeping and monthly facility supply needs. Trusted B2B service for offices and businesses in Hyderabad.",
+          "Reliable B2B supplier of housekeeping materials, cleaning chemicals and office facility essentials in Hyderabad. Monthly supply, GST billing, fast delivery.",
       },
       { property: "og:title", content: "Crystal Clean Solutions — Hyderabad" },
       {
         property: "og:description",
         content:
-          "Housekeeping, facility supplies and monthly subscription packages for offices in Hyderabad.",
+          "Trusted supplier of cleaning chemicals, housekeeping materials and office essentials for businesses across Hyderabad.",
       },
     ],
   }),
