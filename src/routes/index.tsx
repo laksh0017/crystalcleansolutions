@@ -487,14 +487,16 @@ function Contact() {
 function Footer() {
   return (
     <footer className="border-t border-border bg-background">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-10 text-sm text-muted-foreground md:flex-row">
+      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-6 py-10 text-sm text-muted-foreground md:flex-row">
         <div className="flex items-center gap-2">
           <span className="grid h-7 w-7 place-items-center rounded-md bg-[image:var(--gradient-primary)] text-primary-foreground">
             <Sparkles className="h-3.5 w-3.5" />
           </span>
           <span className="font-display font-semibold text-foreground">Crystal Clean Solutions</span>
         </div>
-        <p>© {new Date().getFullYear()} Crystal Clean Solutions · Hyderabad</p>
+        <p className="text-center md:text-right">
+          GSTIN {GSTIN} · © {new Date().getFullYear()} · Hyderabad
+        </p>
       </div>
     </footer>
   );
@@ -509,6 +511,7 @@ function Index() {
       <HowItWorks />
       <WhyUs />
       <MonthlyCombo />
+      <Trust />
       <CTA />
       <Contact />
       <Footer />
