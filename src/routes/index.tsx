@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import {
   Sparkles,
-  Package,
+  
   Repeat,
   ClipboardList,
   FileCheck2,
@@ -18,6 +18,11 @@ import {
   MapPin,
   ArrowRight,
   Check,
+  
+  Droplets,
+  Building2,
+  FileText,
+  Clock,
 } from "lucide-react";
 import heroImg from "@/assets/hero-office.jpg";
 
@@ -25,25 +30,32 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Crystal Clean Solutions — Cleaning & Facility Partner in Hyderabad" },
+      { title: "Crystal Clean Solutions — Cleaning & Facility Supplies in Hyderabad" },
       {
         name: "description",
         content:
-          "One partner for all your cleaning, housekeeping and monthly facility supply needs. Trusted B2B service for offices and businesses in Hyderabad.",
+          "Reliable B2B supplier of housekeeping materials, cleaning chemicals and office facility essentials in Hyderabad. Monthly supply, GST billing, fast delivery.",
       },
       { property: "og:title", content: "Crystal Clean Solutions — Hyderabad" },
       {
         property: "og:description",
         content:
-          "Housekeeping, facility supplies and monthly subscription packages for offices in Hyderabad.",
+          "Trusted supplier of cleaning chemicals, housekeeping materials and office essentials for businesses across Hyderabad.",
       },
     ],
   }),
 });
 
-const WHATSAPP = "https://wa.me/919999999999";
-const PHONE = "+91 99999 99999";
-const EMAIL = "hello@crystalcleansolutions.in";
+const PHONE_RAW = "919391937991";
+const WHATSAPP = `https://wa.me/${PHONE_RAW}?text=${encodeURIComponent(
+  "Hi Crystal Clean Solutions, I'd like a quote for cleaning & facility supplies.",
+)}`;
+const PHONE = "+91 93919 37991";
+const EMAIL = "crystalcleansolutions.hyd@gmail.com";
+const ADDRESS =
+  "37, Sitaram Nagar Colony, Diamond Point Rd, Sikh Village, Secunderabad, Hyderabad, Telangana 500009";
+const GSTIN = "36DGXPM2881K1ZG";
+const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ADDRESS)}`;
 
 function Nav() {
   return (
@@ -86,28 +98,39 @@ function Hero() {
             B2B Cleaning & Facility Partner · Hyderabad
           </div>
           <h1 className="text-balance text-5xl font-semibold leading-[1.05] md:text-6xl">
-            One Partner for All Your{" "}
+            Reliable Supply of{" "}
             <span className="bg-[image:var(--gradient-primary)] bg-clip-text text-transparent">
               Cleaning & Facility
             </span>{" "}
-            Needs
+            Essentials
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-            From housekeeping services to monthly supplies — we simplify
-            operations for offices and businesses in Hyderabad.
+            Your trusted partner for housekeeping materials, cleaning chemicals,
+            and office supplies in Hyderabad.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button asChild variant="hero" size="lg">
               <a href="#contact">
-                Request a Quote <ArrowRight className="h-4 w-4" />
+                Get a Quote <ArrowRight className="h-4 w-4" />
               </a>
             </Button>
             <Button asChild variant="soft" size="lg">
-              <a href="#contact">Contact Us</a>
+              <a href={`tel:+${PHONE_RAW}`}>
+                <Phone className="h-4 w-4" /> Call Now
+              </a>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              className="rounded-full bg-[#25D366] text-white shadow-[var(--shadow-elegant)] hover:bg-[#1ebe5a] hover:-translate-y-0.5 transition-all duration-300"
+            >
+              <a href={WHATSAPP} target="_blank" rel="noreferrer">
+                <MessageCircle className="h-4 w-4" /> WhatsApp Us
+              </a>
             </Button>
           </div>
           <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-muted-foreground">
-            {["Trusted by offices", "Single point of contact", "Monthly billing"].map((t) => (
+            {["GST-compliant billing", "Timely delivery", "Monthly supply"].map((t) => (
               <div key={t} className="flex items-center gap-2">
                 <Check className="h-4 w-4 text-primary" />
                 {t}
@@ -133,18 +156,23 @@ function Hero() {
 const services = [
   {
     icon: Sparkles,
-    title: "Housekeeping & Cleaning",
-    desc: "Daily, deep and specialized cleaning by trained staff — for offices, retail and commercial spaces.",
+    title: "Housekeeping Materials & Cleaning Supplies",
+    desc: "Mops, dusters, brooms, garbage bags, tissues, dispensers — everyday essentials in stock.",
   },
   {
-    icon: Package,
-    title: "Facility Supplies",
-    desc: "Cleaning chemicals, tissues, dispensers, tools and equipment — sourced and delivered reliably.",
+    icon: Droplets,
+    title: "Cleaning Chemicals & Tools",
+    desc: "Floor cleaners, disinfectants, hand wash, sanitizers and professional-grade equipment.",
+  },
+  {
+    icon: Building2,
+    title: "Office & Facility Essentials",
+    desc: "Pantry, washroom and stationery supplies — everything your facility runs on.",
   },
   {
     icon: Repeat,
-    title: "Monthly Supply Solutions",
-    desc: "Subscription-based recurring supply so your office never runs out. One invoice, zero hassle.",
+    title: "Monthly Supply & Bulk Orders",
+    desc: "Recurring supply with priority pricing for offices, hospitals and institutions.",
   },
 ];
 
@@ -153,13 +181,13 @@ function Services() {
     <section id="services" className="mx-auto max-w-6xl px-6 py-24">
       <div className="max-w-2xl">
         <p className="mb-3 text-sm font-medium uppercase tracking-[0.2em] text-primary">
-          Services & Solutions
+          What We Offer
         </p>
         <h2 className="text-4xl font-semibold md:text-5xl">
-          Three pillars. One reliable partner.
+          Everything your facility needs — from one supplier.
         </h2>
       </div>
-      <div className="mt-14 grid gap-6 md:grid-cols-3">
+      <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {services.map(({ icon: Icon, title, desc }) => (
           <div
             key={title}
@@ -168,7 +196,7 @@ function Services() {
             <div className="mb-6 grid h-12 w-12 place-items-center rounded-xl bg-accent text-primary">
               <Icon className="h-6 w-6" />
             </div>
-            <h3 className="text-xl font-semibold">{title}</h3>
+            <h3 className="text-base font-semibold leading-snug">{title}</h3>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{desc}</p>
           </div>
         ))}
@@ -178,10 +206,10 @@ function Services() {
 }
 
 const steps = [
-  { icon: ClipboardList, title: "Share your requirement", desc: "Tell us about your office and what you need." },
-  { icon: FileCheck2, title: "Get a custom quotation", desc: "We send a clear, itemised proposal — no surprises." },
-  { icon: Truck, title: "We deliver & maintain", desc: "Onboard staff, supplies and schedules — done for you." },
-  { icon: CalendarCheck, title: "Monthly supply & support", desc: "Recurring delivery and a single point of contact." },
+  { icon: ClipboardList, title: "Share your requirement", desc: "Send us your list — by call, WhatsApp or email." },
+  { icon: FileCheck2, title: "Get a customized quotation", desc: "Receive a clear, GST-compliant proposal — no surprises." },
+  { icon: Truck, title: "Fast delivery to your location", desc: "Prompt dispatch across Hyderabad and Secunderabad." },
+  { icon: CalendarCheck, title: "Ongoing supply & support", desc: "Recurring orders with a dedicated point of contact." },
 ];
 
 function HowItWorks() {
@@ -193,7 +221,7 @@ function HowItWorks() {
             How it works
           </p>
           <h2 className="text-4xl font-semibold md:text-5xl">
-            From enquiry to monthly autopilot — in four steps.
+            From enquiry to delivery — in four simple steps.
           </h2>
         </div>
         <div className="mt-14 grid gap-6 md:grid-cols-4">
@@ -218,9 +246,11 @@ function HowItWorks() {
 }
 
 const reasons = [
-  { icon: ShieldCheck, title: "Reliable & consistent", desc: "Trained staff, defined SOPs, and quality you can count on every day." },
-  { icon: Wallet, title: "Cost-effective sourcing", desc: "Direct procurement keeps your monthly facility costs predictable." },
-  { icon: Layers, title: "One-stop solution", desc: "Cleaning, supplies and equipment — all from a single partner." },
+  { icon: ShieldCheck, title: "Reliable & consistent supply", desc: "Quality products, in stock and dispatched on schedule — every time." },
+  { icon: Wallet, title: "Competitive pricing", desc: "Direct procurement and bulk rates keep your facility costs low." },
+  { icon: FileText, title: "GST-compliant billing", desc: "Proper invoices for clean accounting and effortless input credit." },
+  { icon: Clock, title: "Timely delivery", desc: "Same-day and next-day dispatch across Hyderabad and Secunderabad." },
+  { icon: Layers, title: "One-stop procurement", desc: "Cleaning, chemicals, tools and office essentials — from one supplier." },
   { icon: Headphones, title: "Easy ordering & support", desc: "WhatsApp, call or email — we respond fast and resolve faster." },
 ];
 
@@ -258,8 +288,8 @@ function WhyUs() {
 
 function MonthlyCombo() {
   const benefits = [
-    "Save up to 20% vs ad-hoc ordering",
-    "No repeated purchase orders",
+    "Saves time — no repeated ordering",
+    "Reduces cost with bulk pricing",
     "Predictable monthly invoicing",
     "Auto-replenishment of essentials",
     "Dedicated account manager",
@@ -274,15 +304,15 @@ function MonthlyCombo() {
         <div className="grid gap-10 md:grid-cols-[1.1fr_1fr] md:items-center">
           <div>
             <p className="mb-3 text-sm font-medium uppercase tracking-[0.2em] opacity-80">
-              Monthly Solutions
+              Monthly Supply
             </p>
             <h2 className="text-4xl font-semibold leading-tight md:text-5xl">
-              Monthly Cleaning & Supply Packages
+              Monthly Supply Made Simple
             </h2>
             <p className="mt-5 max-w-lg text-base opacity-90">
-              One package. Everything your office needs for the month —
-              cleaning hours, chemicals, tissues, tools — delivered and managed
-              on schedule.
+              Recurring supply of cleaning materials and facility essentials
+              for offices, hospitals and institutions — delivered on schedule,
+              every month.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg" variant="soft">
@@ -316,22 +346,73 @@ function MonthlyCombo() {
   );
 }
 
+const industries = [
+  "Corporates & Offices",
+  "Hospitals & Clinics",
+  "Educational Institutions",
+  "Retail & Showrooms",
+  "Hotels & Restaurants",
+  "Co-working Spaces",
+];
+
+function Trust() {
+  return (
+    <section className="border-y border-border bg-secondary/40">
+      <div className="mx-auto max-w-6xl px-6 py-20">
+        <div className="grid gap-10 md:grid-cols-[1fr_1.4fr] md:items-center">
+          <div>
+            <p className="mb-3 text-sm font-medium uppercase tracking-[0.2em] text-primary">
+              Trusted by businesses
+            </p>
+            <h2 className="text-3xl font-semibold md:text-4xl">
+              Professional, dependable operations.
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              We supply corporates, hospitals, clinics, institutions and
+              commercial spaces across Hyderabad and Secunderabad.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            {industries.map((i) => (
+              <span
+                key={i}
+                className="rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-foreground/80 shadow-[var(--shadow-soft)]"
+              >
+                {i}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function CTA() {
   return (
     <section className="mx-auto max-w-4xl px-6 py-24 text-center">
       <h2 className="text-4xl font-semibold md:text-6xl">
-        Let us simplify your operations.
+        Let us handle your cleaning supply needs.
       </h2>
       <p className="mx-auto mt-5 max-w-xl text-muted-foreground">
-        Tell us about your office once. We'll handle cleaning, supplies and
-        everything in between — month after month.
+        Share your requirement once. We'll deliver the right products on time,
+        every time — with proper GST billing.
       </p>
       <div className="mt-8 flex flex-wrap justify-center gap-3">
         <Button asChild variant="hero" size="lg">
           <a href="#contact">Get Quote <ArrowRight className="h-4 w-4" /></a>
         </Button>
         <Button asChild variant="soft" size="lg">
-          <a href={WHATSAPP} target="_blank" rel="noreferrer">Talk to Us</a>
+          <a href={`tel:+${PHONE_RAW}`}><Phone className="h-4 w-4" /> Contact Us</a>
+        </Button>
+        <Button
+          asChild
+          size="lg"
+          className="rounded-full bg-[#25D366] text-white shadow-[var(--shadow-elegant)] hover:bg-[#1ebe5a] hover:-translate-y-0.5 transition-all duration-300"
+        >
+          <a href={WHATSAPP} target="_blank" rel="noreferrer">
+            <MessageCircle className="h-4 w-4" /> WhatsApp
+          </a>
         </Button>
       </div>
     </section>
@@ -340,10 +421,10 @@ function CTA() {
 
 function Contact() {
   const items = [
-    { icon: Phone, label: "Phone", value: PHONE, href: `tel:${PHONE.replace(/\s/g, "")}` },
+    { icon: Phone, label: "Phone", value: PHONE, href: `tel:+${PHONE_RAW}` },
     { icon: Mail, label: "Email", value: EMAIL, href: `mailto:${EMAIL}` },
-    { icon: MessageCircle, label: "WhatsApp", value: "Chat with us", href: WHATSAPP },
-    { icon: MapPin, label: "Location", value: "Hyderabad, Telangana" },
+    { icon: FileText, label: "GSTIN", value: GSTIN },
+    { icon: MapPin, label: "Address", value: ADDRESS, href: MAPS_URL },
   ];
   return (
     <section id="contact" className="border-t border-border bg-secondary/40">
@@ -357,9 +438,25 @@ function Contact() {
               Reach out — we usually reply within an hour.
             </h2>
             <p className="mt-5 text-muted-foreground">
-              Share your requirement and we'll send a customised quotation for
-              your office in Hyderabad.
+              Share your requirement and we'll send a customised, GST-compliant
+              quotation for your business in Hyderabad.
             </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Button
+                asChild
+                size="lg"
+                className="rounded-full bg-[#25D366] text-white shadow-[var(--shadow-elegant)] hover:bg-[#1ebe5a] hover:-translate-y-0.5 transition-all duration-300"
+              >
+                <a href={WHATSAPP} target="_blank" rel="noreferrer">
+                  <MessageCircle className="h-4 w-4" /> WhatsApp Us
+                </a>
+              </Button>
+              <Button asChild variant="soft" size="lg">
+                <a href={`tel:+${PHONE_RAW}`}>
+                  <Phone className="h-4 w-4" /> Call {PHONE}
+                </a>
+              </Button>
+            </div>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             {items.map(({ icon: Icon, label, value, href }) => {
@@ -369,7 +466,7 @@ function Contact() {
                     <Icon className="h-5 w-5" />
                   </div>
                   <p className="text-xs uppercase tracking-wider text-muted-foreground">{label}</p>
-                  <p className="mt-1 font-medium">{value}</p>
+                  <p className="mt-1 text-sm font-medium leading-relaxed break-words">{value}</p>
                 </div>
               );
               return href ? (
@@ -390,14 +487,16 @@ function Contact() {
 function Footer() {
   return (
     <footer className="border-t border-border bg-background">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-10 text-sm text-muted-foreground md:flex-row">
+      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-6 py-10 text-sm text-muted-foreground md:flex-row">
         <div className="flex items-center gap-2">
           <span className="grid h-7 w-7 place-items-center rounded-md bg-[image:var(--gradient-primary)] text-primary-foreground">
             <Sparkles className="h-3.5 w-3.5" />
           </span>
           <span className="font-display font-semibold text-foreground">Crystal Clean Solutions</span>
         </div>
-        <p>© {new Date().getFullYear()} Crystal Clean Solutions · Hyderabad</p>
+        <p className="text-center md:text-right">
+          GSTIN {GSTIN} · © {new Date().getFullYear()} · Hyderabad
+        </p>
       </div>
     </footer>
   );
@@ -412,6 +511,7 @@ function Index() {
       <HowItWorks />
       <WhyUs />
       <MonthlyCombo />
+      <Trust />
       <CTA />
       <Contact />
       <Footer />
