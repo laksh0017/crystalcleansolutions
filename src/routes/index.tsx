@@ -288,8 +288,8 @@ function WhyUs() {
 
 function MonthlyCombo() {
   const benefits = [
-    "Save up to 20% vs ad-hoc ordering",
-    "No repeated purchase orders",
+    "Saves time — no repeated ordering",
+    "Reduces cost with bulk pricing",
     "Predictable monthly invoicing",
     "Auto-replenishment of essentials",
     "Dedicated account manager",
@@ -304,15 +304,15 @@ function MonthlyCombo() {
         <div className="grid gap-10 md:grid-cols-[1.1fr_1fr] md:items-center">
           <div>
             <p className="mb-3 text-sm font-medium uppercase tracking-[0.2em] opacity-80">
-              Monthly Solutions
+              Monthly Supply
             </p>
             <h2 className="text-4xl font-semibold leading-tight md:text-5xl">
-              Monthly Cleaning & Supply Packages
+              Monthly Supply Made Simple
             </h2>
             <p className="mt-5 max-w-lg text-base opacity-90">
-              One package. Everything your office needs for the month —
-              cleaning hours, chemicals, tissues, tools — delivered and managed
-              on schedule.
+              Recurring supply of cleaning materials and facility essentials
+              for offices, hospitals and institutions — delivered on schedule,
+              every month.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg" variant="soft">
