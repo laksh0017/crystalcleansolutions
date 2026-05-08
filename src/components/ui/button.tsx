@@ -5,7 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
@@ -16,14 +16,20 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        hero: "bg-[image:var(--gradient-primary)] text-primary-foreground shadow-[var(--shadow-elegant)] hover:opacity-95 hover:-translate-y-0.5 transition-all duration-300",
-        soft: "bg-white text-primary border border-border shadow-[var(--shadow-soft)] hover:bg-accent hover:-translate-y-0.5 transition-all duration-300",
+        hero:
+          "bg-[image:var(--gradient-primary)] text-primary-foreground shadow-[var(--shadow-elegant)] hover:shadow-[var(--shadow-glow)] hover:-translate-y-0.5",
+        soft:
+          "bg-card text-foreground border border-border shadow-[var(--shadow-soft)] hover:border-primary/40 hover:-translate-y-0.5",
+        ink:
+          "bg-foreground text-background hover:opacity-90 hover:-translate-y-0.5 shadow-[var(--shadow-soft)]",
+        electric:
+          "bg-foreground text-background border border-border hover:border-primary/60 hover:bg-primary hover:text-primary-foreground",
       },
       size: {
         default: "h-9 px-4 py-2",
         sm: "h-8 rounded-md px-3 text-xs",
-        lg: "h-12 rounded-full px-8 text-base",
-        xl: "h-14 rounded-full px-10 text-base",
+        lg: "h-12 rounded-full px-7 text-sm",
+        xl: "h-14 rounded-full px-9 text-base",
         icon: "h-9 w-9",
       },
     },
