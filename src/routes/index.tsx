@@ -7,7 +7,7 @@ import {
   ArrowRight, ShieldCheck, Truck, MessageCircle, FileText, CheckCircle2,
   Sparkles, Repeat, Building2, Cpu, Stethoscope, Hotel, Users, GraduationCap,
   Briefcase, Factory, Phone, Mail, MapPin, Send, Layers, Workflow, Clock,
-  ReceiptText, BadgeCheck, ChevronDown, Droplets, SprayCan, Coffee, ToiletPaper,
+  ReceiptText, BadgeCheck, ChevronDown, Droplets, SprayCan, Coffee, Wind,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -258,7 +258,7 @@ const SOLUTION_CATEGORIES = [
     items: ["Tissues", "Garbage bags", "Hygiene consumables", "Housekeeping materials"],
   },
   {
-    icon: ToiletPaper,
+    icon: Wind,
     name: "Washroom Hygiene",
     items: ["Odonil & air fresheners", "Urinal blocks", "Hand wash", "Tissue & consumables"],
   },
