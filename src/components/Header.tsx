@@ -1,58 +1,57 @@
 import { Link } from "@tanstack/react-router";
 import { Logo } from "@/components/Logo";
 import { Button } from "@/components/ui/button";
-import { useRFQ } from "@/lib/rfq";
-import { FileText, Menu, X } from "lucide-react";
+import { WHATSAPP } from "@/lib/site";
+import { MessageCircle, Menu, X } from "lucide-react";
 import * as React from "react";
 
 const NAV = [
-  { to: "/products", label: "Products" },
-  { to: "/how-it-works", label: "How it works" },
-  { to: "/industries", label: "Industries" },
-  { to: "/about", label: "About" },
-  { to: "/contact", label: "Contact" },
-] as const;
+  { to: "/", label: "Home", hash: undefined as string | undefined },
+  { to: "/", label: "Solutions", hash: "solutions" },
+  { to: "/industries", label: "Industries", hash: undefined },
+  { to: "/products", label: "Products", hash: undefined },
+  { to: "/", label: "Why Crystal", hash: "why" },
+  { to: "/how-it-works", label: "How It Works", hash: undefined },
+  { to: "/contact", label: "Contact", hash: undefined },
+];
 
 export function Header() {
-  const { count, setOpen } = useRFQ();
   const [mobile, setMobile] = React.useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border/60 bg-background/70 backdrop-blur-xl">
+    <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 md:px-8">
-        <Link to="/" className="flex items-center" aria-label="CRYSTAL home">
+        <Link to="/" aria-label="Crystal Clean Solutions home">
           <Logo />
         </Link>
-        <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
+        <nav className="hidden items-center gap-7 text-[13px] text-muted-foreground lg:flex">
           {NAV.map((n) => (
             <Link
-              key={n.to}
+              key={n.label}
               to={n.to}
+              hash={n.hash}
               className="transition-colors hover:text-foreground"
-              activeProps={{ className: "text-foreground font-medium" }}
+              activeProps={n.hash ? undefined : { className: "text-foreground font-medium" }}
             >
               {n.label}
             </Link>
           ))}
         </nav>
         <div className="flex items-center gap-2">
-          <button
-            onClick={() => setOpen(true)}
-            className="relative hidden h-9 items-center gap-2 rounded-full border border-border bg-card px-4 text-xs font-medium shadow-[var(--shadow-soft)] transition hover:border-primary/50 sm:inline-flex"
+          <a
+            href={WHATSAPP}
+            target="_blank"
+            rel="noreferrer"
+            className="hidden h-9 items-center gap-1.5 rounded-full border border-border bg-card px-3.5 text-xs font-medium text-foreground/80 shadow-[var(--shadow-soft)] transition hover:border-primary/40 sm:inline-flex"
           >
-            <FileText className="h-3.5 w-3.5" />
-            RFQ Cart
-            {count > 0 && (
-              <span className="grid h-5 min-w-5 place-items-center rounded-full bg-primary px-1.5 text-[10px] font-semibold text-primary-foreground">
-                {count}
-              </span>
-            )}
-          </button>
-          <Button asChild variant="hero" size="sm" className="rounded-full">
-            <Link to="/contact">Request Quote</Link>
+            <MessageCircle className="h-3.5 w-3.5 text-emerald-600" />
+            WhatsApp
+          </a>
+          <Button asChild variant="hero" size="sm" className="rounded-full px-5">
+            <Link to="/contact">Get Quotation</Link>
           </Button>
           <button
-            className="ml-1 grid h-9 w-9 place-items-center rounded-md border border-border md:hidden"
+            className="ml-1 grid h-9 w-9 place-items-center rounded-md border border-border lg:hidden"
             onClick={() => setMobile((v) => !v)}
             aria-label="Menu"
           >
@@ -61,26 +60,27 @@ export function Header() {
         </div>
       </div>
       {mobile && (
-        <div className="border-t border-border bg-background md:hidden">
+        <div className="border-t border-border bg-background lg:hidden">
           <div className="mx-auto grid max-w-7xl gap-1 px-5 py-3 text-sm">
             {NAV.map((n) => (
               <Link
-                key={n.to}
+                key={n.label}
                 to={n.to}
+                hash={n.hash}
                 onClick={() => setMobile(false)}
                 className="rounded-md px-3 py-2 text-muted-foreground hover:bg-secondary hover:text-foreground"
-                activeProps={{ className: "bg-secondary text-foreground" }}
               >
                 {n.label}
               </Link>
             ))}
-            <button
-              onClick={() => { setMobile(false); setOpen(true); }}
-              className="mt-1 flex items-center justify-between rounded-md border border-border px-3 py-2 text-left"
+            <a
+              href={WHATSAPP}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-1 flex items-center gap-2 rounded-md border border-border px-3 py-2"
             >
-              <span>RFQ Cart</span>
-              <span className="text-xs text-muted-foreground">{count} items</span>
-            </button>
+              <MessageCircle className="h-4 w-4 text-emerald-600" /> WhatsApp
+            </a>
           </div>
         </div>
       )}
