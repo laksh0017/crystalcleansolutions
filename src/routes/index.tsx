@@ -1,19 +1,26 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import * as React from "react";
+import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { SITE, WHATSAPP, MAPS_URL } from "@/lib/site";
 import {
-  ArrowRight, ArrowUpRight, Sparkles, Zap, Workflow, ShieldCheck, Repeat,
-  Boxes, Truck, FileText, Phone, MessageCircle, MapPin, Mail, Bot,
-  LineChart, Layers, Building2, CheckCircle2,
+  ArrowRight, ShieldCheck, Truck, MessageCircle, FileText, CheckCircle2,
+  Sparkles, Repeat, Building2, Cpu, Stethoscope, Hotel, Users, GraduationCap,
+  Briefcase, Factory, Phone, Mail, MapPin, Send, Layers, Workflow, Clock,
+  ReceiptText, BadgeCheck, ChevronDown, Droplets, SprayCan, Coffee, Wind,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   component: HomePage,
   head: () => ({
     meta: [
-      { title: "CRYSTAL — Procurement. Simplified. | B2B Supply Hyderabad" },
-      { name: "description", content: "Streamline recurring procurement of cleaning, housekeeping, stationery and facility supplies. AI-assisted quotations, reliable delivery, GST-compliant — Hyderabad." },
+      { title: "Crystal Clean Solutions — Workplace Hygiene Procurement, Hyderabad" },
+      { name: "description", content: "Reliable B2B workplace hygiene procurement for IT offices and corporates in Hyderabad. Washroom consumables, cleaning chemicals, pantry supplies & recurring procurement — one trusted partner." },
+      { name: "keywords", content: "Housekeeping Material Supplier Hyderabad, Cleaning Chemicals Supplier Hyderabad, B2B Cleaning Products Hyderabad, Office Hygiene Procurement Hyderabad, Corporate Cleaning Supplier Hyderabad, Commercial Hygiene Products Hyderabad" },
+      { property: "og:title", content: "Crystal Clean Solutions — Workplace Hygiene Procurement, Hyderabad" },
+      { property: "og:description", content: "Single trusted procurement partner for workplace hygiene, washroom consumables, cleaning chemicals and pantry supplies across Hyderabad." },
     ],
+    links: [{ rel: "canonical", href: "https://crystalcleansolutions.lovable.app/" }],
   }),
 });
 
@@ -21,447 +28,398 @@ function HomePage() {
   return (
     <>
       <Hero />
-      <LogoStrip />
-      <Capabilities />
-      <RFQShowcase />
-      <CategoriesPreview />
-      <WorkflowSection />
-      <IndustriesPreview />
-      <AIAutomation />
-      <Logistics />
-      <TrustBand />
-      <FinalCTA />
+      <TrustStrip />
+      <ProblemSection />
+      <SolutionsSection />
+      <IndustriesSection />
+      <WhySection />
+      <HowItWorksSection />
+      <RecurringSection />
+      <QuotationFormSection />
+      <FAQSection />
+      <ContactSection />
     </>
   );
 }
 
-/* ----------------------------- Hero ----------------------------- */
+/* =============================================================
+   1 · HERO
+============================================================= */
 function Hero() {
+  const badges = [
+    "GST Registered", "Timely Delivery", "Bulk Procurement",
+    "Corporate Supply", "Hyderabad Coverage",
+  ];
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative overflow-hidden border-b border-border/60">
       <div aria-hidden className="absolute inset-0 -z-10" style={{ background: "var(--gradient-hero)" }} />
-      <div aria-hidden className="absolute inset-x-0 top-0 -z-10 h-[600px]" style={{ background: "var(--gradient-glow)", opacity: 0.4 }} />
-      <div aria-hidden className="absolute inset-0 -z-10 bg-grid mask-fade-b opacity-60" />
+      <div aria-hidden className="absolute inset-x-0 top-0 -z-10 h-[520px]" style={{ background: "var(--gradient-glow)" }} />
+      <div aria-hidden className="absolute inset-0 -z-10 bg-grid mask-fade-b opacity-50" />
 
-      <div className="mx-auto max-w-7xl px-6 pb-24 pt-20 md:px-8 md:pt-28">
-        <div className="mx-auto max-w-3xl text-center animate-fade-up">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card/70 px-3 py-1 text-xs text-muted-foreground shadow-[var(--shadow-soft)] backdrop-blur">
+      <div className="mx-auto grid max-w-7xl gap-16 px-6 pb-24 pt-20 md:px-8 md:pt-24 lg:grid-cols-[1.15fr_1fr] lg:items-center lg:pb-28">
+        <div className="animate-fade-up">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card/80 px-3.5 py-1 text-[11px] text-muted-foreground shadow-[var(--shadow-soft)] backdrop-blur">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary" />
-            Procurement infrastructure · Now operating in Hyderabad
+            B2B Workplace Hygiene Procurement · Hyderabad
           </div>
-          <h1 className="text-balance text-6xl font-semibold leading-[1.02] tracking-[-0.04em] md:text-8xl">
-            Procurement.
-            <br />
+          <h1 className="text-balance text-5xl font-semibold leading-[1.05] tracking-[-0.03em] md:text-6xl lg:text-7xl">
+            Reliable Workplace Hygiene Procurement —{" "}
             <span className="text-gradient">Simplified.</span>
           </h1>
-          <p className="mx-auto mt-7 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
-            CRYSTAL helps businesses streamline recurring procurement for cleaning, housekeeping,
-            stationery and facility supplies through fast quotations, reliable delivery,
-            and technology-driven workflows.
+          <p className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
+            Crystal Clean Solutions helps IT offices, corporates and businesses streamline
+            recurring workplace hygiene procurement — through reliable supply, quality
+            products, timely delivery and professional procurement support across Hyderabad.
           </p>
-          <div className="mt-9 flex flex-wrap justify-center gap-3">
+          <div className="mt-8 flex flex-wrap gap-3">
             <Button asChild variant="hero" size="lg">
-              <Link to="/contact">Request Quote <ArrowRight className="h-4 w-4" /></Link>
+              <Link to="/contact">Request Quotation <ArrowRight className="h-4 w-4" /></Link>
             </Button>
             <Button asChild variant="soft" size="lg">
-              <Link to="/contact">Schedule Meeting</Link>
+              <a href={WHATSAPP} target="_blank" rel="noreferrer">
+                <MessageCircle className="h-4 w-4 text-emerald-600" /> Talk on WhatsApp
+              </a>
             </Button>
           </div>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-muted-foreground">
-            {["AI-assisted quotations", "GST-compliant billing", "Recurring supply", "Hyderabad operations"].map((t) => (
-              <span key={t} className="inline-flex items-center gap-1.5">
-                <CheckCircle2 className="h-3.5 w-3.5 text-primary" />{t}
-              </span>
+          <ul className="mt-8 flex flex-wrap gap-x-5 gap-y-2 text-[12px] text-muted-foreground">
+            {badges.map((b) => (
+              <li key={b} className="inline-flex items-center gap-1.5">
+                <CheckCircle2 className="h-3.5 w-3.5 text-primary" /> {b}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <HeroVisual />
+      </div>
+    </section>
+  );
+}
+
+function HeroVisual() {
+  return (
+    <div className="relative animate-fade-up [animation-delay:140ms]">
+      <div aria-hidden className="absolute -inset-6 -z-10 rounded-[2.5rem] bg-[image:var(--gradient-primary)] opacity-20 blur-3xl" />
+      <div className="relative overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-elegant)]">
+        <div className="flex items-center justify-between border-b border-border bg-secondary/40 px-5 py-3 text-[11px]">
+          <div className="flex items-center gap-2 font-mono uppercase tracking-[0.18em] text-muted-foreground">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" /> Procurement Snapshot
+          </div>
+          <span className="font-mono text-muted-foreground">CCS / Hyderabad</span>
+        </div>
+        <div className="grid gap-4 p-5 md:p-6">
+          <div className="grid grid-cols-3 gap-3">
+            {[
+              { l: "On-time delivery", v: "99.1%" },
+              { l: "Avg. quote time", v: "< 60 min" },
+              { l: "Recurring clients", v: "120+" },
+            ].map((s) => (
+              <div key={s.l} className="rounded-xl border border-border bg-background px-3 py-3">
+                <p className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground">{s.l}</p>
+                <p className="mt-1 text-lg font-semibold tracking-tight">{s.v}</p>
+              </div>
             ))}
           </div>
-        </div>
-
-        {/* Hero visual: procurement dashboard mock */}
-        <div className="relative mx-auto mt-16 max-w-5xl animate-fade-up [animation-delay:120ms]">
-          <div aria-hidden className="absolute -inset-10 -z-10 rounded-[3rem] bg-[image:var(--gradient-primary)] opacity-25 blur-3xl" />
-          <DashboardMock />
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function DashboardMock() {
-  return (
-    <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-[var(--shadow-elegant)]">
-      {/* Top bar */}
-      <div className="flex items-center justify-between border-b border-border bg-secondary/40 px-5 py-3">
-        <div className="flex items-center gap-2">
-          <span className="h-2.5 w-2.5 rounded-full bg-foreground/10" />
-          <span className="h-2.5 w-2.5 rounded-full bg-foreground/10" />
-          <span className="h-2.5 w-2.5 rounded-full bg-foreground/10" />
-        </div>
-        <div className="rounded-full border border-border bg-background px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-          crystal / procurement console
-        </div>
-        <div className="flex items-center gap-1.5 text-[10px] text-primary">
-          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary" /> live
-        </div>
-      </div>
-      <div className="grid gap-4 p-5 md:grid-cols-[1.4fr_1fr] md:p-6">
-        <div className="space-y-4">
-          <div className="rounded-xl border border-border bg-background p-5">
+          <div className="rounded-xl border border-border bg-background p-4">
             <div className="mb-3 flex items-center justify-between">
-              <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">Active RFQ · #CR-2087</p>
-              <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-medium text-primary">Auto-quoting</span>
+              <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">Monthly Supply · IT Office, Hitech City</p>
+              <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-medium text-primary">Scheduled</span>
             </div>
-            <div className="space-y-2.5">
+            <ul className="space-y-2 text-sm">
               {[
-                ["Floor Cleaner Concentrate · 5L", "12 cans", "ready"],
-                ["M-Fold Hand Towels · 2-ply", "40 bundles", "ready"],
-                ["A4 Copier Paper · 75 GSM", "20 reams", "sourcing"],
-                ["Black Garbage Bag · L", "30 rolls", "ready"],
-              ].map(([n, q, s]) => (
-                <div key={n} className="flex items-center justify-between rounded-lg bg-secondary/50 px-3 py-2">
-                  <div className="text-sm">{n}</div>
-                  <div className="flex items-center gap-3">
-                    <span className="font-mono text-[11px] text-muted-foreground">{q}</span>
-                    <span className={`rounded-full px-2 py-0.5 text-[10px] font-medium ${s === "ready" ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400" : "bg-amber-500/10 text-amber-600"}`}>{s}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="mt-4 flex items-center justify-between border-t border-border pt-4">
-              <div className="text-sm">
-                <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">Quote ETA</p>
-                <p className="mt-0.5 font-medium">~ 12 minutes</p>
-              </div>
-              <button className="inline-flex items-center gap-1.5 rounded-full bg-foreground px-4 py-2 text-xs font-medium text-background">
-                Generate PDF <ArrowUpRight className="h-3 w-3" />
-              </button>
-            </div>
-          </div>
-        </div>
-        <div className="space-y-4">
-          <StatCard label="On-time delivery" value="99.2%" trend="+0.4" />
-          <StatCard label="Reorder cycle" value="14d" trend="-2d" />
-          <div className="rounded-xl border border-border bg-[image:var(--gradient-ink)] p-5 text-white">
-            <div className="mb-2 flex items-center gap-2 text-xs text-white/60">
-              <Bot className="h-3.5 w-3.5" /> AI Procurement Insight
-            </div>
-            <p className="text-sm leading-relaxed">
-              Pantry consumables are trending <span className="text-primary">+18%</span> this month.
-              Suggested: increase next cycle by 2 cases.
-            </p>
-            <button className="mt-3 inline-flex items-center gap-1 text-xs text-white/80 hover:text-white">
-              Apply suggestion <ArrowRight className="h-3 w-3" />
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function StatCard({ label, value, trend }: { label: string; value: string; trend: string }) {
-  return (
-    <div className="rounded-xl border border-border bg-background p-5">
-      <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">{label}</p>
-      <div className="mt-2 flex items-baseline gap-2">
-        <span className="text-3xl font-semibold tracking-tight">{value}</span>
-        <span className="text-xs font-medium text-emerald-600 dark:text-emerald-400">{trend}</span>
-      </div>
-    </div>
-  );
-}
-
-/* ------------------------- Logo strip ------------------------- */
-function LogoStrip() {
-  const items = ["IT Parks", "Hospitals", "Hotels", "Coworking", "Apartments", "Manufacturing", "Schools", "SMEs"];
-  return (
-    <section className="border-y border-border bg-secondary/30">
-      <div className="mx-auto max-w-7xl px-6 py-10 md:px-8">
-        <p className="text-center font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-          Built for procurement teams across
-        </p>
-        <div className="mt-5 flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-sm font-medium text-foreground/60">
-          {items.map((i) => <span key={i}>{i}</span>)}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ------------------------- Capabilities ------------------------- */
-const capabilities = [
-  { icon: Zap, title: "Quotes in minutes", desc: "AI-assisted pricing turns enquiries into structured proposals — fast." },
-  { icon: Repeat, title: "Recurring supply", desc: "Auto-replenishment for monthly facility consumables, on a schedule." },
-  { icon: Workflow, title: "Procurement workflows", desc: "Approvals, RFQs and invoices in one calm operating layer." },
-  { icon: ShieldCheck, title: "GST-compliant", desc: "Proper tax invoices, e-way bills and clean accounting trails." },
-  { icon: Truck, title: "Reliable logistics", desc: "Scheduled delivery across Hyderabad with vendor aggregation." },
-  { icon: LineChart, title: "Procurement intelligence", desc: "Spend insights, reorder reminders and category benchmarking." },
-];
-function Capabilities() {
-  return (
-    <section className="mx-auto max-w-7xl px-6 py-28 md:px-8">
-      <div className="grid gap-12 md:grid-cols-[1fr_1.6fr] md:items-end">
-        <div>
-          <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-primary">// Platform</p>
-          <h2 className="mt-3 text-4xl font-semibold leading-tight md:text-5xl">
-            One operating layer for <span className="text-gradient">facility procurement.</span>
-          </h2>
-        </div>
-        <p className="text-muted-foreground md:text-lg">
-          Replace scattered vendors, WhatsApp ordering and lost invoices with a single
-          structured workflow — built for procurement managers, finance teams and admins.
-        </p>
-      </div>
-
-      <div className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-3">
-        {capabilities.map(({ icon: Icon, title, desc }) => (
-          <div key={title} className="group bg-card p-7 transition hover:bg-secondary/50">
-            <div className="mb-5 grid h-10 w-10 place-items-center rounded-lg bg-foreground text-background transition group-hover:bg-primary group-hover:text-primary-foreground">
-              <Icon className="h-5 w-5" />
-            </div>
-            <h3 className="text-lg font-semibold">{title}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{desc}</p>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-/* ------------------------- RFQ showcase ------------------------- */
-function RFQShowcase() {
-  return (
-    <section className="relative overflow-hidden bg-[image:var(--gradient-ink)] text-white">
-      <div aria-hidden className="absolute inset-0 bg-grid opacity-20" />
-      <div aria-hidden className="absolute -left-40 top-0 h-[500px] w-[500px] rounded-full bg-primary/30 blur-[140px]" />
-      <div className="relative mx-auto max-w-7xl px-6 py-28 md:px-8">
-        <div className="grid gap-16 md:grid-cols-2 md:items-center">
-          <div>
-            <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-primary">// RFQ Engine</p>
-            <h2 className="mt-3 text-4xl font-semibold leading-tight md:text-5xl">
-              From requirement to quotation —{" "}
-              <span className="text-gradient">in minutes, not days.</span>
-            </h2>
-            <p className="mt-5 max-w-lg text-white/70">
-              Browse the catalog, drop items into your RFQ cart, and submit. Our engine
-              generates a structured, GST-compliant quotation — with PDF export and instant
-              hand-off to the supply team.
-            </p>
-            <ul className="mt-8 grid gap-3 text-sm">
-              {[
-                "Smart catalog with B2B-grade search",
-                "RFQ cart for multi-item enquiries",
-                "AI-assisted pricing & PDF quotation",
-                "Account, address & GSTIN captured once",
-              ].map((t) => (
-                <li key={t} className="flex items-start gap-2.5 text-white/85">
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 text-primary" />{t}
+                ["Washroom Tissue · 2-ply", "40 bundles"],
+                ["Floor Cleaner · 5L", "12 cans"],
+                ["Hand Wash Refill · 5L", "8 cans"],
+                ["Garbage Bag · L", "30 rolls"],
+              ].map(([n, q]) => (
+                <li key={n} className="flex items-center justify-between rounded-lg bg-secondary/50 px-3 py-2">
+                  <span>{n}</span>
+                  <span className="font-mono text-[11px] text-muted-foreground">{q}</span>
                 </li>
               ))}
             </ul>
-            <div className="mt-9 flex flex-wrap gap-3">
-              <Button asChild size="lg" variant="hero">
-                <Link to="/products">Browse catalog <ArrowRight className="h-4 w-4" /></Link>
-              </Button>
-              <Button asChild size="lg" className="rounded-full border-white/20 bg-white/10 text-white hover:bg-white/20">
-                <Link to="/how-it-works">See workflow</Link>
-              </Button>
+            <div className="mt-3 flex items-center justify-between border-t border-border pt-3 text-xs text-muted-foreground">
+              <span className="inline-flex items-center gap-1.5"><Truck className="h-3.5 w-3.5 text-primary" /> Dispatched · 2nd of every month</span>
+              <span className="inline-flex items-center gap-1.5"><ReceiptText className="h-3.5 w-3.5 text-primary" /> GST invoice</span>
             </div>
           </div>
-          <RFQVisual />
         </div>
-      </div>
-    </section>
-  );
-}
-
-function RFQVisual() {
-  return (
-    <div className="relative">
-      <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
-        <div className="mb-4 flex items-center justify-between">
-          <p className="font-mono text-[10px] uppercase tracking-widest text-white/50">RFQ Cart · 4 items</p>
-          <span className="rounded-full bg-primary/20 px-2 py-0.5 text-[10px] text-primary">Draft</span>
-        </div>
-        <div className="space-y-2">
-          {[
-            ["Floor Cleaner · 5L", "Cleaning", 12],
-            ["M-Fold Hand Towels", "Tissue", 40],
-            ["A4 Copier Paper · 75 GSM", "Stationery", 20],
-            ["Black Garbage Bag · L", "Garbage", 30],
-          ].map(([n, c, q]) => (
-            <div key={n as string} className="flex items-center justify-between rounded-lg border border-white/10 bg-white/5 px-3 py-2.5">
-              <div>
-                <p className="text-sm">{n}</p>
-                <p className="font-mono text-[10px] uppercase tracking-widest text-white/40">{c}</p>
-              </div>
-              <span className="font-mono text-xs text-white/70">{q} units</span>
-            </div>
-          ))}
-        </div>
-        <button className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[image:var(--gradient-primary)] px-5 py-3 text-sm font-medium text-primary-foreground shadow-[var(--shadow-glow)]">
-          Get Quote in Minutes <ArrowRight className="h-4 w-4" />
-        </button>
-      </div>
-      <div className="absolute -bottom-8 -right-6 hidden w-64 rounded-xl border border-white/10 bg-white/5 p-4 shadow-2xl backdrop-blur-md md:block animate-float">
-        <div className="flex items-center gap-2 text-xs text-white/60"><Bot className="h-3.5 w-3.5 text-primary" /> AI Quotation Engine</div>
-        <p className="mt-2 text-sm">Quotation <span className="font-mono text-primary">#CR-2087</span> generated in <span className="text-primary">11s</span></p>
       </div>
     </div>
   );
 }
 
-/* ------------------------- Categories preview ------------------------- */
-const categories = [
-  { name: "Cleaning Chemicals", desc: "Floor, glass, washroom & disinfectant range." },
-  { name: "Housekeeping Tools", desc: "Mops, brushes, cloths and equipment." },
-  { name: "Garbage Bags", desc: "All sizes, biomedical & biodegradable." },
-  { name: "Tissue Products", desc: "M-fold, toilet, jumbo and facial tissue." },
-  { name: "Washroom Supplies", desc: "Dispensers, fresheners, consumables." },
-  { name: "Office Stationery", desc: "Paper, pens, files and daily essentials." },
-  { name: "Pantry Supplies", desc: "Tea, coffee, water, paper cups." },
-  { name: "Packaging Materials", desc: "Tape, cartons, bubble wrap, stretch film." },
-  { name: "Safety Products", desc: "PPE, gloves, masks, first-aid." },
-];
-function CategoriesPreview() {
+/* =============================================================
+   2 · TRUST STRIP
+============================================================= */
+function TrustStrip() {
+  const items = [
+    { icon: ReceiptText, t: "Professional GST Billing" },
+    { icon: Layers, t: "Reliable Vendor Network" },
+    { icon: Truck, t: "Timely Deliveries" },
+    { icon: MessageCircle, t: "Prompt Communication" },
+    { icon: BadgeCheck, t: "Quality Assured Products" },
+    { icon: Repeat, t: "Recurring Procurement" },
+  ];
   return (
-    <section className="mx-auto max-w-7xl px-6 py-28 md:px-8">
-      <div className="flex flex-wrap items-end justify-between gap-6">
-        <div>
-          <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-primary">// Catalog</p>
-          <h2 className="mt-3 text-4xl font-semibold leading-tight md:text-5xl">
-            Nine categories. <br className="hidden md:block" />
-            <span className="text-gradient">One supplier.</span>
+    <section className="border-b border-border bg-secondary/40">
+      <div className="mx-auto max-w-7xl px-6 py-16 md:px-8 md:py-20">
+        <div className="text-center">
+          <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-primary">// Trust</p>
+          <h2 className="mt-3 text-3xl font-semibold md:text-4xl">
+            A trusted workplace procurement partner.
           </h2>
         </div>
-        <Button asChild variant="soft" size="lg">
-          <Link to="/products">Open catalog <ArrowRight className="h-4 w-4" /></Link>
-        </Button>
+        <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {items.map(({ icon: Icon, t }) => (
+            <div key={t} className="flex items-center gap-4 rounded-2xl border border-border bg-card p-5 shadow-[var(--shadow-soft)]">
+              <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-[image:var(--gradient-primary)] text-white">
+                <Icon className="h-5 w-5" />
+              </div>
+              <p className="font-medium">{t}</p>
+            </div>
+          ))}
+        </div>
       </div>
-      <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {categories.map((c, i) => (
-          <Link
-            key={c.name}
-            to="/products"
-            className="group relative overflow-hidden rounded-2xl border border-border bg-card p-7 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-[var(--shadow-elegant)]"
+    </section>
+  );
+}
+
+/* =============================================================
+   3 · PROBLEM
+============================================================= */
+function ProblemSection() {
+  return (
+    <section className="mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-28">
+      <div className="grid gap-14 lg:grid-cols-[1fr_1.1fr] lg:items-center">
+        <div>
+          <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-primary">// The problem</p>
+          <h2 className="mt-3 text-4xl font-semibold leading-tight md:text-5xl">
+            Too many vendors. Too much procurement headache.
+          </h2>
+          <p className="mt-6 text-muted-foreground md:text-lg">
+            Most offices juggle multiple suppliers for washroom consumables, cleaning
+            chemicals, pantry materials and housekeeping items. The result: scattered
+            invoices, inconsistent quality and constant follow-ups.
+          </p>
+          <p className="mt-4 text-muted-foreground md:text-lg">
+            Crystal replaces that with{" "}
+            <span className="font-medium text-foreground">one professional procurement partner</span>{" "}
+            for everything your workplace needs.
+          </p>
+        </div>
+
+        <div className="grid gap-4 sm:grid-cols-2">
+          <div className="rounded-2xl border border-border bg-card p-6">
+            <p className="font-mono text-[10px] uppercase tracking-widest text-destructive/80">Before Crystal</p>
+            <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
+              {[
+                "5–8 vendors to coordinate",
+                "Quotes via random phone calls",
+                "Inconsistent product quality",
+                "Mixed billing & GST issues",
+                "Manual follow-up every week",
+              ].map((t) => (
+                <li key={t} className="flex items-start gap-2">
+                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-destructive/60" /> {t}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="rounded-2xl border border-primary/20 bg-[image:var(--gradient-primary)] p-6 text-white shadow-[var(--shadow-elegant)]">
+            <p className="font-mono text-[10px] uppercase tracking-widest text-white/70">With Crystal</p>
+            <ul className="mt-4 space-y-2.5 text-sm">
+              {[
+                "One procurement partner",
+                "Quotation within the hour",
+                "Quality-assured products",
+                "Single GST invoice",
+                "Recurring monthly supply",
+              ].map((t) => (
+                <li key={t} className="flex items-start gap-2">
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 text-white" /> {t}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* =============================================================
+   4 · SOLUTIONS / WHAT WE PROVIDE
+============================================================= */
+const SOLUTION_CATEGORIES = [
+  {
+    icon: SprayCan,
+    name: "Workplace Hygiene Essentials",
+    items: ["Tissues", "Garbage bags", "Hygiene consumables", "Housekeeping materials"],
+  },
+  {
+    icon: Wind,
+    name: "Washroom Hygiene",
+    items: ["Odonil & air fresheners", "Urinal blocks", "Hand wash", "Tissue & consumables"],
+  },
+  {
+    icon: Droplets,
+    name: "Cleaning Chemicals",
+    items: ["Taski TR1–TR9 range", "Floor cleaners", "Disinfectants", "Glass cleaners"],
+  },
+  {
+    icon: Coffee,
+    name: "Pantry & Utility Supplies",
+    items: ["Pantry consumables", "Paper products", "Utility items", "Workplace essentials"],
+  },
+];
+function SolutionsSection() {
+  return (
+    <section id="solutions" className="scroll-mt-24 border-y border-border bg-secondary/30">
+      <div className="mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-28">
+        <div className="grid gap-10 md:grid-cols-[1fr_1.5fr] md:items-end">
+          <div>
+            <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-primary">// Solutions</p>
+            <h2 className="mt-3 text-4xl font-semibold leading-tight md:text-5xl">
+              Everything your workplace needs —{" "}
+              <span className="text-gradient">on one invoice.</span>
+            </h2>
+          </div>
+          <p className="text-muted-foreground md:text-lg">
+            Organised by workplace function, not by random product list. Scalable to add new
+            categories as your business grows.
+          </p>
+        </div>
+
+        <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {SOLUTION_CATEGORIES.map(({ icon: Icon, name, items }) => (
+            <div
+              key={name}
+              className="group flex flex-col rounded-2xl border border-border bg-card p-6 transition hover:-translate-y-1 hover:border-primary/30 hover:shadow-[var(--shadow-elegant)]"
+            >
+              <div className="mb-5 grid h-11 w-11 place-items-center rounded-xl bg-foreground text-background transition group-hover:bg-[image:var(--gradient-primary)]">
+                <Icon className="h-5 w-5" />
+              </div>
+              <h3 className="text-lg font-semibold leading-snug">{name}</h3>
+              <ul className="mt-4 space-y-1.5 text-sm text-muted-foreground">
+                {items.map((i) => (
+                  <li key={i} className="flex items-start gap-2">
+                    <span className="mt-2 h-1 w-1 rounded-full bg-primary" /> {i}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-10 flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-border bg-card p-5 md:p-6">
+          <div className="flex items-center gap-3 text-sm text-muted-foreground">
+            <Layers className="h-4 w-4 text-primary" />
+            More categories added monthly. Need a custom requirement list?
+          </div>
+          <Button asChild variant="hero" size="sm" className="rounded-full">
+            <Link to="/contact">Request Custom Quotation <ArrowRight className="h-3.5 w-3.5" /></Link>
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* =============================================================
+   5 · INDUSTRIES
+============================================================= */
+const INDUSTRY_LIST = [
+  { icon: Cpu, name: "IT Companies", note: "Recurring supply for multi-floor offices." },
+  { icon: Building2, name: "Corporate Offices", note: "Single procurement partner across HQs." },
+  { icon: Users, name: "Co-working Spaces", note: "Curated washroom & pantry consumables." },
+  { icon: Stethoscope, name: "Hospitals", note: "Hospital-grade chemicals & priority dispatch." },
+  { icon: Stethoscope, name: "Clinics", note: "Compact monthly hygiene kits." },
+  { icon: GraduationCap, name: "Institutions", note: "Term-cycle supply with GST documentation." },
+  { icon: Hotel, name: "Commercial Facilities", note: "Bulk hygiene supply, scheduled dispatch." },
+  { icon: Briefcase, name: "SMEs", note: "WhatsApp-first procurement support." },
+  { icon: Factory, name: "Manufacturing Units", note: "Industrial chemicals & PPE at scale." },
+];
+function IndustriesSection() {
+  return (
+    <section className="mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-28">
+      <div className="max-w-2xl">
+        <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-primary">// Industries</p>
+        <h2 className="mt-3 text-4xl font-semibold leading-tight md:text-5xl">
+          Built for how your operations run.
+        </h2>
+        <p className="mt-5 text-muted-foreground md:text-lg">
+          Crystal supports recurring procurement across the workplace clusters of Hyderabad —
+          {" "}{SITE.clusters.slice(0, 4).join(", ")}, and beyond.
+        </p>
+      </div>
+
+      <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {INDUSTRY_LIST.map(({ icon: Icon, name, note }) => (
+          <div
+            key={name}
+            className="group flex items-start gap-4 rounded-2xl border border-border bg-card p-6 transition hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-[var(--shadow-soft)]"
           >
-            <div className="font-mono text-xs text-muted-foreground">0{i + 1}</div>
-            <h3 className="mt-3 text-xl font-semibold">{c.name}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{c.desc}</p>
-            <ArrowUpRight className="absolute right-5 top-5 h-4 w-4 text-muted-foreground transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
-          </Link>
+            <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-secondary text-foreground transition group-hover:bg-[image:var(--gradient-primary)] group-hover:text-white">
+              <Icon className="h-5 w-5" />
+            </div>
+            <div>
+              <h3 className="text-base font-semibold">{name}</h3>
+              <p className="mt-1 text-sm text-muted-foreground">{note}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-10 flex flex-wrap items-center gap-2">
+        {SITE.clusters.map((c) => (
+          <span key={c} className="rounded-full border border-border bg-card px-3 py-1 text-xs text-muted-foreground">
+            {c}
+          </span>
         ))}
       </div>
     </section>
   );
 }
 
-/* ------------------------- Workflow ------------------------- */
-function WorkflowSection() {
-  const steps = [
-    { icon: Boxes, t: "Browse Products", d: "Use the smart catalog with category filters." },
-    { icon: FileText, t: "Submit Requirement", d: "Add to RFQ cart with quantities & address." },
-    { icon: Sparkles, t: "Receive Quotation", d: "AI-assisted, GST-compliant, PDF-ready." },
-    { icon: CheckCircle2, t: "Approve Order", d: "One-click confirmation with PO number." },
-    { icon: Truck, t: "Scheduled Delivery", d: "Hyderabad-wide, on-time dispatch." },
-    { icon: Repeat, t: "Recurring Supply", d: "Auto-replenishment with reorder intelligence." },
-  ];
+/* =============================================================
+   6 · WHY CHOOSE CRYSTAL
+============================================================= */
+const REASONS = [
+  { icon: Truck, t: "Reliable Deliveries", d: "Predictable schedules your team can plan around." },
+  { icon: Clock, t: "Fast Quotation Turnaround", d: "Most quotes go out within the hour." },
+  { icon: BadgeCheck, t: "Quality Assured Products", d: "Trusted brands, verified vendors." },
+  { icon: Layers, t: "Single Procurement Partner", d: "One contact, one invoice, full coverage." },
+  { icon: MessageCircle, t: "Professional Communication", d: "Calm, structured, on-time replies." },
+  { icon: ReceiptText, t: "GST-Compliant Billing", d: "Clean invoices for finance teams." },
+  { icon: Repeat, t: "Recurring Procurement Support", d: "Monthly supply on autopilot." },
+  { icon: MapPin, t: "Hyderabad-wide Service", d: "All major business clusters covered." },
+];
+function WhySection() {
   return (
-    <section className="border-y border-border bg-secondary/30">
-      <div className="mx-auto max-w-7xl px-6 py-28 md:px-8">
+    <section id="why" className="scroll-mt-24 relative overflow-hidden border-y border-white/10 bg-[image:var(--gradient-ink)] text-white">
+      <div aria-hidden className="absolute inset-0 -z-0 bg-grid opacity-15" />
+      <div aria-hidden className="absolute -left-32 top-0 h-[420px] w-[420px] rounded-full bg-primary/40 blur-[140px]" />
+      <div className="relative mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-28">
         <div className="max-w-2xl">
-          <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-primary">// Workflow</p>
+          <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-primary-glow">// Why Crystal</p>
           <h2 className="mt-3 text-4xl font-semibold leading-tight md:text-5xl">
-            How procurement works on CRYSTAL.
+            Why businesses choose Crystal Clean Solutions.
           </h2>
-        </div>
-        <div className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-3 lg:grid-cols-6">
-          {steps.map((s, i) => (
-            <div key={s.t} className="bg-card p-6">
-              <div className="mb-4 flex items-center justify-between">
-                <div className="grid h-9 w-9 place-items-center rounded-lg bg-[image:var(--gradient-primary)] text-primary-foreground">
-                  <s.icon className="h-4 w-4" />
-                </div>
-                <span className="font-mono text-xs text-muted-foreground">0{i + 1}</span>
-              </div>
-              <h3 className="text-sm font-semibold">{s.t}</h3>
-              <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">{s.d}</p>
-            </div>
-          ))}
-        </div>
-        <div className="mt-8 flex justify-center">
-          <Button asChild variant="ink" size="lg"><Link to="/how-it-works">See full workflow <ArrowRight className="h-4 w-4" /></Link></Button>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ------------------------- Industries preview ------------------------- */
-function IndustriesPreview() {
-  const items = ["IT Companies", "Hospitals", "Clinics", "Hotels", "Coworking Spaces", "Apartments", "Educational Institutions", "SMEs", "Manufacturing Units"];
-  return (
-    <section className="mx-auto max-w-7xl px-6 py-28 md:px-8">
-      <div className="grid gap-12 md:grid-cols-[1fr_1.4fr] md:items-center">
-        <div>
-          <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-primary">// Industries</p>
-          <h2 className="mt-3 text-4xl font-semibold leading-tight md:text-5xl">
-            Built for the way your operations run.
-          </h2>
-          <p className="mt-5 text-muted-foreground">
-            We map procurement workflows to your business — not the other way around.
-          </p>
-          <Button asChild variant="soft" size="lg" className="mt-7">
-            <Link to="/industries">Explore industries <ArrowRight className="h-4 w-4" /></Link>
-          </Button>
-        </div>
-        <div className="grid gap-3 sm:grid-cols-2">
-          {items.map((i) => (
-            <div key={i} className="group flex items-center justify-between rounded-xl border border-border bg-card px-5 py-4 transition hover:border-primary/40">
-              <div className="flex items-center gap-3">
-                <Building2 className="h-4 w-4 text-primary" />
-                <span className="font-medium">{i}</span>
-              </div>
-              <ArrowUpRight className="h-4 w-4 text-muted-foreground transition group-hover:text-primary" />
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ------------------------- AI / Automation ------------------------- */
-function AIAutomation() {
-  return (
-    <section className="relative overflow-hidden bg-foreground text-background">
-      <div aria-hidden className="absolute inset-0 bg-grid opacity-10" />
-      <div aria-hidden className="absolute right-0 top-0 h-[500px] w-[500px] rounded-full bg-primary/40 blur-[160px]" />
-      <div className="relative mx-auto max-w-7xl px-6 py-28 md:px-8">
-        <div className="max-w-3xl">
-          <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-primary">// AI + Automation</p>
-          <h2 className="mt-3 text-4xl font-semibold leading-tight md:text-6xl">
-            A future-ready procurement engine.
-          </h2>
-          <p className="mt-5 text-base text-background/70 md:text-lg">
-            CRYSTAL learns your consumption patterns, optimises reorder cycles, and automates
-            the repetitive layer of facility procurement — so your team can focus on what matters.
+          <p className="mt-5 text-white/70 md:text-lg">
+            Built for organisations that want their workplace procurement to feel
+            organised, predictable and professional — not chaotic.
           </p>
         </div>
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {[
-            { icon: Bot, t: "AI Quotation Engine", d: "Instant pricing across 9 categories with structured PDF outputs." },
-            { icon: LineChart, t: "Procurement Intelligence", d: "Spend dashboards, reorder reminders, category trends." },
-            { icon: Workflow, t: "Automated Workflows", d: "RFQ → approval → dispatch → invoice — orchestrated end-to-end." },
-            { icon: Repeat, t: "Recurring Supply", d: "Subscriptions for monthly consumables with auto-replenishment." },
-            { icon: Layers, t: "Vendor Aggregation", d: "One vendor relationship, full-stack supplier coverage." },
-            { icon: Sparkles, t: "Smart Recommendations", d: "Inventory optimisation tuned to your business size." },
-          ].map(({ icon: Icon, t, d }) => (
-            <div key={t} className="rounded-2xl border border-white/10 bg-white/5 p-7 backdrop-blur-sm transition hover:border-primary/40">
-              <div className="mb-4 grid h-10 w-10 place-items-center rounded-lg bg-primary/20 text-primary">
+
+        <div className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/5 md:grid-cols-2 lg:grid-cols-4">
+          {REASONS.map(({ icon: Icon, t, d }) => (
+            <div key={t} className="bg-[oklch(0.16_0.05_252)] p-7 transition hover:bg-[oklch(0.2_0.06_252)]">
+              <div className="mb-5 grid h-10 w-10 place-items-center rounded-lg bg-white/10 text-primary-glow">
                 <Icon className="h-5 w-5" />
               </div>
-              <h3 className="text-lg font-semibold">{t}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-background/70">{d}</p>
+              <h3 className="text-base font-semibold">{t}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-white/65">{d}</p>
             </div>
           ))}
         </div>
@@ -470,99 +428,406 @@ function AIAutomation() {
   );
 }
 
-/* ------------------------- Logistics ------------------------- */
-function Logistics() {
+/* =============================================================
+   7 · HOW IT WORKS
+============================================================= */
+const STEPS = [
+  { icon: FileText, t: "Share Requirement", d: "Send your list via form, WhatsApp or email." },
+  { icon: Sparkles, t: "Receive Fast Quotation", d: "Structured, GST-compliant — usually within the hour." },
+  { icon: CheckCircle2, t: "Approve Order", d: "One-click confirmation. We issue the PO." },
+  { icon: Truck, t: "Timely Delivery", d: "Hyderabad-wide dispatch with proof of delivery." },
+  { icon: Repeat, t: "Recurring Monthly Procurement", d: "Convert into a monthly supply schedule." },
+];
+function HowItWorksSection() {
   return (
-    <section className="mx-auto max-w-7xl px-6 py-28 md:px-8">
-      <div className="grid gap-16 md:grid-cols-[1.1fr_1fr] md:items-center">
-        <div className="relative">
-          <div className="grid grid-cols-3 gap-3">
+    <section className="mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-28">
+      <div className="grid gap-10 md:grid-cols-[1fr_1.4fr] md:items-end">
+        <div>
+          <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-primary">// Process</p>
+          <h2 className="mt-3 text-4xl font-semibold leading-tight md:text-5xl">
+            A simple, professional procurement workflow.
+          </h2>
+        </div>
+        <p className="text-muted-foreground md:text-lg">
+          Five clean steps from requirement to recurring supply — designed for admin,
+          procurement and facility teams.
+        </p>
+      </div>
+
+      <ol className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-3 lg:grid-cols-5">
+        {STEPS.map((s, i) => (
+          <li key={s.t} className="bg-card p-6">
+            <div className="mb-4 flex items-center justify-between">
+              <div className="grid h-10 w-10 place-items-center rounded-lg bg-[image:var(--gradient-primary)] text-white shadow-[var(--shadow-glow)]">
+                <s.icon className="h-4 w-4" />
+              </div>
+              <span className="font-mono text-xs text-muted-foreground">0{i + 1}</span>
+            </div>
+            <h3 className="text-sm font-semibold">{s.t}</h3>
+            <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{s.d}</p>
+          </li>
+        ))}
+      </ol>
+    </section>
+  );
+}
+
+/* =============================================================
+   8 · MONTHLY / RECURRING PROCUREMENT
+============================================================= */
+function RecurringSection() {
+  return (
+    <section className="border-y border-border bg-secondary/40">
+      <div className="mx-auto grid max-w-7xl gap-14 px-6 py-24 md:grid-cols-[1.1fr_1fr] md:items-center md:px-8 md:py-28">
+        <div>
+          <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-primary">// Recurring procurement</p>
+          <h2 className="mt-3 text-4xl font-semibold leading-tight md:text-5xl">
+            Recurring workplace procurement, made easy.
+          </h2>
+          <p className="mt-6 text-muted-foreground md:text-lg">
+            Crystal Clean Solutions helps businesses simplify monthly procurement of
+            workplace hygiene materials through dependable supply, professional support,
+            and prompt response.
+          </p>
+          <ul className="mt-8 grid gap-3 text-sm sm:grid-cols-2">
             {[
-              { t: "Hyderabad-wide", d: "Same-day & next-day across the city." },
-              { t: "Vendor aggregated", d: "Multi-supplier, single dispatch." },
-              { t: "Scheduled cycles", d: "Monthly, fortnightly or weekly." },
-              { t: "Status tracking", d: "Order, dispatch and POD updates." },
-              { t: "Bulk handling", d: "Pallet-grade logistics on demand." },
-              { t: "Future: same-day", d: "Express network in build-out." },
-            ].map((x) => (
-              <div key={x.t} className="rounded-xl border border-border bg-card p-4">
-                <p className="text-xs font-semibold">{x.t}</p>
-                <p className="mt-1 text-[11px] leading-relaxed text-muted-foreground">{x.d}</p>
+              "Locked monthly schedule",
+              "Single GST invoice",
+              "Dedicated account contact",
+              "Easy quantity adjustments",
+              "Same-day reorder support",
+              "Priority dispatch",
+            ].map((t) => (
+              <li key={t} className="flex items-start gap-2">
+                <CheckCircle2 className="mt-0.5 h-4 w-4 text-primary" /> {t}
+              </li>
+            ))}
+          </ul>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Button asChild variant="hero" size="lg">
+              <Link to="/contact">Set Up Monthly Supply <ArrowRight className="h-4 w-4" /></Link>
+            </Button>
+            <Button asChild variant="soft" size="lg">
+              <a href={WHATSAPP} target="_blank" rel="noreferrer">
+                <MessageCircle className="h-4 w-4 text-emerald-600" /> WhatsApp Us
+              </a>
+            </Button>
+          </div>
+        </div>
+
+        <div className="rounded-3xl border border-border bg-card p-6 shadow-[var(--shadow-elegant)] md:p-8">
+          <div className="flex items-center justify-between">
+            <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">Sample Monthly Schedule</p>
+            <span className="rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-medium text-emerald-700">Active</span>
+          </div>
+          <div className="mt-5 space-y-3">
+            {[
+              { d: "Week 1", l: "Washroom consumables · Cleaning chemicals" },
+              { d: "Week 2", l: "Pantry supplies · Tissues" },
+              { d: "Week 3", l: "Mid-month top-up dispatch" },
+              { d: "Week 4", l: "Reorder confirmation for next cycle" },
+            ].map((r) => (
+              <div key={r.d} className="grid grid-cols-[80px_1fr] items-start gap-3 rounded-xl bg-secondary/50 p-3">
+                <span className="font-mono text-xs font-medium text-primary">{r.d}</span>
+                <span className="text-sm text-foreground/85">{r.l}</span>
+              </div>
+            ))}
+          </div>
+          <div className="mt-5 grid grid-cols-3 gap-3 border-t border-border pt-5 text-center">
+            {[
+              { l: "Cycle", v: "Monthly" },
+              { l: "Invoice", v: "Single GST" },
+              { l: "Support", v: "WhatsApp" },
+            ].map((s) => (
+              <div key={s.l}>
+                <p className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground">{s.l}</p>
+                <p className="mt-1 text-sm font-semibold">{s.v}</p>
               </div>
             ))}
           </div>
         </div>
+      </div>
+    </section>
+  );
+}
+
+/* =============================================================
+   9 · QUOTATION FORM
+============================================================= */
+const quoteSchema = z.object({
+  company: z.string().trim().min(2, "Company name required").max(120),
+  name: z.string().trim().min(2, "Contact person required").max(80),
+  phone: z.string().trim().min(7, "Valid phone required").max(20),
+  email: z.string().trim().email("Valid email required").max(160),
+  size: z.string().trim().max(40).optional().or(z.literal("")),
+  category: z.string().trim().max(80).optional().or(z.literal("")),
+  notes: z.string().trim().max(1200).optional().or(z.literal("")),
+});
+
+function QuotationFormSection() {
+  const [errors, setErrors] = React.useState<Record<string, string>>({});
+  const [sent, setSent] = React.useState(false);
+  const [fileName, setFileName] = React.useState<string | null>(null);
+
+  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const fd = new FormData(e.currentTarget);
+    const parsed = quoteSchema.safeParse(Object.fromEntries(fd.entries()));
+    if (!parsed.success) {
+      const errs: Record<string, string> = {};
+      parsed.error.issues.forEach((i) => { errs[i.path.join(".")] = i.message; });
+      setErrors(errs);
+      return;
+    }
+    const d = parsed.data;
+    const lines = [
+      `New Quotation Request from ${d.company}`,
+      `Contact: ${d.name} · ${d.phone} · ${d.email}`,
+      d.size ? `Company size: ${d.size}` : "",
+      d.category ? `Requirement category: ${d.category}` : "",
+      fileName ? `Attached file: ${fileName} (please share via WhatsApp)` : "",
+      d.notes ? `Notes: ${d.notes}` : "",
+    ].filter(Boolean).join("\n");
+    const url = `https://wa.me/${SITE.phoneRaw}?text=${encodeURIComponent(lines)}`;
+    window.open(url, "_blank");
+    setSent(true);
+    setErrors({});
+  }
+
+  return (
+    <section id="quote" className="scroll-mt-24 mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-28">
+      <div className="grid gap-12 lg:grid-cols-[1fr_1.3fr] lg:items-start">
         <div>
-          <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-primary">// Logistics</p>
+          <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-primary">// Get a quote</p>
           <h2 className="mt-3 text-4xl font-semibold leading-tight md:text-5xl">
-            Procurement infrastructure, on the ground.
+            Request a business quotation.
           </h2>
-          <p className="mt-5 text-muted-foreground">
-            Behind the platform sits a real logistics network — purpose-built for B2B
-            facility supply. Reliable dispatch, predictable cycles, and operational
-            consistency your team can plan around.
+          <p className="mt-5 text-muted-foreground md:text-lg">
+            Share your requirement — we usually respond within the hour with a structured,
+            GST-compliant quotation.
           </p>
+          <div className="mt-8 grid gap-3 text-sm">
+            {[
+              ["Company size or team count", "Helps us scale the quotation."],
+              ["Category or product list", "Even a rough list works."],
+              ["Delivery location", "All Hyderabad clusters covered."],
+            ].map(([t, d]) => (
+              <div key={t} className="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
+                <CheckCircle2 className="mt-0.5 h-4 w-4 text-primary" />
+                <div>
+                  <p className="font-medium">{t}</p>
+                  <p className="text-muted-foreground">{d}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <Button asChild variant="soft" size="lg" className="mt-8">
+            <a href={WHATSAPP} target="_blank" rel="noreferrer">
+              <MessageCircle className="h-4 w-4 text-emerald-600" /> Quick WhatsApp Enquiry
+            </a>
+          </Button>
+        </div>
+
+        <div className="rounded-3xl border border-border bg-card p-7 shadow-[var(--shadow-elegant)] md:p-10">
+          {sent ? (
+            <div className="flex flex-col items-start gap-4">
+              <div className="grid h-12 w-12 place-items-center rounded-2xl bg-primary/10 text-primary">
+                <CheckCircle2 className="h-6 w-6" />
+              </div>
+              <h3 className="text-2xl font-semibold">Request sent.</h3>
+              <p className="text-muted-foreground">
+                We've opened WhatsApp with your enquiry pre-filled. Our procurement team
+                will respond shortly with a quotation.
+              </p>
+              <Button variant="soft" onClick={() => { setSent(false); setFileName(null); }}>
+                Send another request
+              </Button>
+            </div>
+          ) : (
+            <form onSubmit={onSubmit} className="grid gap-5">
+              <div className="grid gap-5 md:grid-cols-2">
+                <Field label="Company Name" name="company" error={errors.company} />
+                <Field label="Contact Person" name="name" error={errors.name} />
+                <Field label="Phone Number" name="phone" type="tel" error={errors.phone} />
+                <Field label="Email" name="email" type="email" error={errors.email} />
+                <SelectField label="Company Size" name="size" options={[
+                  "1–25 employees", "25–100 employees", "100–500 employees", "500+ employees",
+                ]} />
+                <SelectField label="Requirement Category" name="category" options={[
+                  "Workplace Hygiene Essentials",
+                  "Washroom Hygiene",
+                  "Cleaning Chemicals",
+                  "Pantry & Utility Supplies",
+                  "Multiple categories",
+                ]} />
+              </div>
+              <FileField onPick={setFileName} fileName={fileName} />
+              <Field label="Additional Notes (optional)" name="notes" textarea error={errors.notes} />
+              <Button type="submit" variant="hero" size="lg" className="mt-2 w-full md:w-auto md:self-start">
+                <Send className="h-4 w-4" /> Get Quotation
+              </Button>
+              <p className="text-[11px] text-muted-foreground">
+                Submitting opens WhatsApp with your enquiry pre-filled — fastest path to
+                a same-day response.
+              </p>
+            </form>
+          )}
         </div>
       </div>
     </section>
   );
 }
 
-/* ------------------------- Trust ------------------------- */
-function TrustBand() {
+function Field({
+  label, name, type = "text", textarea, error,
+}: { label: string; name: string; type?: string; textarea?: boolean; error?: string }) {
+  const cls = `w-full rounded-xl border ${error ? "border-destructive" : "border-border"} bg-background px-4 py-3 text-sm outline-none transition focus:border-primary`;
+  return (
+    <label className="block">
+      <span className="mb-1.5 block text-xs font-medium text-muted-foreground">{label}</span>
+      {textarea ? (
+        <textarea name={name} rows={4} className={cls} />
+      ) : (
+        <input name={name} type={type} className={cls} />
+      )}
+      {error && <span className="mt-1 block text-[11px] text-destructive">{error}</span>}
+    </label>
+  );
+}
+
+function SelectField({ label, name, options }: { label: string; name: string; options: string[] }) {
+  return (
+    <label className="block">
+      <span className="mb-1.5 block text-xs font-medium text-muted-foreground">{label}</span>
+      <select name={name} defaultValue="" className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm outline-none transition focus:border-primary">
+        <option value="">Select…</option>
+        {options.map((o) => <option key={o} value={o}>{o}</option>)}
+      </select>
+    </label>
+  );
+}
+
+function FileField({ onPick, fileName }: { onPick: (n: string | null) => void; fileName: string | null }) {
+  return (
+    <label className="flex cursor-pointer items-center justify-between gap-3 rounded-xl border border-dashed border-border bg-background px-4 py-4 text-sm transition hover:border-primary/40">
+      <div>
+        <span className="block text-xs font-medium text-muted-foreground">Upload requirement list (optional)</span>
+        <span className="mt-1 block text-foreground/80">
+          {fileName ?? "PDF, Excel or image · max 10 MB"}
+        </span>
+      </div>
+      <span className="rounded-full border border-border bg-secondary px-3 py-1 text-xs">Choose file</span>
+      <input
+        type="file"
+        accept=".pdf,.xlsx,.xls,.csv,.png,.jpg,.jpeg,.webp"
+        className="hidden"
+        onChange={(e) => onPick(e.target.files?.[0]?.name ?? null)}
+      />
+    </label>
+  );
+}
+
+/* =============================================================
+   10 · FAQ
+============================================================= */
+const FAQS = [
+  { q: "Do you offer recurring monthly procurement?", a: "Yes. We set up monthly supply schedules with locked quantities, single GST invoicing, priority dispatch and a dedicated account contact." },
+  { q: "Do you supply IT offices and corporates?", a: "IT companies and corporate offices across Hyderabad — Hitech City, Gachibowli, Madhapur, Financial District and more — are our primary client base." },
+  { q: "Can we request custom quotations?", a: "Absolutely. Share your requirement list via the form, WhatsApp or email and we'll respond with a structured quotation, usually within the hour." },
+  { q: "Do you provide GST billing?", a: "Yes. Every order ships with a clean, GST-compliant tax invoice. GSTIN " + SITE.gstin + "." },
+  { q: "What areas do you cover?", a: "All major business clusters of Hyderabad including Hitech City, Gachibowli, Madhapur, Financial District, Banjara Hills, Jubilee Hills, Manikonda and Secunderabad." },
+  { q: "Can businesses place bulk orders?", a: "Yes. We handle bulk and recurring procurement, with pallet-grade logistics and scheduled dispatch when needed." },
+];
+function FAQSection() {
   return (
     <section className="border-y border-border bg-secondary/40">
-      <div className="mx-auto grid max-w-7xl gap-8 px-6 py-14 md:grid-cols-4 md:px-8">
-        {[
-          { icon: ShieldCheck, t: "GST-compliant", d: `GSTIN ${SITE.gstin}` },
-          { icon: MapPin, t: "Hyderabad operations", d: "Secunderabad HQ, city-wide delivery" },
-          { icon: MessageCircle, t: "WhatsApp support", d: "Direct line to procurement team" },
-          { icon: Phone, t: "Business hotline", d: SITE.phone },
-        ].map((x) => (
-          <div key={x.t} className="flex items-start gap-3">
-            <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-card text-primary border border-border">
-              <x.icon className="h-4 w-4" />
-            </div>
-            <div>
-              <p className="text-sm font-semibold">{x.t}</p>
-              <p className="text-xs text-muted-foreground">{x.d}</p>
-            </div>
-          </div>
-        ))}
+      <div className="mx-auto max-w-4xl px-6 py-24 md:px-8 md:py-28">
+        <div className="text-center">
+          <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-primary">// FAQ</p>
+          <h2 className="mt-3 text-4xl font-semibold leading-tight md:text-5xl">
+            Frequently asked questions.
+          </h2>
+        </div>
+        <div className="mt-12 divide-y divide-border overflow-hidden rounded-2xl border border-border bg-card">
+          {FAQS.map((f) => (
+            <details key={f.q} className="group">
+              <summary className="flex cursor-pointer items-center justify-between gap-4 px-6 py-5 text-left text-base font-medium [&::-webkit-details-marker]:hidden">
+                {f.q}
+                <ChevronDown className="h-4 w-4 shrink-0 text-muted-foreground transition group-open:rotate-180" />
+              </summary>
+              <div className="px-6 pb-5 text-sm leading-relaxed text-muted-foreground">{f.a}</div>
+            </details>
+          ))}
+        </div>
       </div>
     </section>
   );
 }
 
-/* ------------------------- Final CTA ------------------------- */
-function FinalCTA() {
+/* =============================================================
+   11 · CONTACT
+============================================================= */
+function ContactSection() {
   return (
-    <section className="mx-auto max-w-7xl px-6 py-28 md:px-8">
-      <div className="relative overflow-hidden rounded-3xl border border-border bg-[image:var(--gradient-ink)] p-12 text-white md:p-20">
-        <div aria-hidden className="absolute inset-0 bg-grid opacity-15" />
-        <div aria-hidden className="absolute -right-20 -top-20 h-[400px] w-[400px] rounded-full bg-primary/40 blur-[140px]" />
-        <div className="relative max-w-3xl">
-          <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-primary">// Get started</p>
-          <h2 className="mt-3 text-balance text-5xl font-semibold leading-[1.05] md:text-7xl">
-            Move your procurement onto <span className="text-gradient">CRYSTAL.</span>
+    <section id="contact" className="scroll-mt-24 mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-28">
+      <div className="grid gap-10 md:grid-cols-[1fr_1fr] md:items-start">
+        <div>
+          <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-primary">// Contact</p>
+          <h2 className="mt-3 text-4xl font-semibold leading-tight md:text-5xl">
+            Talk to our procurement team.
           </h2>
-          <p className="mt-6 max-w-xl text-white/70 md:text-lg">
-            Send us your requirement once. We'll respond with a structured quotation within
-            the hour — and onboard your team to recurring supply if it's a fit.
+          <p className="mt-5 text-muted-foreground md:text-lg">
+            Reach us by phone, email or WhatsApp. Office visits by appointment.
           </p>
-          <div className="mt-9 flex flex-wrap gap-3">
-            <Button asChild variant="hero" size="xl"><Link to="/contact">Request Quote <ArrowRight className="h-4 w-4" /></Link></Button>
-            <Button asChild size="xl" className="rounded-full border-white/20 bg-white/10 text-white hover:bg-white/20">
-              <a href={WHATSAPP} target="_blank" rel="noreferrer"><MessageCircle className="h-4 w-4" /> WhatsApp Us</a>
-            </Button>
+
+          <div className="mt-8 space-y-3">
+            <ContactCard icon={Phone} label="Phone" value={SITE.phone} href={`tel:+${SITE.phoneRaw}`} />
+            <ContactCard icon={MessageCircle} label="WhatsApp" value="Chat with procurement" href={WHATSAPP} accent />
+            <ContactCard icon={Mail} label="Email" value={SITE.email} href={`mailto:${SITE.email}`} />
+            <ContactCard icon={MapPin} label="Address" value={SITE.address} href={MAPS_URL} />
           </div>
-          <div className="mt-10 grid gap-3 text-sm text-white/70 sm:grid-cols-3">
-            <a href={`tel:+${SITE.phoneRaw}`} className="flex items-center gap-2 hover:text-white"><Phone className="h-4 w-4 text-primary" /> {SITE.phone}</a>
-            <a href={`mailto:${SITE.email}`} className="flex items-center gap-2 hover:text-white"><Mail className="h-4 w-4 text-primary" /> {SITE.email}</a>
-            <a href={MAPS_URL} target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-white"><MapPin className="h-4 w-4 text-primary" /> {SITE.city}</a>
+
+          <div className="mt-6 rounded-2xl border border-border bg-card p-5">
+            <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">Verification</p>
+            <p className="mt-2 text-sm font-medium">GSTIN {SITE.gstin}</p>
+            <p className="mt-1 text-xs text-muted-foreground">Registered B2B supplier · Telangana</p>
           </div>
+        </div>
+
+        <div className="overflow-hidden rounded-3xl border border-border shadow-[var(--shadow-elegant)]">
+          <iframe
+            title="Crystal Clean Solutions location"
+            src={`https://maps.google.com/maps?q=${encodeURIComponent(SITE.address)}&output=embed`}
+            className="h-[460px] w-full"
+            loading="lazy"
+          />
         </div>
       </div>
     </section>
+  );
+}
+
+function ContactCard({
+  icon: Icon, label, value, href, accent,
+}: { icon: React.ComponentType<{ className?: string }>; label: string; value: string; href: string; accent?: boolean }) {
+  return (
+    <a
+      href={href}
+      target={href.startsWith("http") ? "_blank" : undefined}
+      rel="noreferrer"
+      className={`group flex items-start gap-4 rounded-2xl border p-5 transition hover:-translate-y-0.5 ${
+        accent
+          ? "border-transparent bg-[image:var(--gradient-primary)] text-white hover:opacity-95"
+          : "border-border bg-card hover:border-primary/30"
+      }`}
+    >
+      <div className={`grid h-10 w-10 shrink-0 place-items-center rounded-xl ${accent ? "bg-white/20" : "bg-foreground text-background"}`}>
+        <Icon className="h-5 w-5" />
+      </div>
+      <div>
+        <p className={`font-mono text-[10px] uppercase tracking-widest ${accent ? "text-white/70" : "text-muted-foreground"}`}>{label}</p>
+        <p className="mt-1 text-sm font-medium">{value}</p>
+      </div>
+    </a>
   );
 }
