@@ -73,7 +73,7 @@ function Hero() {
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button asChild variant="hero" size="lg">
-              <Link to="/contact">Request Quotation <ArrowRight className="h-4 w-4" /></Link>
+              <Link to="/contact">Get Quotation <ArrowRight className="h-4 w-4" /></Link>
             </Button>
             <Button asChild variant="soft" size="lg">
               <a href={WHATSAPP} target="_blank" rel="noreferrer">
@@ -330,15 +330,15 @@ function SolutionsSection() {
    5 · INDUSTRIES
 ============================================================= */
 const INDUSTRY_LIST = [
-  { icon: Cpu, name: "IT Companies", note: "Recurring supply for multi-floor offices." },
-  { icon: Building2, name: "Corporate Offices", note: "Single procurement partner across HQs." },
-  { icon: Users, name: "Co-working Spaces", note: "Curated washroom & pantry consumables." },
-  { icon: Stethoscope, name: "Hospitals", note: "Hospital-grade chemicals & priority dispatch." },
-  { icon: Stethoscope, name: "Clinics", note: "Compact monthly hygiene kits." },
-  { icon: GraduationCap, name: "Institutions", note: "Term-cycle supply with GST documentation." },
-  { icon: Hotel, name: "Commercial Facilities", note: "Bulk hygiene supply, scheduled dispatch." },
-  { icon: Briefcase, name: "SMEs", note: "WhatsApp-first procurement support." },
-  { icon: Factory, name: "Manufacturing Units", note: "Industrial chemicals & PPE at scale." },
+  { icon: Cpu, name: "IT Offices", note: "Reliable recurring workplace hygiene procurement for growing office environments." },
+  { icon: Building2, name: "Corporate Offices", note: "Dependable procurement support for workplace consumables and facility needs." },
+  { icon: Users, name: "Co-working Spaces", note: "Consistent workplace hygiene and consumable supply for shared workspaces." },
+  { icon: Stethoscope, name: "Hospitals", note: "Professional hygiene procurement support with priority dispatch." },
+  { icon: Stethoscope, name: "Clinics", note: "Compact recurring hygiene kits tailored for clinic operations." },
+  { icon: GraduationCap, name: "Institutions", note: "Term-cycle workplace consumables procurement with full GST documentation." },
+  { icon: Hotel, name: "Commercial Facilities", note: "Bulk facility supply with scheduled, predictable dispatch." },
+  { icon: Briefcase, name: "SMEs", note: "WhatsApp-first procurement support for lean teams." },
+  { icon: Factory, name: "Manufacturing Units", note: "Industrial chemicals and facility consumables at scale." },
 ];
 function IndustriesSection() {
   return (
@@ -386,14 +386,14 @@ function IndustriesSection() {
    6 · WHY CHOOSE CRYSTAL
 ============================================================= */
 const REASONS = [
-  { icon: Truck, t: "Reliable Deliveries", d: "Predictable schedules your team can plan around." },
-  { icon: Clock, t: "Fast Quotation Turnaround", d: "Most quotes go out within the hour." },
-  { icon: BadgeCheck, t: "Quality Assured Products", d: "Trusted brands, verified vendors." },
-  { icon: Layers, t: "Single Procurement Partner", d: "One contact, one invoice, full coverage." },
-  { icon: MessageCircle, t: "Professional Communication", d: "Calm, structured, on-time replies." },
-  { icon: ReceiptText, t: "GST-Compliant Billing", d: "Clean invoices for finance teams." },
-  { icon: Repeat, t: "Recurring Procurement Support", d: "Monthly supply on autopilot." },
-  { icon: MapPin, t: "Hyderabad-wide Service", d: "All major business clusters covered." },
+  { icon: Truck, t: "Reliable Deliveries", d: "Never worry about recurring workplace hygiene procurement." },
+  { icon: Clock, t: "Fast Quotation Turnaround", d: "Prompt quotations and responsive procurement support." },
+  { icon: BadgeCheck, t: "Quality Assured Products", d: "Reliable workplace consumables and trusted brands." },
+  { icon: Layers, t: "One Procurement Partner", d: "Reduce vendor clutter and simplify recurring procurement." },
+  { icon: MessageCircle, t: "Professional Communication", d: "Responsive support and clear coordination." },
+  { icon: ReceiptText, t: "GST-Compliant Billing", d: "Professional business invoicing for finance teams." },
+  { icon: Repeat, t: "Monthly Recurring Support", d: "Designed for recurring workplace procurement needs." },
+  { icon: MapPin, t: "Hyderabad-wide Service", d: "Fast supply across all major business districts." },
 ];
 function WhySection() {
   return (
@@ -404,7 +404,7 @@ function WhySection() {
         <div className="max-w-2xl">
           <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-primary-glow">// Why Crystal</p>
           <h2 className="mt-3 text-4xl font-semibold leading-tight md:text-5xl">
-            Why businesses choose Crystal Clean Solutions.
+            Why businesses choose Crystal Clean Solutions
           </h2>
           <p className="mt-5 text-white/70 md:text-lg">
             Built for organisations that want their workplace procurement to feel
@@ -432,11 +432,11 @@ function WhySection() {
    7 · HOW IT WORKS
 ============================================================= */
 const STEPS = [
-  { icon: FileText, t: "Share Requirement", d: "Send your list via form, WhatsApp or email." },
-  { icon: Sparkles, t: "Receive Fast Quotation", d: "Structured, GST-compliant — usually within the hour." },
-  { icon: CheckCircle2, t: "Approve Order", d: "One-click confirmation. We issue the PO." },
-  { icon: Truck, t: "Timely Delivery", d: "Hyderabad-wide dispatch with proof of delivery." },
-  { icon: Repeat, t: "Recurring Monthly Procurement", d: "Convert into a monthly supply schedule." },
+  { icon: FileText, t: "Share Requirement", d: "Upload list or share your requirement on WhatsApp." },
+  { icon: Sparkles, t: "Receive Fast Quotation", d: "Quick response with competitive, GST-compliant pricing." },
+  { icon: CheckCircle2, t: "Approve Procurement", d: "Simple confirmation process — we issue the PO." },
+  { icon: Truck, t: "Timely Delivery", d: "Reliable delivery to your office location." },
+  { icon: Repeat, t: "Recurring Monthly Support", d: "Repeat procurement made effortless every cycle." },
 ];
 function HowItWorksSection() {
   return (
@@ -445,7 +445,7 @@ function HowItWorksSection() {
         <div>
           <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-primary">// Process</p>
           <h2 className="mt-3 text-4xl font-semibold leading-tight md:text-5xl">
-            A simple, professional procurement workflow.
+            Simple workplace procurement workflow.
           </h2>
         </div>
         <p className="text-muted-foreground md:text-lg">
@@ -603,8 +603,8 @@ function QuotationFormSection() {
             Request a business quotation.
           </h2>
           <p className="mt-5 text-muted-foreground md:text-lg">
-            Share your requirement — we usually respond within the hour with a structured,
-            GST-compliant quotation.
+            Tell us your workplace procurement requirement and receive a prompt,
+            structured, GST-compliant quotation.
           </p>
           <div className="mt-8 grid gap-3 text-sm">
             {[
