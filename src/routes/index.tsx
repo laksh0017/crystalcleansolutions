@@ -8,6 +8,7 @@ import {
   Sparkles, Repeat, Building2, Cpu, Stethoscope, Hotel, Users, GraduationCap,
   Briefcase, Factory, Phone, Mail, MapPin, Send, Layers, Workflow, Clock,
   ReceiptText, BadgeCheck, ChevronDown, Droplets, SprayCan, Coffee, Wind,
+  Trash2, PackageOpen, Wrench, Wifi,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -251,26 +252,14 @@ function ProblemSection() {
    4 · SOLUTIONS / WHAT WE PROVIDE
 ============================================================= */
 const SOLUTION_CATEGORIES = [
-  {
-    icon: SprayCan,
-    name: "Workplace Hygiene Essentials",
-    items: ["Tissues", "Garbage bags", "Hygiene consumables", "Housekeeping materials"],
-  },
-  {
-    icon: Wind,
-    name: "Washroom Hygiene",
-    items: ["Odonil & air fresheners", "Urinal blocks", "Hand wash", "Tissue & consumables"],
-  },
-  {
-    icon: Droplets,
-    name: "Cleaning Chemicals",
-    items: ["Taski TR1–TR9 range", "Floor cleaners", "Disinfectants", "Glass cleaners"],
-  },
-  {
-    icon: Coffee,
-    name: "Pantry & Utility Supplies",
-    items: ["Pantry consumables", "Paper products", "Utility items", "Workplace essentials"],
-  },
+  { icon: Wind, name: "Washroom Essentials", d: "Hand wash, soaps, sanitizers and washroom hygiene consumables." },
+  { icon: FileText, name: "Tissue Solutions", d: "Toilet rolls, multifold, M-fold, C-fold and kitchen tissues." },
+  { icon: Droplets, name: "Cleaning Chemicals", d: "Floor cleaners, disinfectants, glass cleaners — Taski, Diversey, Rink." },
+  { icon: Trash2, name: "Garbage Bags & Waste", d: "Biodegradable garbage bags, color-coded waste bags for offices and hospitals." },
+  { icon: Wrench, name: "Janitorial Tools & Aids", d: "Mops, brooms, brushes, buckets, gloves and housekeeping carts." },
+  { icon: PackageOpen, name: "Dispensers & Accessories", d: "Soap, sanitizer, tissue and toilet roll dispensers — wall-mounted units." },
+  { icon: Sparkles, name: "Air Fresheners & Hygiene", d: "Odonil, room fresheners, urinal blocks and washroom fragrance solutions." },
+  { icon: SprayCan, name: "Cleaning Equipment", d: "Vacuum cleaners, scrubbers, wet & dry equipment for facility cleaning." },
 ];
 function SolutionsSection() {
   return (
