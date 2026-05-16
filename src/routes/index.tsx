@@ -440,7 +440,7 @@ function WhySection() {
         <div className="max-w-2xl">
           <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-primary-glow">// Why Crystal</p>
           <h2 className="mt-3 text-4xl font-semibold leading-tight md:text-5xl">
-            Why businesses choose Crystal Clean Solutions
+            One partner. Multiple workplace requirements.
           </h2>
           <p className="mt-5 text-white/70 md:text-lg">
             Built for organisations that want their workplace procurement to feel
