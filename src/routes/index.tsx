@@ -115,12 +115,15 @@ function Hero() {
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button asChild variant="hero" size="lg">
-              <Link to="/contact">Get Quotation <ArrowRight className="h-4 w-4" /></Link>
+              <Link to="/contact">Get a Quotation <ArrowRight className="h-4 w-4" /></Link>
             </Button>
             <Button asChild variant="soft" size="lg">
               <a href={WHATSAPP} target="_blank" rel="noreferrer">
-                <MessageCircle className="h-4 w-4 text-emerald-600" /> Talk on WhatsApp
+                <MessageCircle className="h-4 w-4 text-emerald-600" /> Chat on WhatsApp
               </a>
+            </Button>
+            <Button asChild variant="ghost" size="lg" className="rounded-full">
+              <Link to="/products">View Catalogue <ArrowRight className="h-4 w-4" /></Link>
             </Button>
           </div>
           <ul className="mt-8 flex flex-wrap gap-x-5 gap-y-2 text-[12px] text-muted-foreground">
