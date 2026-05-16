@@ -33,13 +33,53 @@ function HomePage() {
       <ProblemSection />
       <SolutionsSection />
       <IndustriesSection />
+      <BrandsSection />
       <WhySection />
       <HowItWorksSection />
       <RecurringSection />
       <QuotationFormSection />
       <FAQSection />
       <ContactSection />
+      <div aria-hidden className="h-16 sm:hidden" />
     </>
+  );
+}
+
+/* =============================================================
+   · TRUSTED BRANDS
+============================================================= */
+const BRANDS = [
+  "Diversey / Taski", "Odonil", "Godrej", "Dabur",
+  "Gala", "Kosher", "3M", "Gamisoft", "Premier", "Rink Clean",
+];
+function BrandsSection() {
+  return (
+    <section className="border-b border-border">
+      <div className="mx-auto max-w-7xl px-6 py-20 md:px-8 md:py-24">
+        <div className="text-center">
+          <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-primary">// Trusted brands</p>
+          <h2 className="mt-3 text-3xl font-semibold md:text-4xl">
+            Quality products from brands you trust.
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground">
+            We supply quality-assured products from leading hygiene and housekeeping brands.
+          </p>
+        </div>
+        <div className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-3 md:grid-cols-5">
+          {BRANDS.map((b) => (
+            <div
+              key={b}
+              className="flex h-20 items-center justify-center bg-card px-4 text-center text-sm font-semibold tracking-tight text-foreground/80 transition hover:bg-secondary/60"
+            >
+              {b}
+            </div>
+          ))}
+        </div>
+        <p className="mt-6 text-center text-xs text-muted-foreground">
+          Product availability may vary based on customer requirements.
+        </p>
+      </div>
+    </section>
   );
 }
 
