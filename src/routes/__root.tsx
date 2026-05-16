@@ -5,6 +5,7 @@ import { RFQProvider } from "@/lib/rfq";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { RFQDrawer } from "@/components/RFQDrawer";
+import { StickyCTA } from "@/components/StickyCTA";
 import { SITE } from "@/lib/site";
 
 const DESCRIPTION =
@@ -106,6 +107,7 @@ function RootComponent() {
         <Footer />
       </div>
       <RFQDrawer />
+      <StickyCTA />
     </RFQProvider>
   );
 }
