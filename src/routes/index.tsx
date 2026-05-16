@@ -212,8 +212,11 @@ function TrustStrip() {
         <div className="text-center">
           <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-primary">// Trust</p>
           <h2 className="mt-3 text-3xl font-semibold md:text-4xl">
-            A trusted workplace procurement partner.
+            Trusted workplace hygiene partner across Hyderabad.
           </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-sm text-muted-foreground">
+            Serving business clusters of {SITE.clusters.slice(0, 6).join(", ")} and beyond.
+          </p>
         </div>
         <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {items.map(({ icon: Icon, t }) => (
