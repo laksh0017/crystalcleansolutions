@@ -39,6 +39,8 @@ function HomePage() {
       <RecurringSection />
       <QuotationFormSection />
       <FAQSection />
+      <HyderabadTrustSection />
+      <FinalCTASection />
       <ContactSection />
       <div aria-hidden className="h-16 sm:hidden" />
     </>
