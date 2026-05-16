@@ -4,10 +4,11 @@ import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { SITE, WHATSAPP, MAPS_URL } from "@/lib/site";
 import {
-  ArrowRight, ShieldCheck, Truck, MessageCircle, FileText, CheckCircle2,
+  ArrowRight, Truck, MessageCircle, FileText, CheckCircle2,
   Sparkles, Repeat, Building2, Cpu, Stethoscope, Hotel, Users, GraduationCap,
-  Briefcase, Factory, Phone, Mail, MapPin, Send, Layers, Workflow, Clock,
-  ReceiptText, BadgeCheck, ChevronDown, Droplets, SprayCan, Coffee, Wind,
+  Briefcase, Factory, Phone, Mail, MapPin, Send, Layers, Clock,
+  ReceiptText, BadgeCheck, ChevronDown, Droplets, SprayCan, Wind,
+  Trash2, PackageOpen, Wrench,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -32,13 +33,53 @@ function HomePage() {
       <ProblemSection />
       <SolutionsSection />
       <IndustriesSection />
+      <BrandsSection />
       <WhySection />
       <HowItWorksSection />
       <RecurringSection />
       <QuotationFormSection />
       <FAQSection />
       <ContactSection />
+      <div aria-hidden className="h-16 sm:hidden" />
     </>
+  );
+}
+
+/* =============================================================
+   · TRUSTED BRANDS
+============================================================= */
+const BRANDS = [
+  "Diversey / Taski", "Odonil", "Godrej", "Dabur",
+  "Gala", "Kosher", "3M", "Gamisoft", "Premier", "Rink Clean",
+];
+function BrandsSection() {
+  return (
+    <section className="border-b border-border">
+      <div className="mx-auto max-w-7xl px-6 py-20 md:px-8 md:py-24">
+        <div className="text-center">
+          <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-primary">// Trusted brands</p>
+          <h2 className="mt-3 text-3xl font-semibold md:text-4xl">
+            Quality products from brands you trust.
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground">
+            We supply quality-assured products from leading hygiene and housekeeping brands.
+          </p>
+        </div>
+        <div className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-3 md:grid-cols-5">
+          {BRANDS.map((b) => (
+            <div
+              key={b}
+              className="flex h-20 items-center justify-center bg-card px-4 text-center text-sm font-semibold tracking-tight text-foreground/80 transition hover:bg-secondary/60"
+            >
+              {b}
+            </div>
+          ))}
+        </div>
+        <p className="mt-6 text-center text-xs text-muted-foreground">
+          Product availability may vary based on customer requirements.
+        </p>
+      </div>
+    </section>
   );
 }
 
@@ -47,8 +88,7 @@ function HomePage() {
 ============================================================= */
 function Hero() {
   const badges = [
-    "GST Registered", "Timely Delivery", "Bulk Procurement",
-    "Corporate Supply", "Hyderabad Coverage",
+    "Fast Quotations", "Reliable Supply", "GST Billing", "Professional Support",
   ];
   return (
     <section className="relative overflow-hidden border-b border-border/60">
@@ -63,13 +103,13 @@ function Hero() {
             B2B Workplace Hygiene Procurement · Hyderabad
           </div>
           <h1 className="text-balance text-5xl font-semibold leading-[1.05] tracking-[-0.03em] md:text-6xl lg:text-7xl">
-            Reliable Workplace Hygiene Procurement —{" "}
+            Workplace Hygiene Procurement —{" "}
             <span className="text-gradient">Simplified.</span>
           </h1>
           <p className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
-            Crystal Clean Solutions helps IT offices, corporates and businesses streamline
-            recurring workplace hygiene procurement — through reliable supply, quality
-            products, timely delivery and professional procurement support across Hyderabad.
+            Reliable supply of workplace hygiene products, cleaning chemicals, washroom
+            essentials, janitorial tools and office consumables for businesses across
+            Hyderabad.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button asChild variant="hero" size="lg">
@@ -252,26 +292,14 @@ function ProblemSection() {
    4 · SOLUTIONS / WHAT WE PROVIDE
 ============================================================= */
 const SOLUTION_CATEGORIES = [
-  {
-    icon: SprayCan,
-    name: "Workplace Hygiene Essentials",
-    items: ["Tissues", "Garbage bags", "Hygiene consumables", "Housekeeping materials"],
-  },
-  {
-    icon: Wind,
-    name: "Washroom Hygiene",
-    items: ["Odonil & air fresheners", "Urinal blocks", "Hand wash", "Tissue & consumables"],
-  },
-  {
-    icon: Droplets,
-    name: "Cleaning Chemicals",
-    items: ["Taski TR1–TR9 range", "Floor cleaners", "Disinfectants", "Glass cleaners"],
-  },
-  {
-    icon: Coffee,
-    name: "Pantry & Utility Supplies",
-    items: ["Pantry consumables", "Paper products", "Utility items", "Workplace essentials"],
-  },
+  { icon: Wind, name: "Washroom Essentials", d: "Hand wash, soaps, sanitizers and washroom hygiene consumables." },
+  { icon: FileText, name: "Tissue Solutions", d: "Toilet rolls, multifold, M-fold, C-fold and kitchen tissues." },
+  { icon: Droplets, name: "Cleaning Chemicals", d: "Floor cleaners, disinfectants, glass cleaners — Taski, Diversey, Rink." },
+  { icon: Trash2, name: "Garbage Bags & Waste", d: "Biodegradable garbage bags, color-coded waste bags for offices and hospitals." },
+  { icon: Wrench, name: "Janitorial Tools & Aids", d: "Mops, brooms, brushes, buckets, gloves and housekeeping carts." },
+  { icon: PackageOpen, name: "Dispensers & Accessories", d: "Soap, sanitizer, tissue and toilet roll dispensers — wall-mounted units." },
+  { icon: Sparkles, name: "Air Fresheners & Hygiene", d: "Odonil, room fresheners, urinal blocks and washroom fragrance solutions." },
+  { icon: SprayCan, name: "Cleaning Equipment", d: "Vacuum cleaners, scrubbers, wet & dry equipment for facility cleaning." },
 ];
 function SolutionsSection() {
   return (
@@ -292,7 +320,7 @@ function SolutionsSection() {
         </div>
 
         <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          {SOLUTION_CATEGORIES.map(({ icon: Icon, name, items }) => (
+          {SOLUTION_CATEGORIES.map(({ icon: Icon, name, d }) => (
             <div
               key={name}
               className="group flex flex-col rounded-2xl border border-border bg-card p-6 transition hover:-translate-y-1 hover:border-primary/30 hover:shadow-[var(--shadow-elegant)]"
@@ -301,13 +329,13 @@ function SolutionsSection() {
                 <Icon className="h-5 w-5" />
               </div>
               <h3 className="text-lg font-semibold leading-snug">{name}</h3>
-              <ul className="mt-4 space-y-1.5 text-sm text-muted-foreground">
-                {items.map((i) => (
-                  <li key={i} className="flex items-start gap-2">
-                    <span className="mt-2 h-1 w-1 rounded-full bg-primary" /> {i}
-                  </li>
-                ))}
-              </ul>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{d}</p>
+              <Link
+                to="/contact"
+                className="mt-5 inline-flex items-center gap-1.5 text-xs font-medium text-primary transition group-hover:gap-2"
+              >
+                Request Quote <ArrowRight className="h-3 w-3" />
+              </Link>
             </div>
           ))}
         </div>
