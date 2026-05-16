@@ -4,11 +4,11 @@ import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { SITE, WHATSAPP, MAPS_URL } from "@/lib/site";
 import {
-  ArrowRight, ShieldCheck, Truck, MessageCircle, FileText, CheckCircle2,
+  ArrowRight, Truck, MessageCircle, FileText, CheckCircle2,
   Sparkles, Repeat, Building2, Cpu, Stethoscope, Hotel, Users, GraduationCap,
-  Briefcase, Factory, Phone, Mail, MapPin, Send, Layers, Workflow, Clock,
-  ReceiptText, BadgeCheck, ChevronDown, Droplets, SprayCan, Coffee, Wind,
-  Trash2, PackageOpen, Wrench, Wifi,
+  Briefcase, Factory, Phone, Mail, MapPin, Send, Layers, Clock,
+  ReceiptText, BadgeCheck, ChevronDown, Droplets, SprayCan, Wind,
+  Trash2, PackageOpen, Wrench,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
