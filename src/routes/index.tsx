@@ -280,7 +280,7 @@ function SolutionsSection() {
         </div>
 
         <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          {SOLUTION_CATEGORIES.map(({ icon: Icon, name, items }) => (
+          {SOLUTION_CATEGORIES.map(({ icon: Icon, name, d }) => (
             <div
               key={name}
               className="group flex flex-col rounded-2xl border border-border bg-card p-6 transition hover:-translate-y-1 hover:border-primary/30 hover:shadow-[var(--shadow-elegant)]"
@@ -289,13 +289,13 @@ function SolutionsSection() {
                 <Icon className="h-5 w-5" />
               </div>
               <h3 className="text-lg font-semibold leading-snug">{name}</h3>
-              <ul className="mt-4 space-y-1.5 text-sm text-muted-foreground">
-                {items.map((i) => (
-                  <li key={i} className="flex items-start gap-2">
-                    <span className="mt-2 h-1 w-1 rounded-full bg-primary" /> {i}
-                  </li>
-                ))}
-              </ul>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{d}</p>
+              <Link
+                to="/contact"
+                className="mt-5 inline-flex items-center gap-1.5 text-xs font-medium text-primary transition group-hover:gap-2"
+              >
+                Request Quote <ArrowRight className="h-3 w-3" />
+              </Link>
             </div>
           ))}
         </div>
