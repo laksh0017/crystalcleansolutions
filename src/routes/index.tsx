@@ -468,11 +468,11 @@ function WhySection() {
    7 · HOW IT WORKS
 ============================================================= */
 const STEPS = [
-  { icon: FileText, t: "Share Requirement", d: "Upload list or share your requirement on WhatsApp." },
-  { icon: Sparkles, t: "Receive Fast Quotation", d: "Quick response with competitive, GST-compliant pricing." },
-  { icon: CheckCircle2, t: "Approve Procurement", d: "Simple confirmation process — we issue the PO." },
-  { icon: Truck, t: "Timely Delivery", d: "Reliable delivery to your office location." },
-  { icon: Repeat, t: "Recurring Monthly Support", d: "Repeat procurement made effortless every cycle." },
+  { icon: FileText, t: "Share Requirement", d: "Send your product list via form, WhatsApp or email." },
+  { icon: Sparkles, t: "Get Quotation", d: "Receive a fast, GST-compliant structured quotation." },
+  { icon: CheckCircle2, t: "Easy Approval", d: "Confirm via WhatsApp or email — we issue the PO." },
+  { icon: Truck, t: "Timely Delivery", d: "Reliable, scheduled delivery to your office location." },
+  { icon: Repeat, t: "Ongoing Support", d: "Recurring monthly procurement made effortless." },
 ];
 function HowItWorksSection() {
   return (
