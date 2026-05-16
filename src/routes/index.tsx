@@ -39,6 +39,8 @@ function HomePage() {
       <RecurringSection />
       <QuotationFormSection />
       <FAQSection />
+      <HyderabadTrustSection />
+      <FinalCTASection />
       <ContactSection />
       <div aria-hidden className="h-16 sm:hidden" />
     </>
@@ -113,12 +115,15 @@ function Hero() {
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button asChild variant="hero" size="lg">
-              <Link to="/contact">Get Quotation <ArrowRight className="h-4 w-4" /></Link>
+              <Link to="/contact">Get a Quotation <ArrowRight className="h-4 w-4" /></Link>
             </Button>
             <Button asChild variant="soft" size="lg">
               <a href={WHATSAPP} target="_blank" rel="noreferrer">
-                <MessageCircle className="h-4 w-4 text-emerald-600" /> Talk on WhatsApp
+                <MessageCircle className="h-4 w-4 text-emerald-600" /> Chat on WhatsApp
               </a>
+            </Button>
+            <Button asChild variant="ghost" size="lg" className="rounded-full">
+              <Link to="/products">View Catalogue <ArrowRight className="h-4 w-4" /></Link>
             </Button>
           </div>
           <ul className="mt-8 flex flex-wrap gap-x-5 gap-y-2 text-[12px] text-muted-foreground">
@@ -207,8 +212,11 @@ function TrustStrip() {
         <div className="text-center">
           <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-primary">// Trust</p>
           <h2 className="mt-3 text-3xl font-semibold md:text-4xl">
-            A trusted workplace procurement partner.
+            Trusted workplace hygiene partner across Hyderabad.
           </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-sm text-muted-foreground">
+            Serving business clusters of {SITE.clusters.slice(0, 6).join(", ")} and beyond.
+          </p>
         </div>
         <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {items.map(({ icon: Icon, t }) => (
@@ -432,7 +440,7 @@ function WhySection() {
         <div className="max-w-2xl">
           <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-primary-glow">// Why Crystal</p>
           <h2 className="mt-3 text-4xl font-semibold leading-tight md:text-5xl">
-            Why businesses choose Crystal Clean Solutions
+            One partner. Multiple workplace requirements.
           </h2>
           <p className="mt-5 text-white/70 md:text-lg">
             Built for organisations that want their workplace procurement to feel
@@ -460,11 +468,11 @@ function WhySection() {
    7 · HOW IT WORKS
 ============================================================= */
 const STEPS = [
-  { icon: FileText, t: "Share Requirement", d: "Upload list or share your requirement on WhatsApp." },
-  { icon: Sparkles, t: "Receive Fast Quotation", d: "Quick response with competitive, GST-compliant pricing." },
-  { icon: CheckCircle2, t: "Approve Procurement", d: "Simple confirmation process — we issue the PO." },
-  { icon: Truck, t: "Timely Delivery", d: "Reliable delivery to your office location." },
-  { icon: Repeat, t: "Recurring Monthly Support", d: "Repeat procurement made effortless every cycle." },
+  { icon: FileText, t: "Share Requirement", d: "Send your product list via form, WhatsApp or email." },
+  { icon: Sparkles, t: "Get Quotation", d: "Receive a fast, GST-compliant structured quotation." },
+  { icon: CheckCircle2, t: "Easy Approval", d: "Confirm via WhatsApp or email — we issue the PO." },
+  { icon: Truck, t: "Timely Delivery", d: "Reliable, scheduled delivery to your office location." },
+  { icon: Repeat, t: "Ongoing Support", d: "Recurring monthly procurement made effortless." },
 ];
 function HowItWorksSection() {
   return (
@@ -857,5 +865,121 @@ function ContactCard({
         <p className="mt-1 text-sm font-medium">{value}</p>
       </div>
     </a>
+  );
+}
+
+/* =============================================================
+   · HYDERABAD TRUST
+============================================================= */
+function HyderabadTrustSection() {
+  return (
+    <section className="border-y border-border bg-secondary/30">
+      <div className="mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-28">
+        <div className="grid gap-12 md:grid-cols-[1fr_1.1fr] md:items-center">
+          <div>
+            <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-primary">// Local presence</p>
+            <h2 className="mt-3 text-4xl font-semibold leading-tight md:text-5xl">
+              Serving businesses across <span className="text-gradient">Hyderabad</span>.
+            </h2>
+            <p className="mt-6 text-muted-foreground md:text-lg">
+              A Hyderabad-rooted procurement partner with same-city logistics, on-ground
+              support and dependable supply across every major business district.
+            </p>
+            <div className="mt-7 grid grid-cols-3 gap-3">
+              {[
+                { l: "Business clusters", v: "8+" },
+                { l: "Avg. response", v: "< 60 min" },
+                { l: "Recurring clients", v: "120+" },
+              ].map((s) => (
+                <div key={s.l} className="rounded-xl border border-border bg-card px-3 py-3">
+                  <p className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground">{s.l}</p>
+                  <p className="mt-1 text-lg font-semibold tracking-tight">{s.v}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="rounded-3xl border border-border bg-card p-6 shadow-[var(--shadow-soft)] md:p-8">
+            <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">Coverage map</p>
+            <div className="mt-5 flex flex-wrap gap-2">
+              {SITE.clusters.map((c) => (
+                <span key={c} className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1.5 text-xs text-foreground/85">
+                  <MapPin className="h-3 w-3 text-primary" /> {c}
+                </span>
+              ))}
+            </div>
+            <div className="mt-6 grid grid-cols-2 gap-3 border-t border-border pt-5 text-sm">
+              {[
+                "Same-day dispatch within Hyderabad",
+                "Dedicated city procurement contact",
+                "GST-compliant local invoicing",
+                "Recurring monthly delivery cycles",
+              ].map((t) => (
+                <div key={t} className="flex items-start gap-2 text-muted-foreground">
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 text-primary" />
+                  <span>{t}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* =============================================================
+   · FINAL CTA — WhatsApp QR
+============================================================= */
+function FinalCTASection() {
+  const qr = `https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=0&data=${encodeURIComponent(WHATSAPP)}`;
+  return (
+    <section className="relative overflow-hidden border-b border-border bg-[image:var(--gradient-ink)] text-white">
+      <div aria-hidden className="absolute inset-0 bg-grid opacity-10" />
+      <div aria-hidden className="absolute -right-32 -top-32 h-[480px] w-[480px] rounded-full bg-primary-glow/30 blur-[140px]" />
+      <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-24 md:grid-cols-[1.3fr_1fr] md:items-center md:px-8 md:py-28">
+        <div>
+          <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-primary-glow">// Let's get started</p>
+          <h2 className="mt-3 text-4xl font-semibold leading-tight md:text-5xl">
+            Let's simplify your workplace procurement.
+          </h2>
+          <p className="mt-6 max-w-xl text-white/70 md:text-lg">
+            Share your requirement today. Receive a structured, GST-compliant
+            quotation from a reliable Hyderabad procurement partner — usually
+            within the hour.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Button asChild variant="hero" size="lg">
+              <Link to="/contact">Get Quotation <ArrowRight className="h-4 w-4" /></Link>
+            </Button>
+            <Button asChild size="lg" className="rounded-full bg-emerald-500 text-white hover:bg-emerald-600">
+              <a href={WHATSAPP} target="_blank" rel="noreferrer">
+                <MessageCircle className="h-4 w-4" /> Chat on WhatsApp
+              </a>
+            </Button>
+          </div>
+          <div className="mt-8 grid gap-2 text-sm text-white/75">
+            <a href={`tel:+${SITE.phoneRaw}`} className="inline-flex items-center gap-2 hover:text-white">
+              <Phone className="h-4 w-4 text-primary-glow" /> {SITE.phone}
+            </a>
+            <a href={`mailto:${SITE.email}`} className="inline-flex items-center gap-2 hover:text-white">
+              <Mail className="h-4 w-4 text-primary-glow" /> {SITE.email}
+            </a>
+            <span className="inline-flex items-start gap-2">
+              <MapPin className="mt-0.5 h-4 w-4 text-primary-glow" /> {SITE.address}
+            </span>
+          </div>
+        </div>
+
+        <div className="justify-self-center rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur md:justify-self-end">
+          <div className="rounded-2xl bg-white p-5">
+            <img src={qr} alt="Scan to chat on WhatsApp with Crystal Clean Solutions" className="h-[220px] w-[220px]" loading="lazy" />
+          </div>
+          <p className="mt-4 text-center font-mono text-[10px] uppercase tracking-widest text-white/60">
+            Scan to chat on WhatsApp
+          </p>
+          <p className="mt-1 text-center text-sm font-semibold">{SITE.phone}</p>
+        </div>
+      </div>
+    </section>
   );
 }
