@@ -47,8 +47,7 @@ function HomePage() {
 ============================================================= */
 function Hero() {
   const badges = [
-    "GST Registered", "Timely Delivery", "Bulk Procurement",
-    "Corporate Supply", "Hyderabad Coverage",
+    "Fast Quotations", "Reliable Supply", "GST Billing", "Professional Support",
   ];
   return (
     <section className="relative overflow-hidden border-b border-border/60">
@@ -63,13 +62,13 @@ function Hero() {
             B2B Workplace Hygiene Procurement · Hyderabad
           </div>
           <h1 className="text-balance text-5xl font-semibold leading-[1.05] tracking-[-0.03em] md:text-6xl lg:text-7xl">
-            Reliable Workplace Hygiene Procurement —{" "}
+            Workplace Hygiene Procurement —{" "}
             <span className="text-gradient">Simplified.</span>
           </h1>
           <p className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
-            Crystal Clean Solutions helps IT offices, corporates and businesses streamline
-            recurring workplace hygiene procurement — through reliable supply, quality
-            products, timely delivery and professional procurement support across Hyderabad.
+            Reliable supply of workplace hygiene products, cleaning chemicals, washroom
+            essentials, janitorial tools and office consumables for businesses across
+            Hyderabad.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button asChild variant="hero" size="lg">
