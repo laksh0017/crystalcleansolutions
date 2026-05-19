@@ -46,7 +46,8 @@ function Industries() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-20 md:px-8">
+      <section aria-labelledby="industries-grid-heading" className="mx-auto max-w-7xl px-6 py-20 md:px-8">
+        <h2 id="industries-grid-heading" className="sr-only">Industries we serve</h2>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {INDUSTRIES.map((i) => (
             <div key={i.name} className="group relative flex flex-col rounded-2xl border border-border bg-card p-7 transition hover:-translate-y-1 hover:border-primary/40 hover:shadow-[var(--shadow-elegant)]">

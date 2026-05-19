@@ -54,11 +54,15 @@ function ProductsPage() {
       </section>
 
       {/* Toolbar */}
-      <section className="sticky top-16 z-20 border-b border-border bg-background/85 backdrop-blur-md">
+      <section aria-labelledby="catalog-toolbar-heading" className="sticky top-16 z-20 border-b border-border bg-background/85 backdrop-blur-md">
+        <h2 id="catalog-toolbar-heading" className="sr-only">Search and filter catalog</h2>
         <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-3 px-6 py-3 md:px-8">
           <div className="relative flex-1 min-w-[220px]">
+            <label htmlFor="catalog-search" className="sr-only">Search products</label>
             <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <input
+              id="catalog-search"
+              aria-label="Search products"
               value={q}
               onChange={(e) => setQ(e.target.value)}
               placeholder="Search 1000+ products…"
@@ -84,7 +88,8 @@ function ProductsPage() {
       </section>
 
       {/* Grid */}
-      <section className="mx-auto max-w-7xl px-6 py-12 md:px-8">
+      <section aria-labelledby="catalog-grid-heading" className="mx-auto max-w-7xl px-6 py-12 md:px-8">
+        <h2 id="catalog-grid-heading" className="sr-only">Product catalog</h2>
         {filtered.length === 0 ? (
           <div className="rounded-2xl border border-dashed border-border p-16 text-center">
             <Filter className="mx-auto h-6 w-6 text-muted-foreground" />
@@ -98,7 +103,7 @@ function ProductsPage() {
                 <div key={p.id} className="group flex flex-col rounded-2xl border border-border bg-card p-5 transition hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-[var(--shadow-soft)]">
                   <div className="mb-3 flex items-start justify-between">
                     <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">{p.category}</span>
-                    <span className="font-mono text-[10px] text-muted-foreground/60">{p.id.toUpperCase()}</span>
+                    <span className="font-mono text-[10px] text-muted-foreground">{p.id.toUpperCase()}</span>
                   </div>
                   <h3 className="text-base font-semibold leading-snug">{p.name}</h3>
                   <p className="mt-1.5 flex-1 text-sm leading-relaxed text-muted-foreground">{p.desc}</p>

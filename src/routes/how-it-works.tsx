@@ -46,7 +46,8 @@ function HowItWorks() {
       </section>
 
       {/* Step diagram */}
-      <section className="mx-auto max-w-7xl px-6 py-20 md:px-8">
+      <section aria-labelledby="steps-heading" className="mx-auto max-w-7xl px-6 py-20 md:px-8">
+        <h2 id="steps-heading" className="sr-only">Procurement steps</h2>
         <ol className="relative grid gap-6 md:gap-10">
           {steps.map((s, i) => (
             <li key={s.t} className="relative grid gap-6 rounded-2xl border border-border bg-card p-6 md:grid-cols-[160px_1fr_auto] md:items-center md:p-8">
@@ -54,7 +55,7 @@ function HowItWorks() {
                 <div className="grid h-14 w-14 place-items-center rounded-2xl bg-[image:var(--gradient-primary)] text-primary-foreground shadow-[var(--shadow-glow)]">
                   <s.icon className="h-6 w-6" />
                 </div>
-                <div className="font-mono text-3xl font-semibold text-muted-foreground/30">0{i + 1}</div>
+                <div className="font-mono text-3xl font-semibold text-muted-foreground">0{i + 1}</div>
               </div>
               <div>
                 <h3 className="text-2xl font-semibold">{s.t}</h3>
