@@ -1,0 +1,14 @@
+# Crystal Clean Solutions
+
+> B2B workplace hygiene procurement partner serving IT offices and corporates across Hyderabad — washroom consumables, cleaning chemicals, pantry supplies, janitorial tools and recurring monthly supply.
+
+Crystal Clean Solutions is a Hyderabad-based B2B procurement company. We consolidate workplace hygiene and facility supplies under one trusted partner with GST-compliant invoicing, fast quotations and reliable recurring delivery.
+
+## Pages
+
+- [Home](/): Overview, solutions, industries and quotation request.
+- [Products](/products): Catalog of cleaning, housekeeping, washroom, pantry and facility supplies.
+- [Industries](/industries): Procurement for IT offices, hospitals, hotels, SMEs and more.
+- [How it works](/how-it-works): End-to-end procurement workflow from RFQ to recurring supply.
+- [About](/about): Company background and procurement approach.
+- [Contact](/contact): Phone, WhatsApp, email and quote request form.
