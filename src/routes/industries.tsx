@@ -6,9 +6,13 @@ export const Route = createFileRoute("/industries")({
   component: Industries,
   head: () => ({
     meta: [
-      { title: "Industries — Procurement for IT, Hospitals, Hotels, SMEs | CRYSTAL" },
-      { name: "description", content: "CRYSTAL serves IT companies, hospitals, hotels, coworking spaces, apartments, schools, SMEs and manufacturers with structured facility procurement." },
+      { title: "Industries — Crystal Clean Solutions" },
+      { name: "description", content: "Procurement for IT offices, hospitals, hotels, coworking, SMEs and manufacturers across Hyderabad." },
+      { property: "og:title", content: "Industries we serve — Crystal" },
+      { property: "og:description", content: "Tailored hygiene procurement for IT, healthcare, hospitality, education and manufacturing in Hyderabad." },
+      { property: "og:url", content: "https://crystalcleansolutions.lovable.app/industries" },
     ],
+    links: [{ rel: "canonical", href: "https://crystalcleansolutions.lovable.app/industries" }],
   }),
 });
 
@@ -42,7 +46,8 @@ function Industries() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-20 md:px-8">
+      <section aria-labelledby="industries-grid-heading" className="mx-auto max-w-7xl px-6 py-20 md:px-8">
+        <h2 id="industries-grid-heading" className="sr-only">Industries we serve</h2>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {INDUSTRIES.map((i) => (
             <div key={i.name} className="group relative flex flex-col rounded-2xl border border-border bg-card p-7 transition hover:-translate-y-1 hover:border-primary/40 hover:shadow-[var(--shadow-elegant)]">
