@@ -10,9 +10,13 @@ export const Route = createFileRoute("/contact")({
   component: Contact,
   head: () => ({
     meta: [
-      { title: "Contact CRYSTAL — Request a quote · Hyderabad procurement" },
-      { name: "description", content: "Reach the CRYSTAL procurement team. Request a quote, schedule a meeting, or chat on WhatsApp. GST-compliant supply across Hyderabad." },
+      { title: "Contact — Crystal Clean Solutions" },
+      { name: "description", content: "Reach the Crystal procurement team. Request a quote, schedule a meeting or chat on WhatsApp." },
+      { property: "og:title", content: "Contact — Crystal Clean Solutions" },
+      { property: "og:description", content: "Phone, WhatsApp, email and quote form for Hyderabad workplace hygiene procurement." },
+      { property: "og:url", content: "https://crystalcleansolutions.lovable.app/contact" },
     ],
+    links: [{ rel: "canonical", href: "https://crystalcleansolutions.lovable.app/contact" }],
   }),
 });
 

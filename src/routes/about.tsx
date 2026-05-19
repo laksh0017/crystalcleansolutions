@@ -6,9 +6,13 @@ export const Route = createFileRoute("/about")({
   component: About,
   head: () => ({
     meta: [
-      { title: "About CRYSTAL — Procurement infrastructure for modern businesses" },
-      { name: "description", content: "CRYSTAL is building a tech-enabled B2B procurement platform — starting with cleaning, housekeeping, stationery and facility supplies in Hyderabad." },
+      { title: "About — Crystal Clean Solutions" },
+      { name: "description", content: "Crystal is a tech-enabled B2B procurement partner for cleaning, housekeeping and facility supplies in Hyderabad." },
+      { property: "og:title", content: "About — Crystal Clean Solutions" },
+      { property: "og:description", content: "Building procurement infrastructure for modern Hyderabad businesses — RFQ to recurring supply." },
+      { property: "og:url", content: "https://crystalcleansolutions.lovable.app/about" },
     ],
+    links: [{ rel: "canonical", href: "https://crystalcleansolutions.lovable.app/about" }],
   }),
 });
 

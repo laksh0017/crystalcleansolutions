@@ -15,13 +15,30 @@ export const Route = createFileRoute("/")({
   component: HomePage,
   head: () => ({
     meta: [
-      { title: "Crystal Clean Solutions — Workplace Hygiene Procurement, Hyderabad" },
-      { name: "description", content: "Reliable B2B workplace hygiene procurement for IT offices and corporates in Hyderabad. Washroom consumables, cleaning chemicals, pantry supplies & recurring procurement — one trusted partner." },
-      { name: "keywords", content: "Housekeeping Material Supplier Hyderabad, Cleaning Chemicals Supplier Hyderabad, B2B Cleaning Products Hyderabad, Office Hygiene Procurement Hyderabad, Corporate Cleaning Supplier Hyderabad, Commercial Hygiene Products Hyderabad" },
-      { property: "og:title", content: "Crystal Clean Solutions — Workplace Hygiene Procurement, Hyderabad" },
-      { property: "og:description", content: "Single trusted procurement partner for workplace hygiene, washroom consumables, cleaning chemicals and pantry supplies across Hyderabad." },
+      { title: "Workplace Hygiene Procurement, Hyderabad — Crystal" },
+      { name: "description", content: "B2B workplace hygiene procurement for offices and corporates in Hyderabad. Washroom, chemicals, pantry and recurring supply." },
+      { property: "og:title", content: "Workplace Hygiene Procurement, Hyderabad — Crystal" },
+      { property: "og:description", content: "One trusted Hyderabad partner for workplace hygiene, washroom, chemicals and pantry supplies." },
+      { property: "og:url", content: "https://crystalcleansolutions.lovable.app/" },
     ],
     links: [{ rel: "canonical", href: "https://crystalcleansolutions.lovable.app/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            { "@type": "Question", name: "Do you offer recurring monthly procurement?", acceptedAnswer: { "@type": "Answer", text: "Yes. We set up monthly supply schedules with locked quantities, single GST invoicing, priority dispatch and a dedicated account contact." } },
+            { "@type": "Question", name: "Do you supply IT offices and corporates?", acceptedAnswer: { "@type": "Answer", text: "IT companies and corporate offices across Hyderabad — Hitech City, Gachibowli, Madhapur, Financial District and more — are our primary client base." } },
+            { "@type": "Question", name: "Can we request custom quotations?", acceptedAnswer: { "@type": "Answer", text: "Yes. Share your requirement list via the form, WhatsApp or email and we respond with a structured quotation, usually within the hour." } },
+            { "@type": "Question", name: "Do you provide GST billing?", acceptedAnswer: { "@type": "Answer", text: "Yes. Every order ships with a clean, GST-compliant tax invoice." } },
+            { "@type": "Question", name: "What areas do you cover?", acceptedAnswer: { "@type": "Answer", text: "All major business clusters of Hyderabad including Hitech City, Gachibowli, Madhapur, Financial District, Banjara Hills, Jubilee Hills, Manikonda and Secunderabad." } },
+            { "@type": "Question", name: "Can businesses place bulk orders?", acceptedAnswer: { "@type": "Answer", text: "Yes. We handle bulk and recurring procurement, with pallet-grade logistics and scheduled dispatch when needed." } },
+          ],
+        }),
+      },
+    ],
   }),
 });
 

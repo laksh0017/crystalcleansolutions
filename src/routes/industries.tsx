@@ -6,9 +6,13 @@ export const Route = createFileRoute("/industries")({
   component: Industries,
   head: () => ({
     meta: [
-      { title: "Industries — Procurement for IT, Hospitals, Hotels, SMEs | CRYSTAL" },
-      { name: "description", content: "CRYSTAL serves IT companies, hospitals, hotels, coworking spaces, apartments, schools, SMEs and manufacturers with structured facility procurement." },
+      { title: "Industries — Crystal Clean Solutions" },
+      { name: "description", content: "Procurement for IT offices, hospitals, hotels, coworking, SMEs and manufacturers across Hyderabad." },
+      { property: "og:title", content: "Industries we serve — Crystal" },
+      { property: "og:description", content: "Tailored hygiene procurement for IT, healthcare, hospitality, education and manufacturing in Hyderabad." },
+      { property: "og:url", content: "https://crystalcleansolutions.lovable.app/industries" },
     ],
+    links: [{ rel: "canonical", href: "https://crystalcleansolutions.lovable.app/industries" }],
   }),
 });
 

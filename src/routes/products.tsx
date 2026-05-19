@@ -9,9 +9,13 @@ export const Route = createFileRoute("/products")({
   component: ProductsPage,
   head: () => ({
     meta: [
-      { title: "Catalog — Cleaning, Housekeeping, Stationery, Facility Supplies | CRYSTAL" },
-      { name: "description", content: "Browse the CRYSTAL B2B catalog: cleaning chemicals, housekeeping tools, stationery, washroom, pantry, packaging and safety supplies in Hyderabad." },
+      { title: "Catalog — Crystal Clean Solutions" },
+      { name: "description", content: "B2B catalog: cleaning chemicals, housekeeping, washroom, pantry, packaging and safety supplies in Hyderabad." },
+      { property: "og:title", content: "Procurement catalog — Crystal" },
+      { property: "og:description", content: "Browse and request quotes for cleaning, washroom, pantry and facility supplies — usually quoted within the hour." },
+      { property: "og:url", content: "https://crystalcleansolutions.lovable.app/products" },
     ],
+    links: [{ rel: "canonical", href: "https://crystalcleansolutions.lovable.app/products" }],
   }),
 });
 

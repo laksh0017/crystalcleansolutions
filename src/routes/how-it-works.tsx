@@ -8,9 +8,13 @@ export const Route = createFileRoute("/how-it-works")({
   component: HowItWorks,
   head: () => ({
     meta: [
-      { title: "How procurement works on CRYSTAL — RFQ to recurring supply" },
-      { name: "description", content: "Six-step procurement workflow on CRYSTAL: browse, RFQ, AI-assisted quotation, approval, scheduled delivery and recurring supply management." },
+      { title: "How it works — Crystal Clean Solutions" },
+      { name: "description", content: "Six-step procurement workflow: browse, RFQ, quotation, approval, scheduled delivery and recurring supply." },
+      { property: "og:title", content: "How procurement works — Crystal" },
+      { property: "og:description", content: "From RFQ to recurring supply — a structured procurement workflow built for Hyderabad businesses." },
+      { property: "og:url", content: "https://crystalcleansolutions.lovable.app/how-it-works" },
     ],
+    links: [{ rel: "canonical", href: "https://crystalcleansolutions.lovable.app/how-it-works" }],
   }),
 });
 

@@ -9,7 +9,7 @@ import { StickyCTA } from "@/components/StickyCTA";
 import { SITE } from "@/lib/site";
 
 const DESCRIPTION =
-  "Crystal Clean Solutions is a B2B workplace hygiene procurement partner for IT offices and corporates in Hyderabad — washroom consumables, cleaning chemicals, pantry supplies and recurring procurement.";
+  "B2B workplace hygiene procurement partner in Hyderabad — washroom, chemicals, pantry supplies and recurring monthly supply.";
 
 const ORG_JSON_LD = {
   "@context": "https://schema.org",
@@ -58,16 +58,12 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Crystal Clean Solutions — B2B Workplace Hygiene Procurement, Hyderabad" },
+      { title: "Crystal Clean Solutions — Hygiene Procurement" },
       { name: "description", content: DESCRIPTION },
       { name: "author", content: SITE.name },
       { property: "og:site_name", content: SITE.name },
-      { property: "og:title", content: "Crystal Clean Solutions — Workplace Hygiene Procurement" },
-      { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Crystal Clean Solutions — Workplace Hygiene Procurement" },
-      { name: "twitter:description", content: DESCRIPTION },
     ],
     links: [{ rel: "stylesheet", href: appCss }],
     scripts: [
