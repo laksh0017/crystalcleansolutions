@@ -66,7 +66,11 @@ export const Route = createRootRoute({
       { name: "twitter:card", content: "summary_large_image" },
       { name: "google-site-verification", content: "b2beBmgVW-6jwr2Zd_iRjRWT4kOrKboBLa3K4ENnBes" },
     ],
-    links: [{ rel: "stylesheet", href: appCss }],
+    links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "icon", type: "image/png", href: "/favicon.png" },
+      { rel: "apple-touch-icon", href: "/favicon.png" },
+    ],
     scripts: [
       {
         type: "application/ld+json",
