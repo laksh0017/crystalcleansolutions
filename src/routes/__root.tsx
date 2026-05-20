@@ -64,6 +64,7 @@ export const Route = createRootRoute({
       { property: "og:site_name", content: SITE.name },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "google-site-verification", content: "b2beBmgVW-6jwr2Zd_iRjRWT4kOrKboBLa3K4ENnBes" },
     ],
     links: [{ rel: "stylesheet", href: appCss }],
     scripts: [
