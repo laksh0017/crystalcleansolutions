@@ -1,7 +1,7 @@
 export const SITE = {
   name: "Crystal Clean Solutions",
   shortName: "Crystal",
-  tagline: "Workplace Hygiene Procurement — Simplified.",
+  tagline: "Hyderabad's Technology-Enabled B2B Procurement Partner",
   phoneRaw: "919391937991",
   phone: "+91 93919 37991",
   email: "crystalcleansolutions.hyd@gmail.com",
