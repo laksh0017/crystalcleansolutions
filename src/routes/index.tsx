@@ -101,7 +101,7 @@ function Hero() {
             </span>
             Technology-Enabled B2B Procurement · Hyderabad
           </div>
-          <h1 className="text-balance bg-gradient-to-b from-white via-white to-[#9BD8FF] bg-clip-text text-5xl font-semibold leading-[1.02] tracking-[-0.035em] text-transparent md:text-6xl lg:text-[5.25rem]">
+          <h1 className="text-balance text-luxe text-5xl font-semibold leading-[1.02] tracking-[-0.035em] md:text-6xl lg:text-[5.25rem]">
             Procurement,{" "}
             <span className="bg-[image:var(--gradient-primary)] bg-clip-text text-transparent">
               made invisible.
@@ -112,15 +112,15 @@ function Hero() {
             delivered by one accountable partner, on a single GST invoice, every month.
           </p>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
-            <Button asChild size="lg" className="group rounded-full bg-[image:var(--gradient-primary)] px-7 text-white shadow-[var(--shadow-glow)] hover:opacity-95">
+            <Button asChild size="lg" className="btn-magnetic group rounded-full bg-[image:var(--gradient-primary)] px-7 text-white">
               <Link to="/contact">
                 Request Quotation
-                <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
+                <ArrowRight className="ico-arrow h-4 w-4" />
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="rounded-full border-white/20 bg-white/5 px-7 text-white backdrop-blur hover:bg-white/10 hover:text-white">
+            <Button asChild size="lg" variant="outline" className="btn-glow-border rounded-full border-white/15 bg-white/[0.04] px-7 text-white backdrop-blur hover:bg-white/[0.06] hover:text-white">
               <Link to="/products">
-                <FileText className="h-4 w-4" /> Browse Catalogue
+                <FileText className="h-4 w-4" /> Download Catalogue
               </Link>
             </Button>
           </div>
