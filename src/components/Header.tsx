@@ -47,8 +47,10 @@ export function Header() {
             <MessageCircle className="h-3.5 w-3.5 text-emerald-600" />
             WhatsApp
           </a>
-          <Button asChild variant="hero" size="sm" className="rounded-full px-5">
-            <Link to="/contact">Get Quotation</Link>
+          <Button asChild variant="hero" size="sm" className="btn-magnetic group rounded-full px-5 bg-[image:var(--gradient-primary)] text-white">
+            <Link to="/contact">
+              Get Quotation <ArrowRight className="ico-arrow ml-1 h-3.5 w-3.5" />
+            </Link>
           </Button>
           <button
             className="ml-1 grid h-9 w-9 place-items-center rounded-md border border-border lg:hidden"
