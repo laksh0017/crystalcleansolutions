@@ -247,13 +247,13 @@ function Industries() {
       <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {INDUSTRIES.map(({ i: Icon, t, d, challenges, categories }, idx) => (
           <Reveal key={t} delay={idx * 60}>
-            <div className="group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] p-6 transition hover:-translate-y-1 hover:border-[color:var(--electric)]/40">
+            <div className="card-premium group relative h-full overflow-hidden rounded-2xl p-6">
               <div
                 aria-hidden
                 className="absolute -right-12 -top-12 h-40 w-40 rounded-full opacity-0 transition group-hover:opacity-100"
                 style={{ background: "radial-gradient(circle, rgba(92,225,230,0.18), transparent 70%)" }}
               />
-              <div className="grid h-11 w-11 place-items-center rounded-xl bg-[image:var(--gradient-primary)] text-white shadow-[var(--shadow-glow)]">
+              <div className="ico-lift grid h-11 w-11 place-items-center rounded-xl bg-[image:var(--gradient-primary)] text-white shadow-[var(--shadow-glow)]">
                 <Icon className="h-5 w-5" />
               </div>
               <h3 className="mt-5 text-lg font-semibold text-white">{t}</h3>
