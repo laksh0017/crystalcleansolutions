@@ -753,21 +753,37 @@ const STEPS = [
 ];
 function ProcessTimeline() {
   return (
-    <section className="relative border-y border-white/5">
-      <div className="mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-32">
-        <Reveal><SectionLabel kicker="// Procurement Process" title="From enquiry to recurring supply — in days, not weeks." /></Reveal>
+    <section className="relative">
+      <div className="mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-28">
+        <Reveal>
+          <div className="text-center">
+            <p className="text-[12px] font-medium tracking-[0.15em] text-[#00C8FF]">// PROCUREMENT PROCESS</p>
+            <h2
+              className="mx-auto mt-3 font-semibold"
+              style={{ fontSize: "clamp(30px, 5vw, 48px)", letterSpacing: "-0.025em", maxWidth: "780px", lineHeight: 1.15, color: "#fff" }}
+            >
+              From enquiry to recurring supply — <span className="text-[#00C8FF]">in days, not weeks.</span>
+            </h2>
+          </div>
+        </Reveal>
         <div className="relative mt-16">
-          <div aria-hidden className="absolute left-0 right-0 top-7 hidden h-px bg-white/10 lg:block" />
-          <div aria-hidden className="timeline-pulse absolute left-0 right-0 top-7 hidden h-px lg:block" />
-          <div className="grid gap-8 lg:grid-cols-5">
+          <div aria-hidden className="absolute left-0 right-0 top-[22px] hidden h-px bg-white/[0.08] lg:block" />
+          <div aria-hidden className="timeline-pulse absolute left-0 right-0 top-[22px] hidden h-px lg:block" />
+          <div className="grid gap-10 lg:grid-cols-5 lg:gap-6">
             {STEPS.map((s, idx) => (
-              <Reveal key={s.n} delay={idx * 80}>
-                <div className="relative">
-                  <div className="mx-auto grid h-14 w-14 place-items-center rounded-full border border-[color:var(--electric)]/30 bg-[color:var(--card)] text-sm font-mono font-semibold text-[color:var(--electric)] shadow-[0_0_30px_-8px_rgba(92,225,230,0.5)]">
-                    {s.n}
+              <Reveal key={s.n} delay={idx * 120}>
+                <div className="relative flex flex-col items-center text-center">
+                  <div className="relative">
+                    <span aria-hidden className="absolute inset-0 rounded-full bg-[#00C8FF]/30" style={{ animation: `pulse-ring 1.8s ${idx * 0.15}s ease-out infinite` }} />
+                    <div
+                      className="relative grid h-11 w-11 place-items-center rounded-full font-mono text-[13px] font-semibold text-[#00C8FF]"
+                      style={{ border: "1.5px solid rgba(0,200,255,0.4)", background: "#050A0F" }}
+                    >
+                      {s.n}
+                    </div>
                   </div>
-                  <h3 className="mt-5 text-center font-semibold text-white">{s.t}</h3>
-                  <p className="mt-2 text-center text-sm leading-relaxed text-white/55">{s.d}</p>
+                  <h3 className="mt-3.5 text-[15px] font-semibold text-white">{s.t}</h3>
+                  <p className="mt-1.5 max-w-[180px] text-[13px] leading-[1.55]" style={{ color: "#6B7FA3" }}>{s.d}</p>
                 </div>
               </Reveal>
             ))}
@@ -783,21 +799,32 @@ function ProcessTimeline() {
 ================================================================= */
 function Vision() {
   return (
-    <section className="relative overflow-hidden border-y border-white/5">
-      <div aria-hidden className="absolute inset-0 -z-10 bg-[image:var(--gradient-ink)]" />
+    <section className="relative overflow-hidden">
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 opacity-70 animate-aurora"
-        style={{ background: "var(--gradient-nebula)" }}
+        className="absolute inset-0 -z-10"
+        style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(0,200,255,0.04) 0%, transparent 60%)" }}
       />
-      <div className="relative mx-auto max-w-4xl px-6 py-24 text-center md:px-8 md:py-32">
-        <CrystalMark className="mx-auto h-10 w-10" />
-        <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.25em] text-[color:var(--electric)]">// Our Vision</p>
-        <h2 className="mt-4 text-balance text-luxe text-4xl font-medium leading-[1.05] tracking-[-0.035em] md:text-6xl lg:text-7xl">
-          To become India's most trusted technology-enabled workplace procurement platform —
-          starting from Hyderabad.
+      <div className="relative mx-auto max-w-5xl px-6 py-24 text-center md:px-8 md:py-32">
+        <div className="mx-auto inline-flex spin-slow" style={{ width: 60, height: 60 }}>
+          <CrystalMark className="h-[60px] w-[60px]" cyan />
+        </div>
+        <h2
+          className="mt-8 text-balance font-semibold text-white"
+          style={{ fontSize: "clamp(32px, 5.5vw, 56px)", letterSpacing: "-0.03em", lineHeight: 1.15 }}
+        >
+          To become India's most trusted
+          <br />
+          technology-enabled workplace
+          <br />
+          <span className="text-[#00C8FF]">procurement platform</span>
+          <br />
+          <span className="text-[0.85em]">— starting from Hyderabad.</span>
         </h2>
-        <p className="mx-auto mt-6 max-w-2xl text-white/65 md:text-lg">
+        <p
+          className="mx-auto mt-6"
+          style={{ fontSize: "17px", color: "#6B7FA3", maxWidth: "560px", lineHeight: 1.7 }}
+        >
           We believe procurement should be invisible to your operations team — predictable,
           auditable and built for scale. Crystal Clean Solutions is engineering that future.
         </p>
@@ -815,8 +842,7 @@ function InquiryForm() {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
     const lines = [
-      `Hi Crystal Clean Solutions,`,
-      ``,
+      `Hi Crystal Clean Solutions,`, ``,
       `Company: ${fd.get("company")}`,
       `Contact: ${fd.get("name")} · ${fd.get("phone")}`,
       `Email: ${fd.get("email")}`,
@@ -828,55 +854,72 @@ function InquiryForm() {
     setSent(true);
   };
   return (
-    <section id="enquiry" className="scroll-mt-24 relative mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-32">
+    <section id="enquiry" className="scroll-mt-24 relative mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-28">
       <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr]">
         <Reveal>
-          <SectionLabel kicker="// Customer Inquiry" title="Request a quotation." align="left" />
-          <p className="mt-6 max-w-md text-white/65">
+          <p className="text-[12px] font-medium tracking-[0.15em] text-[#00C8FF]">// CUSTOMER INQUIRY</p>
+          <h2 className="mt-3 font-semibold text-white" style={{ fontSize: "clamp(30px, 4vw, 44px)", letterSpacing: "-0.025em" }}>
+            Request a quotation.
+          </h2>
+          <p className="mt-5 max-w-md text-[16px]" style={{ color: "#6B7FA3" }}>
             Share your requirement — typical quote turnaround is under 60 minutes during business hours.
           </p>
-          <div className="mt-10 space-y-4">
-            <ContactRow icon={Phone} label="Call" value={SITE.phone} href={`tel:+${SITE.phoneRaw}`} />
-            <ContactRow icon={MessageCircle} label="WhatsApp" value="Chat with procurement" href={WHATSAPP} />
-            <ContactRow icon={Mail} label="Email" value={SITE.email} href={`mailto:${SITE.email}`} />
-            <ContactRow icon={MapPin} label="Office" value={SITE.address} />
+          <div className="mt-10 grid gap-3 sm:grid-cols-2">
+            <ContactRow icon={Phone} label="CALL" value={SITE.phone} href={`tel:+${SITE.phoneRaw}`} copyText={SITE.phone} />
+            <ContactRow icon={MessageCircle} label="WHATSAPP" value="Chat with procurement" href={WHATSAPP} />
+            <ContactRow icon={Mail} label="EMAIL" value={SITE.email} href={`mailto:${SITE.email}`} copyText={SITE.email} />
+            <ContactRow icon={MapPin} label="OFFICE" value={SITE.address} />
           </div>
         </Reveal>
 
         <Reveal delay={120}>
           <form
             onSubmit={onSubmit}
-            className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur md:p-8"
+            className="rounded-[18px] p-6 md:p-8"
+            style={{ background: "rgba(255,255,255,0.025)", border: "1px solid rgba(255,255,255,0.06)" }}
           >
-            <div className="grid gap-2 sm:grid-cols-2 sm:gap-x-6">
-              <Field name="company" label="Company *" required />
-              <Field name="name" label="Your Name *" required />
-              <Field name="phone" label="Phone *" required />
-              <Field name="email" label="Email" type="email" />
-              <div className="field-floating is-filled sm:col-span-2">
+            <div className="grid gap-5 sm:grid-cols-2">
+              <FilledField name="company" label="COMPANY *" required />
+              <FilledField name="name" label="YOUR NAME *" required />
+              <FilledField name="phone" label="PHONE *" required />
+              <FilledField name="email" label="EMAIL" type="email" />
+              <div className="sm:col-span-2">
+                <label className="block text-[11px] font-medium uppercase tracking-[0.06em]" style={{ color: "#6B7FA3", marginBottom: 6 }}>INDUSTRY</label>
                 <select
                   name="industry"
                   defaultValue="Corporate / IT"
+                  className="w-full rounded-[10px] px-4 py-3 text-[14px] text-white outline-none transition focus:border-[#00C8FF] focus:shadow-[0_0_0_3px_rgba(0,200,255,0.1)]"
+                  style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
                 >
                   {["Corporate / IT", "Hospital / Clinic", "Hotel / Hospitality", "Education", "Co-working", "Other"].map((o) => (
-                    <option key={o} className="bg-[color:var(--card)]">{o}</option>
+                    <option key={o} className="bg-[#050A0F]">{o}</option>
                   ))}
                 </select>
-                <label>Industry</label>
               </div>
-              <div className="field-floating sm:col-span-2">
+              <div className="sm:col-span-2">
+                <label className="block text-[11px] font-medium uppercase tracking-[0.06em]" style={{ color: "#6B7FA3", marginBottom: 6 }}>REQUIREMENT *</label>
                 <textarea
                   name="message"
                   required
-                  placeholder=" "
+                  rows={4}
+                  className="w-full rounded-[10px] px-4 py-3 text-[14px] text-white outline-none transition focus:border-[#00C8FF] focus:shadow-[0_0_0_3px_rgba(0,200,255,0.1)]"
+                  style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
                 />
-                <label>Requirement *</label>
               </div>
             </div>
-            <Button type="submit" size="lg" className="btn-magnetic group mt-8 w-full rounded-full bg-[image:var(--gradient-primary)] text-white">
-              {sent ? "Opening WhatsApp…" : <>Send Enquiry <Send className="ico-arrow h-4 w-4" /></>}
-            </Button>
-            <p className="mt-3 text-center text-[11px] text-white/45">
+            <button
+              type="submit"
+              className="mt-7 w-full rounded-[12px] text-black transition-all duration-200 hover:scale-[1.01] hover:brightness-110 hover:shadow-[0_8px_30px_rgba(0,200,255,0.3)]"
+              style={{
+                background: "linear-gradient(135deg, #00C8FF, #0080FF)",
+                padding: "16px",
+                fontSize: "15px",
+                fontWeight: 700,
+              }}
+            >
+              {sent ? "Opening WhatsApp…" : "Send Enquiry"}
+            </button>
+            <p className="mt-3 text-center text-[12px]" style={{ color: "#4A5568" }}>
               Submissions open WhatsApp with your enquiry pre-filled.
             </p>
           </form>
@@ -886,38 +929,82 @@ function InquiryForm() {
   );
 }
 
-function Field({
+function FilledField({
   name, label, type = "text", required,
 }: { name: string; label: string; type?: string; required?: boolean }) {
   return (
-    <div className="field-floating">
+    <div>
+      <label className="block text-[11px] font-medium uppercase tracking-[0.06em]" style={{ color: "#6B7FA3", marginBottom: 6 }}>{label}</label>
       <input
         type={type}
         name={name}
         required={required}
-        placeholder=" "
+        className="w-full rounded-[10px] px-4 py-3 text-[14px] text-white outline-none transition focus:border-[#00C8FF] focus:shadow-[0_0_0_3px_rgba(0,200,255,0.1)]"
+        style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
       />
-      <label>{label}</label>
     </div>
   );
 }
 
 function ContactRow({
-  icon: Icon, label, value, href,
-}: { icon: React.ComponentType<{ className?: string }>; label: string; value: string; href?: string }) {
+  icon: Icon, label, value, href, copyText,
+}: { icon: React.ComponentType<{ className?: string }>; label: string; value: string; href?: string; copyText?: string }) {
+  const onClick = (e: React.MouseEvent) => {
+    if (!copyText) return;
+    e.preventDefault();
+    navigator.clipboard?.writeText(copyText).then(() => {
+      window.dispatchEvent(new CustomEvent("ccs:toast", { detail: `Copied ${copyText}` }));
+    });
+  };
   const inner = (
-    <div className="flex items-start gap-4 rounded-xl border border-white/10 bg-white/[0.02] p-4 transition hover:border-[color:var(--electric)]/30">
-      <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-[color:var(--electric)]/10 text-[color:var(--electric)]">
-        <Icon className="h-4.5 w-4.5" />
-      </div>
-      <div>
-        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/45">{label}</p>
-        <p className="mt-1 text-sm text-white/85">{value}</p>
+    <div
+      className="flex items-start gap-3 rounded-[14px] transition-all duration-200 hover:-translate-y-[3px]"
+      style={{ padding: "16px 20px", background: "rgba(255,255,255,0.025)", border: "1px solid rgba(255,255,255,0.06)" }}
+      onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(0,200,255,0.3)"; }}
+      onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.06)"; }}
+    >
+      <Icon className="mt-0.5 h-5 w-5 shrink-0 text-[#00C8FF]" />
+      <div className="min-w-0">
+        <p className="text-[11px] font-medium uppercase tracking-[0.08em]" style={{ color: "#4A5568" }}>{label}</p>
+        <p className="mt-1 truncate text-[14px] font-medium text-white">{value}</p>
       </div>
     </div>
   );
-  return href ? <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noreferrer">{inner}</a> : inner;
+  if (!href) return inner;
+  return (
+    <a href={href} onClick={onClick} target={href.startsWith("http") ? "_blank" : undefined} rel="noreferrer">
+      {inner}
+    </a>
+  );
 }
+
+/* =================================================================
+   COPY TOAST HOST
+================================================================= */
+function CopyToastHost() {
+  const [msg, setMsg] = React.useState<string | null>(null);
+  React.useEffect(() => {
+    const onToast = (e: Event) => {
+      setMsg((e as CustomEvent<string>).detail);
+      const id = setTimeout(() => setMsg(null), 2000);
+      return () => clearTimeout(id);
+    };
+    window.addEventListener("ccs:toast", onToast);
+    return () => window.removeEventListener("ccs:toast", onToast);
+  }, []);
+  if (!msg) return null;
+  return (
+    <div className="pointer-events-none fixed inset-x-0 bottom-24 z-[60] flex justify-center sm:bottom-10">
+      <div
+        className="rounded-full px-4 py-2 text-[13px] font-medium text-[#00C8FF] stagger-in"
+        style={{ background: "rgba(0,200,255,0.1)", border: "1px solid rgba(0,200,255,0.3)", backdropFilter: "blur(12px)" }}
+      >
+        {msg}
+      </div>
+    </div>
+  );
+}
+
 
 /* =================================================================
    SHARED
