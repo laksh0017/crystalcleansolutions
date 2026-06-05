@@ -321,43 +321,58 @@ const CATEGORIES = [
   { i: SprayCan, name: "Pantry & Equipment", d: "Pantry consumables & facility equipment.", items: ["Disposable cups & plates", "Stirrers & straws", "Cling film & foil", "Pantry detergents"] },
 ];
 function ProductCategories() {
-  const [open, setOpen] = React.useState<string | null>(null);
   return (
-    <section id="solutions" className="scroll-mt-24 relative border-y border-white/5 bg-[color:var(--card)]/30">
-      <div className="mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-32">
-        <Reveal><SectionLabel kicker="// Category Explorer" title="One catalogue. Every workplace consumable." /></Reveal>
-        <div className="mt-14 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {CATEGORIES.map(({ i: Icon, name, d, items }, idx) => {
-            const isOpen = open === name;
-            return (
-              <Reveal key={name} delay={idx * 50}>
-                <button
-                  type="button"
-                  onClick={() => setOpen(isOpen ? null : name)}
-                  className={`card-premium group w-full rounded-2xl p-5 text-left ${isOpen ? "!border-[color:var(--electric)]/50 !bg-white/[0.05]" : ""}`}
+    <section id="solutions" className="scroll-mt-24 relative">
+      <div className="mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-28">
+        <Reveal>
+          <div className="text-center">
+            <p className="text-[12px] font-medium tracking-[0.15em] text-[#00C8FF]">// CATEGORY EXPLORER</p>
+            <h2
+              className="mx-auto mt-3 font-semibold text-white"
+              style={{ fontSize: "clamp(32px, 5vw, 48px)", letterSpacing: "-0.025em", maxWidth: "720px", lineHeight: 1.15 }}
+            >
+              One catalogue. <span className="text-[#00C8FF]">Every workplace consumable.</span>
+            </h2>
+          </div>
+        </Reveal>
+        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {CATEGORIES.map(({ i: Icon, name, d }, idx) => (
+            <Reveal key={name} delay={idx * 60}>
+              <div
+                className="group relative h-full overflow-hidden rounded-[18px] transition-all duration-300 hover:-translate-y-1.5"
+                style={{
+                  padding: "24px 20px",
+                  background: "rgba(255,255,255,0.02)",
+                  border: "1px solid rgba(255,255,255,0.05)",
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(0,200,255,0.15)"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.05)"; }}
+              >
+                <span
+                  aria-hidden
+                  className="absolute bottom-0 left-0 w-[3px] origin-bottom scale-y-0 bg-[#00C8FF] transition-transform duration-500 group-hover:scale-y-100"
+                  style={{ height: "100%" }}
+                />
+                <div
+                  className="grid h-[52px] w-[52px] place-items-center rounded-[14px] transition-colors duration-300 group-hover:bg-[rgba(0,200,255,0.15)]"
+                  style={{ background: "rgba(0,200,255,0.08)" }}
                 >
-                  <div className="flex items-center justify-between">
-                    <Icon className="ico-lift h-5 w-5 text-[color:var(--electric)]" />
-                    <ChevronDown className={`h-4 w-4 text-white/40 transition ${isOpen ? "rotate-180 text-[color:var(--electric)]" : ""}`} />
-                  </div>
-                  <h3 className="mt-4 font-semibold text-white">{name}</h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-white/55">{d}</p>
-                  <div className={`grid overflow-hidden text-[12px] text-white/65 transition-all duration-500 ${isOpen ? "mt-3 max-h-64 opacity-100" : "max-h-0 opacity-0"}`}>
-                    <ul className="space-y-1 border-t border-white/5 pt-3">
-                      {items.map((it) => (
-                        <li key={it} className="flex items-start gap-1.5"><CircleDot className="mt-0.5 h-3 w-3 text-[color:var(--electric)]" />{it}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </button>
-              </Reveal>
-            );
-          })}
+                  <Icon className="h-[26px] w-[26px] text-[#00C8FF]" />
+                </div>
+                <h3 className="mt-3.5 text-[15px] font-semibold text-white">{name}</h3>
+                <p className="mt-1.5 text-[13px] leading-[1.5]" style={{ color: "#5A6A7A" }}>{d}</p>
+              </div>
+            </Reveal>
+          ))}
         </div>
-        <div className="mt-10 flex justify-center">
-          <Button asChild variant="outline" className="rounded-full border-white/20 bg-white/5 text-white hover:bg-white/10 hover:text-white">
-            <Link to="/products">Browse full catalogue <ArrowRight className="h-4 w-4" /></Link>
-          </Button>
+        <div className="mt-12 flex justify-center">
+          <Link
+            to="/products"
+            className="group inline-flex items-center gap-2 rounded-full border border-white/[0.12] text-white transition-all duration-200 hover:border-[#00C8FF]/40 hover:text-[#00C8FF] hover:shadow-[0_0_24px_rgba(0,200,255,0.2)]"
+            style={{ padding: "12px 28px" }}
+          >
+            Browse full catalogue <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+          </Link>
         </div>
       </div>
     </section>
@@ -368,7 +383,7 @@ function ProductCategories() {
    WHY US
 ================================================================= */
 const WHY = [
-  { i: ShieldCheck, t: "Single Procurement Partner", d: "Consolidate 8+ vendors into one accountable supplier." },
+  { i: ShieldCheck, t: "Single Procurement Partner", d: "Consolidate 8+ vendors into one accountable supplier. One PO, one catalogue, one accountable contact across every workplace category." },
   { i: Zap, t: "Sub-60-min Quote SLA", d: "Structured quotations within an hour of enquiry." },
   { i: Repeat, t: "Recurring Monthly Supply", d: "Locked quantities, scheduled dispatch, no follow-ups." },
   { i: ReceiptText, t: "Clean GST Invoicing", d: "Single tax invoice per cycle — finance-team friendly." },
@@ -377,28 +392,62 @@ const WHY = [
 ];
 function WhyUs() {
   return (
-    <section id="why" className="scroll-mt-24 relative mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-32">
-      <Reveal><SectionLabel kicker="// Why Businesses Choose Us" title="Built for procurement teams, not retail shoppers." /></Reveal>
-      <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {WHY.map(({ i: Icon, t, d }, idx) => (
-          <Reveal key={t} delay={idx * 60}>
-            <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 backdrop-blur transition hover:border-[color:var(--electric)]/40">
-              <div className="flex items-start gap-4">
-                <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg border border-[color:var(--electric)]/30 bg-[color:var(--electric)]/10 text-[color:var(--electric)]">
-                  <Icon className="h-5 w-5" />
+    <section
+      id="why"
+      className="scroll-mt-24 relative"
+      style={{ background: "radial-gradient(ellipse at 50% 0%, rgba(0,200,255,0.05) 0%, transparent 60%)" }}
+    >
+      <div className="mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-28">
+        <Reveal>
+          <div className="text-center">
+            <p className="text-[12px] font-medium tracking-[0.15em] text-[#00C8FF]">// WHY CRYSTAL</p>
+            <h2
+              className="mx-auto mt-3 font-semibold text-white"
+              style={{ fontSize: "clamp(32px, 5.5vw, 52px)", letterSpacing: "-0.03em", maxWidth: "700px", lineHeight: 1.15 }}
+            >
+              Built for procurement teams, <span className="italic text-[#00C8FF]">not retail shoppers.</span>
+            </h2>
+          </div>
+        </Reveal>
+        <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {WHY.map(({ i: Icon, t, d }, idx) => {
+            const isHero = idx === 0;
+            return (
+              <Reveal key={t} delay={idx * 80}>
+                <div
+                  className={`group h-full rounded-[20px] transition-all duration-300 ${isHero ? "lg:col-span-2" : ""}`}
+                  style={{
+                    padding: "28px 24px",
+                    background: isHero ? "rgba(0,200,255,0.05)" : "rgba(255,255,255,0.025)",
+                    border: isHero ? "1px solid rgba(0,200,255,0.15)" : "1px solid rgba(255,255,255,0.06)",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = "rgba(0,200,255,0.25)";
+                    e.currentTarget.style.background = "rgba(0,200,255,0.05)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = isHero ? "rgba(0,200,255,0.15)" : "rgba(255,255,255,0.06)";
+                    e.currentTarget.style.background = isHero ? "rgba(0,200,255,0.05)" : "rgba(255,255,255,0.025)";
+                  }}
+                >
+                  <div
+                    className="grid h-[52px] w-[52px] place-items-center rounded-full"
+                    style={{ background: "rgba(0,200,255,0.1)" }}
+                  >
+                    <Icon className="h-5 w-5 text-[#00C8FF]" />
+                  </div>
+                  <h3 className={`mt-4 font-semibold text-white ${isHero ? "text-[18px]" : "text-[15px]"}`}>{t}</h3>
+                  <p className="mt-2 text-[14px] leading-[1.6]" style={{ color: "#6B7FA3" }}>{d}</p>
                 </div>
-                <div>
-                  <h3 className="font-semibold text-white">{t}</h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-white/60">{d}</p>
-                </div>
-              </div>
-            </div>
-          </Reveal>
-        ))}
+              </Reveal>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
 }
+
 
 /* =================================================================
    TECHNOLOGY ENABLED PROCUREMENT
