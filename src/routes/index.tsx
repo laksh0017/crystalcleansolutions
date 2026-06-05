@@ -747,36 +747,33 @@ function InquiryForm() {
             onSubmit={onSubmit}
             className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur md:p-8"
           >
-            <div className="grid gap-4 sm:grid-cols-2">
-              <Field name="company" label="Company *" required placeholder="Acme Corp" />
-              <Field name="name" label="Your Name *" required placeholder="Procurement lead" />
-              <Field name="phone" label="Phone *" required placeholder="+91" />
-              <Field name="email" label="Email" type="email" placeholder="you@company.com" />
-              <div className="sm:col-span-2">
-                <label className="mb-1.5 block font-mono text-[10px] uppercase tracking-[0.2em] text-white/55">Industry</label>
+            <div className="grid gap-2 sm:grid-cols-2 sm:gap-x-6">
+              <Field name="company" label="Company *" required />
+              <Field name="name" label="Your Name *" required />
+              <Field name="phone" label="Phone *" required />
+              <Field name="email" label="Email" type="email" />
+              <div className="field-floating is-filled sm:col-span-2">
                 <select
                   name="industry"
-                  className="w-full rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2.5 text-sm text-white outline-none focus:border-[color:var(--electric)]/50"
                   defaultValue="Corporate / IT"
                 >
                   {["Corporate / IT", "Hospital / Clinic", "Hotel / Hospitality", "Education", "Co-working", "Other"].map((o) => (
                     <option key={o} className="bg-[color:var(--card)]">{o}</option>
                   ))}
                 </select>
+                <label>Industry</label>
               </div>
-              <div className="sm:col-span-2">
-                <label className="mb-1.5 block font-mono text-[10px] uppercase tracking-[0.2em] text-white/55">Requirement *</label>
+              <div className="field-floating sm:col-span-2">
                 <textarea
                   name="message"
                   required
-                  rows={4}
-                  placeholder="List product categories or specific SKUs and approximate monthly quantities."
-                  className="w-full resize-none rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2.5 text-sm text-white placeholder:text-white/30 outline-none focus:border-[color:var(--electric)]/50"
+                  placeholder=" "
                 />
+                <label>Requirement *</label>
               </div>
             </div>
-            <Button type="submit" size="lg" className="mt-6 w-full rounded-full bg-[image:var(--gradient-primary)] text-white shadow-[var(--shadow-glow)] hover:opacity-95">
-              {sent ? "Opening WhatsApp…" : <>Send Enquiry <Send className="h-4 w-4" /></>}
+            <Button type="submit" size="lg" className="btn-magnetic group mt-8 w-full rounded-full bg-[image:var(--gradient-primary)] text-white">
+              {sent ? "Opening WhatsApp…" : <>Send Enquiry <Send className="ico-arrow h-4 w-4" /></>}
             </Button>
             <p className="mt-3 text-center text-[11px] text-white/45">
               Submissions open WhatsApp with your enquiry pre-filled.
