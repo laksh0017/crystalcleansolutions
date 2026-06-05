@@ -7,22 +7,21 @@ export function Logo({
   className?: string;
   variant?: "default" | "light";
 }) {
-  const text = variant === "light" ? "text-white" : "text-foreground";
-  const sub = variant === "light" ? "text-white/55" : "text-muted-foreground";
+  const headingClass = variant === "light" ? "text-white" : "text-white";
   return (
     <span className={cn("inline-flex items-center gap-2.5", className)}>
       <span
         aria-hidden
-        className="relative grid h-9 w-9 place-items-center rounded-[10px] bg-[image:var(--gradient-ink)] ring-1 ring-[color:var(--electric)]/30 shadow-[0_8px_24px_-12px_rgba(0,123,255,0.6)]"
+        className="inline-flex"
+        style={{ filter: "drop-shadow(0 0 6px rgba(0,200,255,0.6))" }}
       >
-        <CrystalMark className="h-5 w-5" />
-        <span aria-hidden className="pointer-events-none absolute inset-0 rounded-[10px] bg-[radial-gradient(circle_at_50%_30%,rgba(92,225,230,0.35),transparent_70%)]" />
+        <CrystalMark className="h-7 w-7" cyan />
       </span>
-      <span className="flex flex-col leading-none">
-        <span className={cn("font-display text-[15px] font-semibold tracking-[-0.02em]", text)}>
+      <span className="flex items-baseline gap-1.5 leading-none">
+        <span className={cn("font-display text-[15px] font-semibold tracking-[-0.01em]", headingClass)}>
           Crystal Clean
         </span>
-        <span className={cn("mt-0.5 font-mono text-[9px] uppercase tracking-[0.22em]", sub)}>
+        <span className="font-display text-[15px] font-normal text-[#6B7FA3]">
           Solutions
         </span>
       </span>
@@ -30,7 +29,7 @@ export function Logo({
   );
 }
 
-export function CrystalMark({ className }: { className?: string }) {
+export function CrystalMark({ className, cyan = false }: { className?: string; cyan?: boolean }) {
   return (
     <svg viewBox="0 0 64 64" className={className} fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
       <defs>
@@ -39,10 +38,9 @@ export function CrystalMark({ className }: { className?: string }) {
           <stop offset="1" stopColor="#007BFF" />
         </linearGradient>
       </defs>
-      {/* 4-point concave crystal star */}
       <path
         d="M32 2 C34 22 42 30 62 32 C42 34 34 42 32 62 C30 42 22 34 2 32 C22 30 30 22 32 2 Z"
-        fill="url(#cmg)"
+        fill={cyan ? "#00C8FF" : "url(#cmg)"}
       />
     </svg>
   );
