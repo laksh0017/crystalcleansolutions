@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Logo } from "@/components/Logo";
 import { Button } from "@/components/ui/button";
 import { WHATSAPP } from "@/lib/site";
-import { MessageCircle, Menu, X } from "lucide-react";
+import { MessageCircle, Menu, X, ArrowRight } from "lucide-react";
 import * as React from "react";
 
 const NAV = [
