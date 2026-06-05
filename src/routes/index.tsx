@@ -786,18 +786,17 @@ function InquiryForm() {
 }
 
 function Field({
-  name, label, type = "text", required, placeholder,
-}: { name: string; label: string; type?: string; required?: boolean; placeholder?: string }) {
+  name, label, type = "text", required,
+}: { name: string; label: string; type?: string; required?: boolean }) {
   return (
-    <div>
-      <label className="mb-1.5 block font-mono text-[10px] uppercase tracking-[0.2em] text-white/55">{label}</label>
+    <div className="field-floating">
       <input
         type={type}
         name={name}
         required={required}
-        placeholder={placeholder}
-        className="w-full rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2.5 text-sm text-white placeholder:text-white/30 outline-none transition focus:border-[color:var(--electric)]/50"
+        placeholder=" "
       />
+      <label>{label}</label>
     </div>
   );
 }
