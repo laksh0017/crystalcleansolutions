@@ -7,8 +7,9 @@ import { ArrowRight, ShieldCheck, ReceiptText, BadgeCheck, Truck } from "lucide-
 export function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="relative overflow-hidden border-t border-white/10 bg-[image:var(--gradient-ink)] text-white/80">
-      <div aria-hidden className="absolute inset-0 -z-0 bg-grid opacity-15" />
+    <footer className="relative overflow-hidden border-t border-white/[0.05] bg-[#030608] text-[#6B7FA3]">
+      <div aria-hidden className="absolute inset-0 -z-0 bg-grid opacity-[0.08]" />
+
 
       {/* CTA strip */}
       <div className="relative border-b border-white/10">
