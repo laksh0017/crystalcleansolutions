@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { SITE, WHATSAPP } from "@/lib/site";
-import { ProcurementNetwork } from "@/components/ProcurementNetwork";
+import { MeshBackdrop } from "@/components/MeshBackdrop";
 import { Reveal, CountUp } from "@/components/Reveal";
 import { CrystalMark } from "@/components/Logo";
 import {
@@ -11,8 +11,9 @@ import {
   Phone, Mail, MapPin, Send, Truck, ReceiptText, BadgeCheck,
   Droplets, SprayCan, Wind, Trash2, PackageOpen, Wrench, Database,
   ShieldCheck, Activity, Zap, LineChart, Globe2, Layers, Clock, ChevronDown,
-  TrendingDown, Workflow, CircleDot,
+  TrendingDown, Workflow, CircleDot, Check,
 } from "lucide-react";
+
 
 export const Route = createFileRoute("/")({
   component: HomePage,
