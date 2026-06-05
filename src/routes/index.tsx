@@ -692,7 +692,7 @@ function Vision() {
       <div className="relative mx-auto max-w-4xl px-6 py-24 text-center md:px-8 md:py-32">
         <CrystalMark className="mx-auto h-10 w-10" />
         <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.25em] text-[color:var(--electric)]">// Our Vision</p>
-        <h2 className="mt-4 text-balance text-3xl font-semibold leading-tight text-white md:text-5xl">
+        <h2 className="mt-4 text-balance text-luxe text-4xl font-medium leading-[1.05] tracking-[-0.035em] md:text-6xl lg:text-7xl">
           To become India's most trusted technology-enabled workplace procurement platform —
           starting from Hyderabad.
         </h2>
