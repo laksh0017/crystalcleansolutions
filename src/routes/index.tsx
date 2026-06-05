@@ -82,85 +82,86 @@ function Divider() {
    HERO — procurement ecosystem network
 ================================================================= */
 function Hero() {
-  const consoleRef = React.useRef<HTMLDivElement | null>(null);
-
-  // subtle mouse parallax on the console
-  React.useEffect(() => {
-    const el = consoleRef.current;
-    if (!el) return;
-    const onMove = (e: MouseEvent) => {
-      const r = el.getBoundingClientRect();
-      const cx = r.left + r.width / 2;
-      const cy = r.top + r.height / 2;
-      const dx = (e.clientX - cx) / r.width;
-      const dy = (e.clientY - cy) / r.height;
-      el.style.transform = `perspective(1200px) rotateX(${(-dy * 3).toFixed(2)}deg) rotateY(${(dx * 3).toFixed(2)}deg)`;
-    };
-    const onLeave = () => { el.style.transform = ""; };
-    window.addEventListener("mousemove", onMove);
-    window.addEventListener("mouseleave", onLeave);
-    return () => {
-      window.removeEventListener("mousemove", onMove);
-      window.removeEventListener("mouseleave", onLeave);
-    };
-  }, []);
-
   return (
     <section className="relative isolate overflow-hidden">
-      <ProcurementNetwork />
-      <div className="relative mx-auto max-w-7xl px-6 pb-28 pt-24 md:px-8 md:pb-36 md:pt-32">
-        <div className="mx-auto max-w-4xl text-center animate-fade-up">
-          <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-[11px] font-medium text-white/80 backdrop-blur-md">
-            <span className="relative flex h-1.5 w-1.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[color:var(--electric)] opacity-75" />
-              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[color:var(--electric)]" />
-            </span>
+      <MeshBackdrop />
+      <div className="relative mx-auto max-w-7xl px-6 pb-24 pt-20 md:px-8 md:pb-32 md:pt-28">
+        <div className="mx-auto max-w-4xl text-center">
+          <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-white/[0.06] bg-white/[0.02] px-3.5 py-1.5 text-[11px] font-medium text-white/80 backdrop-blur-md stagger-in">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#00C8FF] pulse-dot" />
             Technology-Enabled B2B Procurement · Hyderabad
           </div>
-          <h1 className="text-balance text-luxe text-5xl font-semibold leading-[1.02] tracking-[-0.035em] md:text-6xl lg:text-[5.25rem]">
-            Procurement,{" "}
-            <span className="bg-[image:var(--gradient-primary)] bg-clip-text text-transparent">
-              made invisible.
-            </span>
+          <h1
+            className="text-balance font-semibold text-white stagger-in"
+            style={{
+              fontSize: "clamp(42px, 7vw, 72px)",
+              lineHeight: 1.1,
+              letterSpacing: "-0.03em",
+              animationDelay: "80ms",
+            }}
+          >
+            Hyderabad's Technology-Enabled B2B
+            <br />
+            <span className="shimmer-text">Procurement Partner</span>
           </h1>
-          <p className="mx-auto mt-7 max-w-2xl text-pretty text-base leading-relaxed text-white/65 md:text-lg">
+          <p
+            className="mx-auto mt-7 stagger-in"
+            style={{
+              fontSize: "18px",
+              color: "#6B7FA3",
+              maxWidth: "520px",
+              lineHeight: 1.7,
+              animationDelay: "160ms",
+            }}
+          >
             Everything your workplace consumes — housekeeping, hygiene, chemicals, pantry, equipment —
             delivered by one accountable partner, on a single GST invoice, every month.
           </p>
-          <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
-            <Button asChild size="lg" className="btn-magnetic group rounded-full bg-[image:var(--gradient-primary)] px-7 text-white">
-              <Link to="/contact">
-                Request Quotation
-                <ArrowRight className="ico-arrow h-4 w-4" />
-              </Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="btn-glow-border rounded-full border-white/15 bg-white/[0.04] px-7 text-white backdrop-blur hover:bg-white/[0.06] hover:text-white">
-              <Link to="/products">
-                <FileText className="h-4 w-4" /> Download Catalogue
-              </Link>
-            </Button>
+          <div className="mt-9 flex flex-wrap items-center justify-center gap-3 stagger-in" style={{ animationDelay: "240ms" }}>
+            <Link
+              to="/contact"
+              className="group inline-flex items-center gap-2 rounded-full bg-[#00C8FF] text-black font-semibold transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(0,200,255,0.5)]"
+              style={{ padding: "14px 28px" }}
+            >
+              Request Quotation <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+            </Link>
+            <Link
+              to="/products"
+              className="inline-flex items-center gap-2 rounded-full border border-white/[0.15] bg-transparent text-white transition-all duration-200 hover:border-[#00C8FF]/40 hover:bg-[#00C8FF]/[0.05]"
+              style={{ padding: "14px 28px" }}
+            >
+              <FileText className="h-4 w-4" /> Download Catalogue
+            </Link>
           </div>
-          <ul className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[12px] text-white/55">
-            {["GST-Compliant Billing", "Recurring Supply", "60-min Quote SLA", "Pan-Hyderabad Logistics"].map((b) => (
-              <li key={b} className="inline-flex items-center gap-1.5">
-                <CheckCircle2 className="h-3.5 w-3.5 text-[color:var(--electric)]" /> {b}
+          <ul className="mt-10 flex flex-wrap items-center justify-center gap-x-0 gap-y-2">
+            {["GST-Compliant", "Recurring Supply", "60-min Quote", "Pan-Hyderabad"].map((b, i) => (
+              <li
+                key={b}
+                className="stagger-in inline-flex items-center gap-1.5 px-4 text-[13px] not-last:border-r [&:not(:last-child)]:border-r [&:not(:last-child)]:border-white/10"
+                style={{ color: "#6B7FA3", animationDelay: `${320 + i * 100}ms` }}
+              >
+                <Check className="h-3.5 w-3.5 text-[#00C8FF]" /> {b}
               </li>
             ))}
           </ul>
         </div>
 
-        {/* Floating procurement console with parallax */}
-        <div className="relative mx-auto mt-20 max-w-5xl animate-fade-up [animation-delay:200ms]">
-          <div className="absolute -inset-6 -z-10 rounded-[2.5rem] bg-[image:var(--gradient-primary)] opacity-25 blur-3xl" />
+        {/* Procurement Console widget */}
+        <div className="relative mx-auto mt-20 max-w-5xl slide-up-in">
           <div
-            ref={consoleRef}
-            className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] shadow-[var(--shadow-elegant)] backdrop-blur-xl transition-transform duration-300"
+            className="relative overflow-hidden rounded-2xl"
+            style={{
+              background: "rgba(255,255,255,0.02)",
+              border: "1px solid rgba(255,255,255,0.06)",
+              backdropFilter: "blur(12px)",
+              WebkitBackdropFilter: "blur(12px)",
+            }}
           >
-            <div className="flex items-center justify-between border-b border-white/10 px-5 py-3 text-[11px]">
+            <div className="flex items-center justify-between border-b border-white/[0.06] px-5 py-3 text-[11px]">
               <div className="flex items-center gap-2 font-mono uppercase tracking-[0.18em] text-white/50">
-                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" /> Procurement Console
+                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#00E676]" /> Procurement Console
               </div>
-              <span className="font-mono text-white/40">CCS · Live</span>
+              <span className="font-mono text-[10px] text-[#00E676]">CCS · Live</span>
             </div>
             <div className="grid gap-4 p-5 md:grid-cols-4 md:p-6">
               <Stat label="On-time delivery" value={<><CountUp to={99.1} decimals={1} suffix="%" /></>} Icon={Truck} />
@@ -177,15 +178,16 @@ function Hero() {
 
 function Stat({ label, value, Icon }: { label: string; value: React.ReactNode; Icon: React.ComponentType<{ className?: string }> }) {
   return (
-    <div className="rounded-xl border border-white/10 bg-white/[0.03] p-4">
+    <div className="rounded-xl border border-white/[0.05] bg-white/[0.02] p-4">
       <div className="flex items-center justify-between">
-        <p className="font-mono text-[9px] uppercase tracking-widest text-white/45">{label}</p>
-        <Icon className="h-3.5 w-3.5 text-[color:var(--electric)]" />
+        <p className="text-[10px] uppercase tracking-[0.12em]" style={{ color: "#4A5568" }}>{label}</p>
+        <Icon className="h-3.5 w-3.5 text-[#00C8FF]" />
       </div>
-      <p className="mt-2 text-2xl font-semibold tracking-tight text-white">{value}</p>
+      <p className="mt-2 text-[28px] font-medium tracking-tight text-white tabular-nums">{value}</p>
     </div>
   );
 }
+
 
 /* =================================================================
    TRUST BAR
