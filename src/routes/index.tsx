@@ -656,7 +656,8 @@ function ProcessTimeline() {
       <div className="mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-32">
         <Reveal><SectionLabel kicker="// Procurement Process" title="From enquiry to recurring supply — in days, not weeks." /></Reveal>
         <div className="relative mt-16">
-          <div aria-hidden className="absolute left-0 right-0 top-7 hidden h-px bg-gradient-to-r from-transparent via-[color:var(--electric)]/40 to-transparent lg:block" />
+          <div aria-hidden className="absolute left-0 right-0 top-7 hidden h-px bg-white/10 lg:block" />
+          <div aria-hidden className="timeline-pulse absolute left-0 right-0 top-7 hidden h-px lg:block" />
           <div className="grid gap-8 lg:grid-cols-5">
             {STEPS.map((s, idx) => (
               <Reveal key={s.n} delay={idx * 80}>
