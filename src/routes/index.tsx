@@ -45,23 +45,38 @@ export const Route = createFileRoute("/")({
 
 function HomePage() {
   return (
-    <>
+    <div className="page-fade-in">
       <Hero />
-      <TrustBar />
+      <Divider />
       <Industries />
+      <Divider />
       <ProductCategories />
+      <Divider />
       <WhyUs />
+      <Divider />
       <TechProcurement />
+      <Divider />
       <HyderabadPresence />
+      <Divider />
       <SuccessStory />
+      <Divider />
       <BrandWall />
+      <Divider />
       <ProcessTimeline />
+      <Divider />
       <Vision />
+      <Divider />
       <InquiryForm />
+      <CopyToastHost />
       <div aria-hidden className="h-16 sm:hidden" />
-    </>
+    </div>
   );
 }
+
+function Divider() {
+  return <div aria-hidden className="section-divider mx-auto max-w-7xl" />;
+}
+
 
 /* =================================================================
    HERO — procurement ecosystem network
