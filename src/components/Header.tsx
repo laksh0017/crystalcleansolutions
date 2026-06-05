@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Logo } from "@/components/Logo";
 import { Button } from "@/components/ui/button";
 import { WHATSAPP } from "@/lib/site";
-import { MessageCircle, Menu, X } from "lucide-react";
+import { MessageCircle, Menu, X, ArrowRight } from "lucide-react";
 import * as React from "react";
 
 const NAV = [
@@ -19,7 +19,7 @@ export function Header() {
   const [mobile, setMobile] = React.useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-xl">
+    <header className="sticky top-0 z-40 glass-nav">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 md:px-8">
         <Link to="/" aria-label="Crystal Clean Solutions home">
           <Logo />
@@ -47,8 +47,10 @@ export function Header() {
             <MessageCircle className="h-3.5 w-3.5 text-emerald-600" />
             WhatsApp
           </a>
-          <Button asChild variant="hero" size="sm" className="rounded-full px-5">
-            <Link to="/contact">Get Quotation</Link>
+          <Button asChild variant="hero" size="sm" className="btn-magnetic group rounded-full px-5 bg-[image:var(--gradient-primary)] text-white">
+            <Link to="/contact">
+              Get Quotation <ArrowRight className="ico-arrow ml-1 h-3.5 w-3.5" />
+            </Link>
           </Button>
           <button
             className="ml-1 grid h-9 w-9 place-items-center rounded-md border border-border lg:hidden"

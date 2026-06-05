@@ -101,7 +101,7 @@ function Hero() {
             </span>
             Technology-Enabled B2B Procurement · Hyderabad
           </div>
-          <h1 className="text-balance bg-gradient-to-b from-white via-white to-[#9BD8FF] bg-clip-text text-5xl font-semibold leading-[1.02] tracking-[-0.035em] text-transparent md:text-6xl lg:text-[5.25rem]">
+          <h1 className="text-balance text-luxe text-5xl font-semibold leading-[1.02] tracking-[-0.035em] md:text-6xl lg:text-[5.25rem]">
             Procurement,{" "}
             <span className="bg-[image:var(--gradient-primary)] bg-clip-text text-transparent">
               made invisible.
@@ -112,15 +112,15 @@ function Hero() {
             delivered by one accountable partner, on a single GST invoice, every month.
           </p>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
-            <Button asChild size="lg" className="group rounded-full bg-[image:var(--gradient-primary)] px-7 text-white shadow-[var(--shadow-glow)] hover:opacity-95">
+            <Button asChild size="lg" className="btn-magnetic group rounded-full bg-[image:var(--gradient-primary)] px-7 text-white">
               <Link to="/contact">
                 Request Quotation
-                <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
+                <ArrowRight className="ico-arrow h-4 w-4" />
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="rounded-full border-white/20 bg-white/5 px-7 text-white backdrop-blur hover:bg-white/10 hover:text-white">
+            <Button asChild size="lg" variant="outline" className="btn-glow-border rounded-full border-white/15 bg-white/[0.04] px-7 text-white backdrop-blur hover:bg-white/[0.06] hover:text-white">
               <Link to="/products">
-                <FileText className="h-4 w-4" /> Browse Catalogue
+                <FileText className="h-4 w-4" /> Download Catalogue
               </Link>
             </Button>
           </div>
@@ -247,13 +247,13 @@ function Industries() {
       <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {INDUSTRIES.map(({ i: Icon, t, d, challenges, categories }, idx) => (
           <Reveal key={t} delay={idx * 60}>
-            <div className="group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] p-6 transition hover:-translate-y-1 hover:border-[color:var(--electric)]/40">
+            <div className="card-premium group relative h-full overflow-hidden rounded-2xl p-6">
               <div
                 aria-hidden
                 className="absolute -right-12 -top-12 h-40 w-40 rounded-full opacity-0 transition group-hover:opacity-100"
                 style={{ background: "radial-gradient(circle, rgba(92,225,230,0.18), transparent 70%)" }}
               />
-              <div className="grid h-11 w-11 place-items-center rounded-xl bg-[image:var(--gradient-primary)] text-white shadow-[var(--shadow-glow)]">
+              <div className="ico-lift grid h-11 w-11 place-items-center rounded-xl bg-[image:var(--gradient-primary)] text-white shadow-[var(--shadow-glow)]">
                 <Icon className="h-5 w-5" />
               </div>
               <h3 className="mt-5 text-lg font-semibold text-white">{t}</h3>
@@ -312,10 +312,10 @@ function ProductCategories() {
                 <button
                   type="button"
                   onClick={() => setOpen(isOpen ? null : name)}
-                  className={`group w-full rounded-2xl border border-white/10 bg-white/[0.02] p-5 text-left transition hover:border-[color:var(--electric)]/40 hover:bg-white/[0.05] ${isOpen ? "border-[color:var(--electric)]/50 bg-white/[0.05]" : ""}`}
+                  className={`card-premium group w-full rounded-2xl p-5 text-left ${isOpen ? "!border-[color:var(--electric)]/50 !bg-white/[0.05]" : ""}`}
                 >
                   <div className="flex items-center justify-between">
-                    <Icon className="h-5 w-5 text-[color:var(--electric)]" />
+                    <Icon className="ico-lift h-5 w-5 text-[color:var(--electric)]" />
                     <ChevronDown className={`h-4 w-4 text-white/40 transition ${isOpen ? "rotate-180 text-[color:var(--electric)]" : ""}`} />
                   </div>
                   <h3 className="mt-4 font-semibold text-white">{name}</h3>
@@ -656,7 +656,8 @@ function ProcessTimeline() {
       <div className="mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-32">
         <Reveal><SectionLabel kicker="// Procurement Process" title="From enquiry to recurring supply — in days, not weeks." /></Reveal>
         <div className="relative mt-16">
-          <div aria-hidden className="absolute left-0 right-0 top-7 hidden h-px bg-gradient-to-r from-transparent via-[color:var(--electric)]/40 to-transparent lg:block" />
+          <div aria-hidden className="absolute left-0 right-0 top-7 hidden h-px bg-white/10 lg:block" />
+          <div aria-hidden className="timeline-pulse absolute left-0 right-0 top-7 hidden h-px lg:block" />
           <div className="grid gap-8 lg:grid-cols-5">
             {STEPS.map((s, idx) => (
               <Reveal key={s.n} delay={idx * 80}>
@@ -691,7 +692,7 @@ function Vision() {
       <div className="relative mx-auto max-w-4xl px-6 py-24 text-center md:px-8 md:py-32">
         <CrystalMark className="mx-auto h-10 w-10" />
         <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.25em] text-[color:var(--electric)]">// Our Vision</p>
-        <h2 className="mt-4 text-balance text-3xl font-semibold leading-tight text-white md:text-5xl">
+        <h2 className="mt-4 text-balance text-luxe text-4xl font-medium leading-[1.05] tracking-[-0.035em] md:text-6xl lg:text-7xl">
           To become India's most trusted technology-enabled workplace procurement platform —
           starting from Hyderabad.
         </h2>
@@ -746,36 +747,33 @@ function InquiryForm() {
             onSubmit={onSubmit}
             className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur md:p-8"
           >
-            <div className="grid gap-4 sm:grid-cols-2">
-              <Field name="company" label="Company *" required placeholder="Acme Corp" />
-              <Field name="name" label="Your Name *" required placeholder="Procurement lead" />
-              <Field name="phone" label="Phone *" required placeholder="+91" />
-              <Field name="email" label="Email" type="email" placeholder="you@company.com" />
-              <div className="sm:col-span-2">
-                <label className="mb-1.5 block font-mono text-[10px] uppercase tracking-[0.2em] text-white/55">Industry</label>
+            <div className="grid gap-2 sm:grid-cols-2 sm:gap-x-6">
+              <Field name="company" label="Company *" required />
+              <Field name="name" label="Your Name *" required />
+              <Field name="phone" label="Phone *" required />
+              <Field name="email" label="Email" type="email" />
+              <div className="field-floating is-filled sm:col-span-2">
                 <select
                   name="industry"
-                  className="w-full rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2.5 text-sm text-white outline-none focus:border-[color:var(--electric)]/50"
                   defaultValue="Corporate / IT"
                 >
                   {["Corporate / IT", "Hospital / Clinic", "Hotel / Hospitality", "Education", "Co-working", "Other"].map((o) => (
                     <option key={o} className="bg-[color:var(--card)]">{o}</option>
                   ))}
                 </select>
+                <label>Industry</label>
               </div>
-              <div className="sm:col-span-2">
-                <label className="mb-1.5 block font-mono text-[10px] uppercase tracking-[0.2em] text-white/55">Requirement *</label>
+              <div className="field-floating sm:col-span-2">
                 <textarea
                   name="message"
                   required
-                  rows={4}
-                  placeholder="List product categories or specific SKUs and approximate monthly quantities."
-                  className="w-full resize-none rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2.5 text-sm text-white placeholder:text-white/30 outline-none focus:border-[color:var(--electric)]/50"
+                  placeholder=" "
                 />
+                <label>Requirement *</label>
               </div>
             </div>
-            <Button type="submit" size="lg" className="mt-6 w-full rounded-full bg-[image:var(--gradient-primary)] text-white shadow-[var(--shadow-glow)] hover:opacity-95">
-              {sent ? "Opening WhatsApp…" : <>Send Enquiry <Send className="h-4 w-4" /></>}
+            <Button type="submit" size="lg" className="btn-magnetic group mt-8 w-full rounded-full bg-[image:var(--gradient-primary)] text-white">
+              {sent ? "Opening WhatsApp…" : <>Send Enquiry <Send className="ico-arrow h-4 w-4" /></>}
             </Button>
             <p className="mt-3 text-center text-[11px] text-white/45">
               Submissions open WhatsApp with your enquiry pre-filled.
@@ -788,18 +786,17 @@ function InquiryForm() {
 }
 
 function Field({
-  name, label, type = "text", required, placeholder,
-}: { name: string; label: string; type?: string; required?: boolean; placeholder?: string }) {
+  name, label, type = "text", required,
+}: { name: string; label: string; type?: string; required?: boolean }) {
   return (
-    <div>
-      <label className="mb-1.5 block font-mono text-[10px] uppercase tracking-[0.2em] text-white/55">{label}</label>
+    <div className="field-floating">
       <input
         type={type}
         name={name}
         required={required}
-        placeholder={placeholder}
-        className="w-full rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2.5 text-sm text-white placeholder:text-white/30 outline-none transition focus:border-[color:var(--electric)]/50"
+        placeholder=" "
       />
+      <label>{label}</label>
     </div>
   );
 }
