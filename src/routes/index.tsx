@@ -312,10 +312,10 @@ function ProductCategories() {
                 <button
                   type="button"
                   onClick={() => setOpen(isOpen ? null : name)}
-                  className={`group w-full rounded-2xl border border-white/10 bg-white/[0.02] p-5 text-left transition hover:border-[color:var(--electric)]/40 hover:bg-white/[0.05] ${isOpen ? "border-[color:var(--electric)]/50 bg-white/[0.05]" : ""}`}
+                  className={`card-premium group w-full rounded-2xl p-5 text-left ${isOpen ? "!border-[color:var(--electric)]/50 !bg-white/[0.05]" : ""}`}
                 >
                   <div className="flex items-center justify-between">
-                    <Icon className="h-5 w-5 text-[color:var(--electric)]" />
+                    <Icon className="ico-lift h-5 w-5 text-[color:var(--electric)]" />
                     <ChevronDown className={`h-4 w-4 text-white/40 transition ${isOpen ? "rotate-180 text-[color:var(--electric)]" : ""}`} />
                   </div>
                   <h3 className="mt-4 font-semibold text-white">{name}</h3>
