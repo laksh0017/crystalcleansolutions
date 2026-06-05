@@ -460,35 +460,55 @@ function TechProcurement() {
     { i: Zap, t: "Automated Quotations", d: "Templated RFQ responses with consistent pricing logic." },
   ];
   return (
-    <section className="relative border-y border-white/5 bg-[color:var(--ink)]">
-      <div aria-hidden className="absolute inset-0 bg-grid opacity-20 mask-fade-b" />
-      <div className="relative mx-auto grid max-w-7xl gap-14 px-6 py-24 md:px-8 md:py-32 lg:grid-cols-[1fr_1fr] lg:items-center">
-        <Reveal>
-          <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-[color:var(--electric)]">// Technology-Enabled Procurement</p>
-          <h2 className="mt-3 text-4xl font-semibold leading-tight text-white md:text-5xl">
-            A procurement platform —{" "}
-            <span className="bg-[image:var(--gradient-primary)] bg-clip-text text-transparent">not a vendor list.</span>
-          </h2>
-          <p className="mt-6 text-white/65 md:text-lg">
-            We're building Hyderabad's first procurement-first workplace consumables partner.
-            Operational rigour you'd expect from enterprise SaaS — applied to the supplies
-            your facility actually runs on.
-          </p>
-          <div className="mt-8 grid gap-3 sm:grid-cols-2">
-            {features.map(({ i: Icon, t, d }) => (
-              <div key={t} className="rounded-xl border border-white/10 bg-white/[0.03] p-4">
-                <Icon className="h-4.5 w-4.5 text-[color:var(--electric)]" />
-                <p className="mt-2.5 font-semibold text-white">{t}</p>
-                <p className="mt-1 text-xs leading-relaxed text-white/55">{d}</p>
-              </div>
+    <section className="relative">
+      <div className="relative mx-auto grid max-w-7xl gap-14 px-6 py-24 md:px-8 md:py-28 lg:grid-cols-[1fr_1fr] lg:items-center">
+        <div>
+          <Reveal>
+            <p className="text-[11px] font-medium tracking-[0.15em] text-[#00C8FF]">// TECHNOLOGY-ENABLED PROCUREMENT</p>
+            <h2
+              className="mt-3 font-semibold text-white"
+              style={{ fontSize: "clamp(30px, 4vw, 44px)", letterSpacing: "-0.025em", lineHeight: 1.15 }}
+            >
+              A procurement platform —
+              <br />
+              <span className="text-[#00C8FF]">not a vendor list.</span>
+            </h2>
+            <p className="mt-6 max-w-[420px] text-[16px] leading-[1.7]" style={{ color: "#6B7FA3" }}>
+              We're building Hyderabad's first procurement-first workplace consumables partner.
+              Operational rigour you'd expect from enterprise SaaS — applied to the supplies
+              your facility actually runs on.
+            </p>
+          </Reveal>
+          <div className="mt-8 divide-y divide-white/[0.05]">
+            {features.map(({ i: Icon, t, d }, idx) => (
+              <Reveal key={t} delay={idx * 80}>
+                <div className="flex items-start gap-4 py-5">
+                  <div
+                    className="grid h-10 w-10 shrink-0 place-items-center rounded-[10px]"
+                    style={{ background: "rgba(0,200,255,0.08)" }}
+                  >
+                    <Icon className="h-5 w-5 text-[#00C8FF]" />
+                  </div>
+                  <div>
+                    <p className="text-[15px] font-semibold text-white">{t}</p>
+                    <p className="mt-1 text-[13px] leading-[1.6]" style={{ color: "#6B7FA3" }}>{d}</p>
+                  </div>
+                </div>
+              </Reveal>
             ))}
           </div>
-        </Reveal>
+        </div>
 
         <Reveal delay={120}>
           <div className="relative">
-            <div className="absolute -inset-4 -z-10 rounded-3xl bg-[image:var(--gradient-primary)] opacity-30 blur-3xl" />
-            <LiveDashboard />
+            <div
+              aria-hidden
+              className="absolute inset-0 -z-10 rounded-3xl"
+              style={{ boxShadow: "0 30px 80px rgba(0,200,255,0.08)" }}
+            />
+            <div className="float-y">
+              <LiveDashboard />
+            </div>
           </div>
         </Reveal>
       </div>
@@ -497,84 +517,94 @@ function TechProcurement() {
 }
 
 function LiveDashboard() {
-  const [tick, setTick] = React.useState(0);
-  React.useEffect(() => {
-    const id = setInterval(() => setTick((t) => t + 1), 2400);
-    return () => clearInterval(id);
-  }, []);
-
-  // gently animated values
-  const spend = 84200 + (tick % 6) * 120;
-  const orders = 4;
-  const skus = 37;
-  const burn = 62 + ((tick * 3) % 18);
-
   return (
-    <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#0B1530]/80 shadow-[var(--shadow-elegant)] backdrop-blur">
-      <div className="flex items-center justify-between border-b border-white/10 px-5 py-3">
-        <div className="flex items-center gap-2">
-          <CrystalMark className="h-4 w-4" />
-          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/50">Account · ITSPL Corp</span>
-        </div>
-        <span className="rounded-full bg-emerald-400/15 px-2 py-0.5 text-[10px] font-medium text-emerald-300">
-          <span className="mr-1 inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400 align-middle" /> Live
+    <div
+      className="overflow-hidden rounded-[20px]"
+      style={{
+        padding: "24px",
+        background: "rgba(255,255,255,0.03)",
+        border: "1px solid rgba(255,255,255,0.08)",
+      }}
+    >
+      <div className="flex items-center justify-between border-b border-white/[0.06] pb-4">
+        <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-white">ITSPL CORP</span>
+        <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-400/15 px-2.5 py-1 text-[11px] font-medium text-emerald-300">
+          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" /> Active
         </span>
       </div>
-      <div className="grid gap-4 p-5">
-        <div className="grid grid-cols-3 gap-3">
-          <DashCell l="Monthly Spend" v={`₹${spend.toLocaleString("en-IN")}`} />
-          <DashCell l="Orders / Mo" v={`${orders}`} />
-          <DashCell l="SKUs Tracked" v={`${skus}`} />
+      <div className="mt-5 grid grid-cols-3 divide-x divide-white/[0.05]">
+        <DashCell l="Monthly Spend" v="₹84,200" />
+        <DashCell l="Orders / Mo" v="4" />
+        <DashCell l="SKUs Tracked" v="37" />
+      </div>
+      <div className="mt-6">
+        <div className="mb-3 flex items-center justify-between">
+          <p className="text-[10px] uppercase tracking-[0.15em]" style={{ color: "#4A5568" }}>Consumption · Last 6 mo</p>
+          <span className="text-[11px] text-[#00C8FF]">burn 68%</span>
         </div>
-        <div>
-          <div className="mb-2 flex items-center justify-between">
-            <p className="font-mono text-[10px] uppercase tracking-widest text-white/45">Consumption · Last 6 mo</p>
-            <span className="font-mono text-[10px] text-[color:var(--electric)]">burn {burn}%</span>
-          </div>
-          <SparkBars seed={tick} />
-        </div>
-        <div className="space-y-2">
-          {[
-            ["Washroom Tissue 2-ply", "40 bundles", "On schedule"],
-            ["Floor Cleaner 5L", "12 cans", "Dispatched"],
-            ["Hand Wash 5L", "8 cans", "Confirmed"],
-          ].map(([n, q, s]) => (
-            <div key={n} className="flex items-center justify-between rounded-lg bg-white/[0.03] px-3 py-2 text-sm">
+        <SparkBars />
+      </div>
+      <div className="mt-5 space-y-2">
+        {[
+          ["Washroom Tissue 2-ply", "40 bundles", "On schedule", "emerald"],
+          ["Floor Cleaner 5L", "12 cans", "Dispatched", "cyan"],
+          ["Hand Wash 5L", "8 cans", "Confirmed", "blue"],
+        ].map(([n, q, s, color]) => {
+          const palette: Record<string, string> = {
+            emerald: "bg-emerald-400/15 text-emerald-300",
+            cyan: "bg-[#00C8FF]/15 text-[#00C8FF]",
+            blue: "bg-blue-400/15 text-blue-300",
+          };
+          return (
+            <div key={n} className="flex items-center justify-between rounded-[10px] bg-white/[0.02] px-3 py-2.5 text-[13px]">
               <span className="text-white/85">{n}</span>
               <div className="flex items-center gap-3 text-[11px]">
-                <span className="font-mono text-white/50">{q}</span>
-                <span className="rounded-full bg-[color:var(--electric)]/15 px-2 py-0.5 text-[color:var(--electric)]">{s}</span>
+                <span className="font-mono text-white/45">{q}</span>
+                <span className={`rounded-full px-2 py-0.5 ${palette[color]}`}>{s}</span>
               </div>
             </div>
-          ))}
-        </div>
+          );
+        })}
       </div>
     </div>
   );
 }
 function DashCell({ l, v }: { l: string; v: string }) {
   return (
-    <div className="rounded-lg bg-white/[0.04] p-3">
-      <p className="font-mono text-[9px] uppercase tracking-widest text-white/40">{l}</p>
-      <p className="mt-1 text-base font-semibold text-white tabular-nums">{v}</p>
+    <div className="px-3 first:pl-0 last:pr-0">
+      <p className="text-[10px] uppercase tracking-[0.12em]" style={{ color: "#4A5568" }}>{l}</p>
+      <p className="mt-1.5 text-[20px] font-medium text-white tabular-nums">{v}</p>
     </div>
   );
 }
-function SparkBars({ seed }: { seed: number }) {
-  const base = [40, 55, 48, 70, 62, 85];
-  const data = base.map((v, i) => Math.max(20, Math.min(98, v + ((seed + i * 7) % 14) - 7)));
+function SparkBars() {
+  const ref = React.useRef<HTMLDivElement | null>(null);
+  const [show, setShow] = React.useState(false);
+  React.useEffect(() => {
+    const el = ref.current; if (!el) return;
+    const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setShow(true); io.disconnect(); } }, { rootMargin: "100px" });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+  const data = [40, 55, 48, 70, 62, 85, 72, 90, 68, 78, 88, 95];
   return (
-    <div className="flex h-20 items-end gap-1.5">
+    <div ref={ref} className="flex h-20 items-end gap-1.5">
       {data.map((v, i) => (
         <div
           key={i}
-          className="flex-1 rounded-t-sm bg-[image:var(--gradient-primary)] opacity-80 transition-[height] duration-700 ease-out"
-          style={{ height: `${v}%` }}
+          className="flex-1 rounded-t-[3px] transition-all ease-out"
+          style={{
+            height: show ? `${v}%` : "0%",
+            background: `linear-gradient(180deg, rgba(0,200,255,${0.4 + (v / 100) * 0.4}), rgba(0,200,255,${0.2 + (v / 100) * 0.3}))`,
+            transitionDuration: "800ms",
+            transitionDelay: `${i * 80}ms`,
+          }}
         />
       ))}
     </div>
   );
 }
+
 
 /* =================================================================
    HYDERABAD PRESENCE — interactive cluster map
