@@ -137,7 +137,7 @@ function Hero() {
             {["GST-Compliant", "Recurring Supply", "60-min Quote", "Pan-Hyderabad"].map((b, i) => (
               <li
                 key={b}
-                className="stagger-in inline-flex items-center gap-1.5 px-4 text-[13px] not-last:border-r [&:not(:last-child)]:border-r [&:not(:last-child)]:border-white/10"
+                className="stagger-in inline-flex items-center gap-1.5 px-4 text-[13px] [&:not(:last-child)]:border-r [&:not(:last-child)]:border-white/10"
                 style={{ color: "#6B7FA3", animationDelay: `${320 + i * 100}ms` }}
               >
                 <Check className="h-3.5 w-3.5 text-[#00C8FF]" /> {b}
