@@ -260,41 +260,44 @@ const INDUSTRIES = [
 ];
 function Industries() {
   return (
-    <section className="relative mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-32">
-      <Reveal><SectionLabel kicker="// Industries" title="Trusted across business categories" /></Reveal>
+    <section className="relative mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-28">
+      <Reveal>
+        <div className="text-center">
+          <p className="text-[12px] font-medium tracking-[0.15em] text-[#00C8FF]">// INDUSTRIES</p>
+          <h2
+            className="mx-auto mt-3 font-semibold text-white"
+            style={{ fontSize: "clamp(32px, 5vw, 48px)", letterSpacing: "-0.025em", maxWidth: "600px", lineHeight: 1.15 }}
+          >
+            Trusted across business categories
+          </h2>
+        </div>
+      </Reveal>
       <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {INDUSTRIES.map(({ i: Icon, t, d, challenges, categories }, idx) => (
-          <Reveal key={t} delay={idx * 60}>
-            <div className="card-premium group relative h-full overflow-hidden rounded-2xl p-6">
+        {INDUSTRIES.map(({ i: Icon, t, d }, idx) => (
+          <Reveal key={t} delay={idx * 80}>
+            <div
+              className="group relative h-full rounded-[20px] p-7 transition-all duration-300 hover:-translate-y-1.5"
+              style={{
+                background: "rgba(255,255,255,0.025)",
+                border: "1px solid rgba(255,255,255,0.06)",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = "rgba(0,200,255,0.04)";
+                e.currentTarget.style.borderColor = "rgba(0,200,255,0.2)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "rgba(255,255,255,0.025)";
+                e.currentTarget.style.borderColor = "rgba(255,255,255,0.06)";
+              }}
+            >
               <div
-                aria-hidden
-                className="absolute -right-12 -top-12 h-40 w-40 rounded-full opacity-0 transition group-hover:opacity-100"
-                style={{ background: "radial-gradient(circle, rgba(92,225,230,0.18), transparent 70%)" }}
-              />
-              <div className="ico-lift grid h-11 w-11 place-items-center rounded-xl bg-[image:var(--gradient-primary)] text-white shadow-[var(--shadow-glow)]">
-                <Icon className="h-5 w-5" />
+                className="grid h-11 w-11 place-items-center rounded-[12px]"
+                style={{ background: "rgba(0,200,255,0.1)" }}
+              >
+                <Icon className="h-5 w-5 text-[#00C8FF]" />
               </div>
-              <h3 className="mt-5 text-lg font-semibold text-white">{t}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-white/60">{d}</p>
-
-              <div className="mt-5 grid gap-3 overflow-hidden text-[12px] text-white/65 transition-all duration-500 lg:max-h-0 lg:opacity-0 lg:group-hover:max-h-60 lg:group-hover:opacity-100">
-                <div>
-                  <p className="font-mono text-[9.5px] uppercase tracking-[0.22em] text-white/40">Typical challenges</p>
-                  <ul className="mt-1.5 space-y-1">
-                    {challenges.map((c) => (
-                      <li key={c} className="flex items-start gap-1.5"><TrendingDown className="mt-0.5 h-3 w-3 text-[color:var(--electric)]" />{c}</li>
-                    ))}
-                  </ul>
-                </div>
-                <div>
-                  <p className="font-mono text-[9.5px] uppercase tracking-[0.22em] text-white/40">Recommended categories</p>
-                  <ul className="mt-1.5 space-y-1">
-                    {categories.map((c) => (
-                      <li key={c} className="flex items-start gap-1.5"><CircleDot className="mt-0.5 h-3 w-3 text-[color:var(--electric)]" />{c}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
+              <h3 className="mt-4 text-[16px] font-semibold text-white">{t}</h3>
+              <p className="mt-1.5 text-[14px] leading-[1.6]" style={{ color: "#6B7FA3" }}>{d}</p>
             </div>
           </Reveal>
         ))}
@@ -302,6 +305,7 @@ function Industries() {
     </section>
   );
 }
+
 
 /* =================================================================
    PRODUCT CATEGORIES — expandable explorer
