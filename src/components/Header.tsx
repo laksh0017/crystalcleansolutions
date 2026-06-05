@@ -19,7 +19,7 @@ export function Header() {
   const [mobile, setMobile] = React.useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-xl">
+    <header className="sticky top-0 z-40 glass-nav">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 md:px-8">
         <Link to="/" aria-label="Crystal Clean Solutions home">
           <Logo />
