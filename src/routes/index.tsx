@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { SITE, WHATSAPP } from "@/lib/site";
-import { ProcurementNetwork } from "@/components/ProcurementNetwork";
+import { MeshBackdrop } from "@/components/MeshBackdrop";
 import { Reveal, CountUp } from "@/components/Reveal";
 import { CrystalMark } from "@/components/Logo";
 import {
@@ -11,8 +11,9 @@ import {
   Phone, Mail, MapPin, Send, Truck, ReceiptText, BadgeCheck,
   Droplets, SprayCan, Wind, Trash2, PackageOpen, Wrench, Database,
   ShieldCheck, Activity, Zap, LineChart, Globe2, Layers, Clock, ChevronDown,
-  TrendingDown, Workflow, CircleDot,
+  TrendingDown, Workflow, CircleDot, Check,
 } from "lucide-react";
+
 
 export const Route = createFileRoute("/")({
   component: HomePage,
@@ -44,107 +45,123 @@ export const Route = createFileRoute("/")({
 
 function HomePage() {
   return (
-    <>
+    <div className="page-fade-in">
       <Hero />
-      <TrustBar />
+      <Divider />
       <Industries />
+      <Divider />
       <ProductCategories />
+      <Divider />
       <WhyUs />
+      <Divider />
       <TechProcurement />
+      <Divider />
       <HyderabadPresence />
+      <Divider />
       <SuccessStory />
+      <Divider />
       <BrandWall />
+      <Divider />
       <ProcessTimeline />
+      <Divider />
       <Vision />
+      <Divider />
       <InquiryForm />
+      <CopyToastHost />
       <div aria-hidden className="h-16 sm:hidden" />
-    </>
+    </div>
   );
 }
+
+function Divider() {
+  return <div aria-hidden className="section-divider mx-auto max-w-7xl" />;
+}
+
 
 /* =================================================================
    HERO — procurement ecosystem network
 ================================================================= */
 function Hero() {
-  const consoleRef = React.useRef<HTMLDivElement | null>(null);
-
-  // subtle mouse parallax on the console
-  React.useEffect(() => {
-    const el = consoleRef.current;
-    if (!el) return;
-    const onMove = (e: MouseEvent) => {
-      const r = el.getBoundingClientRect();
-      const cx = r.left + r.width / 2;
-      const cy = r.top + r.height / 2;
-      const dx = (e.clientX - cx) / r.width;
-      const dy = (e.clientY - cy) / r.height;
-      el.style.transform = `perspective(1200px) rotateX(${(-dy * 3).toFixed(2)}deg) rotateY(${(dx * 3).toFixed(2)}deg)`;
-    };
-    const onLeave = () => { el.style.transform = ""; };
-    window.addEventListener("mousemove", onMove);
-    window.addEventListener("mouseleave", onLeave);
-    return () => {
-      window.removeEventListener("mousemove", onMove);
-      window.removeEventListener("mouseleave", onLeave);
-    };
-  }, []);
-
   return (
     <section className="relative isolate overflow-hidden">
-      <ProcurementNetwork />
-      <div className="relative mx-auto max-w-7xl px-6 pb-28 pt-24 md:px-8 md:pb-36 md:pt-32">
-        <div className="mx-auto max-w-4xl text-center animate-fade-up">
-          <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-[11px] font-medium text-white/80 backdrop-blur-md">
-            <span className="relative flex h-1.5 w-1.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[color:var(--electric)] opacity-75" />
-              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[color:var(--electric)]" />
-            </span>
+      <MeshBackdrop />
+      <div className="relative mx-auto max-w-7xl px-6 pb-24 pt-20 md:px-8 md:pb-32 md:pt-28">
+        <div className="mx-auto max-w-4xl text-center">
+          <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-white/[0.06] bg-white/[0.02] px-3.5 py-1.5 text-[11px] font-medium text-white/80 backdrop-blur-md stagger-in">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#00C8FF] pulse-dot" />
             Technology-Enabled B2B Procurement · Hyderabad
           </div>
-          <h1 className="text-balance text-luxe text-5xl font-semibold leading-[1.02] tracking-[-0.035em] md:text-6xl lg:text-[5.25rem]">
-            Procurement,{" "}
-            <span className="bg-[image:var(--gradient-primary)] bg-clip-text text-transparent">
-              made invisible.
-            </span>
+          <h1
+            className="text-balance font-semibold text-white stagger-in"
+            style={{
+              fontSize: "clamp(42px, 7vw, 72px)",
+              lineHeight: 1.1,
+              letterSpacing: "-0.03em",
+              animationDelay: "80ms",
+            }}
+          >
+            Hyderabad's Technology-Enabled B2B
+            <br />
+            <span className="shimmer-text">Procurement Partner</span>
           </h1>
-          <p className="mx-auto mt-7 max-w-2xl text-pretty text-base leading-relaxed text-white/65 md:text-lg">
+          <p
+            className="mx-auto mt-7 stagger-in"
+            style={{
+              fontSize: "18px",
+              color: "#6B7FA3",
+              maxWidth: "520px",
+              lineHeight: 1.7,
+              animationDelay: "160ms",
+            }}
+          >
             Everything your workplace consumes — housekeeping, hygiene, chemicals, pantry, equipment —
             delivered by one accountable partner, on a single GST invoice, every month.
           </p>
-          <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
-            <Button asChild size="lg" className="btn-magnetic group rounded-full bg-[image:var(--gradient-primary)] px-7 text-white">
-              <Link to="/contact">
-                Request Quotation
-                <ArrowRight className="ico-arrow h-4 w-4" />
-              </Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="btn-glow-border rounded-full border-white/15 bg-white/[0.04] px-7 text-white backdrop-blur hover:bg-white/[0.06] hover:text-white">
-              <Link to="/products">
-                <FileText className="h-4 w-4" /> Download Catalogue
-              </Link>
-            </Button>
+          <div className="mt-9 flex flex-wrap items-center justify-center gap-3 stagger-in" style={{ animationDelay: "240ms" }}>
+            <Link
+              to="/contact"
+              className="group inline-flex items-center gap-2 rounded-full bg-[#00C8FF] text-black font-semibold transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(0,200,255,0.5)]"
+              style={{ padding: "14px 28px" }}
+            >
+              Request Quotation <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+            </Link>
+            <Link
+              to="/products"
+              className="inline-flex items-center gap-2 rounded-full border border-white/[0.15] bg-transparent text-white transition-all duration-200 hover:border-[#00C8FF]/40 hover:bg-[#00C8FF]/[0.05]"
+              style={{ padding: "14px 28px" }}
+            >
+              <FileText className="h-4 w-4" /> Download Catalogue
+            </Link>
           </div>
-          <ul className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[12px] text-white/55">
-            {["GST-Compliant Billing", "Recurring Supply", "60-min Quote SLA", "Pan-Hyderabad Logistics"].map((b) => (
-              <li key={b} className="inline-flex items-center gap-1.5">
-                <CheckCircle2 className="h-3.5 w-3.5 text-[color:var(--electric)]" /> {b}
+          <ul className="mt-10 flex flex-wrap items-center justify-center gap-x-0 gap-y-2">
+            {["GST-Compliant", "Recurring Supply", "60-min Quote", "Pan-Hyderabad"].map((b, i) => (
+              <li
+                key={b}
+                className="stagger-in inline-flex items-center gap-1.5 px-4 text-[13px] [&:not(:last-child)]:border-r [&:not(:last-child)]:border-white/10"
+                style={{ color: "#6B7FA3", animationDelay: `${320 + i * 100}ms` }}
+              >
+                <Check className="h-3.5 w-3.5 text-[#00C8FF]" /> {b}
               </li>
             ))}
           </ul>
         </div>
 
-        {/* Floating procurement console with parallax */}
-        <div className="relative mx-auto mt-20 max-w-5xl animate-fade-up [animation-delay:200ms]">
-          <div className="absolute -inset-6 -z-10 rounded-[2.5rem] bg-[image:var(--gradient-primary)] opacity-25 blur-3xl" />
+        {/* Procurement Console widget */}
+        <div className="relative mx-auto mt-20 max-w-5xl slide-up-in">
           <div
-            ref={consoleRef}
-            className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] shadow-[var(--shadow-elegant)] backdrop-blur-xl transition-transform duration-300"
+            className="relative overflow-hidden rounded-2xl"
+            style={{
+              background: "rgba(255,255,255,0.02)",
+              border: "1px solid rgba(255,255,255,0.06)",
+              backdropFilter: "blur(12px)",
+              WebkitBackdropFilter: "blur(12px)",
+            }}
           >
-            <div className="flex items-center justify-between border-b border-white/10 px-5 py-3 text-[11px]">
+            <div className="flex items-center justify-between border-b border-white/[0.06] px-5 py-3 text-[11px]">
               <div className="flex items-center gap-2 font-mono uppercase tracking-[0.18em] text-white/50">
-                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" /> Procurement Console
+                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#00E676]" /> Procurement Console
               </div>
-              <span className="font-mono text-white/40">CCS · Live</span>
+              <span className="font-mono text-[10px] text-[#00E676]">CCS · Live</span>
             </div>
             <div className="grid gap-4 p-5 md:grid-cols-4 md:p-6">
               <Stat label="On-time delivery" value={<><CountUp to={99.1} decimals={1} suffix="%" /></>} Icon={Truck} />
@@ -161,15 +178,16 @@ function Hero() {
 
 function Stat({ label, value, Icon }: { label: string; value: React.ReactNode; Icon: React.ComponentType<{ className?: string }> }) {
   return (
-    <div className="rounded-xl border border-white/10 bg-white/[0.03] p-4">
+    <div className="rounded-xl border border-white/[0.05] bg-white/[0.02] p-4">
       <div className="flex items-center justify-between">
-        <p className="font-mono text-[9px] uppercase tracking-widest text-white/45">{label}</p>
-        <Icon className="h-3.5 w-3.5 text-[color:var(--electric)]" />
+        <p className="text-[10px] uppercase tracking-[0.12em]" style={{ color: "#4A5568" }}>{label}</p>
+        <Icon className="h-3.5 w-3.5 text-[#00C8FF]" />
       </div>
-      <p className="mt-2 text-2xl font-semibold tracking-tight text-white">{value}</p>
+      <p className="mt-2 text-[28px] font-medium tracking-tight text-white tabular-nums">{value}</p>
     </div>
   );
 }
+
 
 /* =================================================================
    TRUST BAR
@@ -242,41 +260,44 @@ const INDUSTRIES = [
 ];
 function Industries() {
   return (
-    <section className="relative mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-32">
-      <Reveal><SectionLabel kicker="// Industries" title="Trusted across business categories" /></Reveal>
+    <section className="relative mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-28">
+      <Reveal>
+        <div className="text-center">
+          <p className="text-[12px] font-medium tracking-[0.15em] text-[#00C8FF]">// INDUSTRIES</p>
+          <h2
+            className="mx-auto mt-3 font-semibold text-white"
+            style={{ fontSize: "clamp(32px, 5vw, 48px)", letterSpacing: "-0.025em", maxWidth: "600px", lineHeight: 1.15 }}
+          >
+            Trusted across business categories
+          </h2>
+        </div>
+      </Reveal>
       <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {INDUSTRIES.map(({ i: Icon, t, d, challenges, categories }, idx) => (
-          <Reveal key={t} delay={idx * 60}>
-            <div className="card-premium group relative h-full overflow-hidden rounded-2xl p-6">
+        {INDUSTRIES.map(({ i: Icon, t, d }, idx) => (
+          <Reveal key={t} delay={idx * 80}>
+            <div
+              className="group relative h-full rounded-[20px] p-7 transition-all duration-300 hover:-translate-y-1.5"
+              style={{
+                background: "rgba(255,255,255,0.025)",
+                border: "1px solid rgba(255,255,255,0.06)",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = "rgba(0,200,255,0.04)";
+                e.currentTarget.style.borderColor = "rgba(0,200,255,0.2)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "rgba(255,255,255,0.025)";
+                e.currentTarget.style.borderColor = "rgba(255,255,255,0.06)";
+              }}
+            >
               <div
-                aria-hidden
-                className="absolute -right-12 -top-12 h-40 w-40 rounded-full opacity-0 transition group-hover:opacity-100"
-                style={{ background: "radial-gradient(circle, rgba(92,225,230,0.18), transparent 70%)" }}
-              />
-              <div className="ico-lift grid h-11 w-11 place-items-center rounded-xl bg-[image:var(--gradient-primary)] text-white shadow-[var(--shadow-glow)]">
-                <Icon className="h-5 w-5" />
+                className="grid h-11 w-11 place-items-center rounded-[12px]"
+                style={{ background: "rgba(0,200,255,0.1)" }}
+              >
+                <Icon className="h-5 w-5 text-[#00C8FF]" />
               </div>
-              <h3 className="mt-5 text-lg font-semibold text-white">{t}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-white/60">{d}</p>
-
-              <div className="mt-5 grid gap-3 overflow-hidden text-[12px] text-white/65 transition-all duration-500 lg:max-h-0 lg:opacity-0 lg:group-hover:max-h-60 lg:group-hover:opacity-100">
-                <div>
-                  <p className="font-mono text-[9.5px] uppercase tracking-[0.22em] text-white/40">Typical challenges</p>
-                  <ul className="mt-1.5 space-y-1">
-                    {challenges.map((c) => (
-                      <li key={c} className="flex items-start gap-1.5"><TrendingDown className="mt-0.5 h-3 w-3 text-[color:var(--electric)]" />{c}</li>
-                    ))}
-                  </ul>
-                </div>
-                <div>
-                  <p className="font-mono text-[9.5px] uppercase tracking-[0.22em] text-white/40">Recommended categories</p>
-                  <ul className="mt-1.5 space-y-1">
-                    {categories.map((c) => (
-                      <li key={c} className="flex items-start gap-1.5"><CircleDot className="mt-0.5 h-3 w-3 text-[color:var(--electric)]" />{c}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
+              <h3 className="mt-4 text-[16px] font-semibold text-white">{t}</h3>
+              <p className="mt-1.5 text-[14px] leading-[1.6]" style={{ color: "#6B7FA3" }}>{d}</p>
             </div>
           </Reveal>
         ))}
@@ -284,6 +305,7 @@ function Industries() {
     </section>
   );
 }
+
 
 /* =================================================================
    PRODUCT CATEGORIES — expandable explorer
@@ -299,43 +321,58 @@ const CATEGORIES = [
   { i: SprayCan, name: "Pantry & Equipment", d: "Pantry consumables & facility equipment.", items: ["Disposable cups & plates", "Stirrers & straws", "Cling film & foil", "Pantry detergents"] },
 ];
 function ProductCategories() {
-  const [open, setOpen] = React.useState<string | null>(null);
   return (
-    <section id="solutions" className="scroll-mt-24 relative border-y border-white/5 bg-[color:var(--card)]/30">
-      <div className="mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-32">
-        <Reveal><SectionLabel kicker="// Category Explorer" title="One catalogue. Every workplace consumable." /></Reveal>
-        <div className="mt-14 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {CATEGORIES.map(({ i: Icon, name, d, items }, idx) => {
-            const isOpen = open === name;
-            return (
-              <Reveal key={name} delay={idx * 50}>
-                <button
-                  type="button"
-                  onClick={() => setOpen(isOpen ? null : name)}
-                  className={`card-premium group w-full rounded-2xl p-5 text-left ${isOpen ? "!border-[color:var(--electric)]/50 !bg-white/[0.05]" : ""}`}
+    <section id="solutions" className="scroll-mt-24 relative">
+      <div className="mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-28">
+        <Reveal>
+          <div className="text-center">
+            <p className="text-[12px] font-medium tracking-[0.15em] text-[#00C8FF]">// CATEGORY EXPLORER</p>
+            <h2
+              className="mx-auto mt-3 font-semibold text-white"
+              style={{ fontSize: "clamp(32px, 5vw, 48px)", letterSpacing: "-0.025em", maxWidth: "720px", lineHeight: 1.15 }}
+            >
+              One catalogue. <span className="text-[#00C8FF]">Every workplace consumable.</span>
+            </h2>
+          </div>
+        </Reveal>
+        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {CATEGORIES.map(({ i: Icon, name, d }, idx) => (
+            <Reveal key={name} delay={idx * 60}>
+              <div
+                className="group relative h-full overflow-hidden rounded-[18px] transition-all duration-300 hover:-translate-y-1.5"
+                style={{
+                  padding: "24px 20px",
+                  background: "rgba(255,255,255,0.02)",
+                  border: "1px solid rgba(255,255,255,0.05)",
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(0,200,255,0.15)"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.05)"; }}
+              >
+                <span
+                  aria-hidden
+                  className="absolute bottom-0 left-0 w-[3px] origin-bottom scale-y-0 bg-[#00C8FF] transition-transform duration-500 group-hover:scale-y-100"
+                  style={{ height: "100%" }}
+                />
+                <div
+                  className="grid h-[52px] w-[52px] place-items-center rounded-[14px] transition-colors duration-300 group-hover:bg-[rgba(0,200,255,0.15)]"
+                  style={{ background: "rgba(0,200,255,0.08)" }}
                 >
-                  <div className="flex items-center justify-between">
-                    <Icon className="ico-lift h-5 w-5 text-[color:var(--electric)]" />
-                    <ChevronDown className={`h-4 w-4 text-white/40 transition ${isOpen ? "rotate-180 text-[color:var(--electric)]" : ""}`} />
-                  </div>
-                  <h3 className="mt-4 font-semibold text-white">{name}</h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-white/55">{d}</p>
-                  <div className={`grid overflow-hidden text-[12px] text-white/65 transition-all duration-500 ${isOpen ? "mt-3 max-h-64 opacity-100" : "max-h-0 opacity-0"}`}>
-                    <ul className="space-y-1 border-t border-white/5 pt-3">
-                      {items.map((it) => (
-                        <li key={it} className="flex items-start gap-1.5"><CircleDot className="mt-0.5 h-3 w-3 text-[color:var(--electric)]" />{it}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </button>
-              </Reveal>
-            );
-          })}
+                  <Icon className="h-[26px] w-[26px] text-[#00C8FF]" />
+                </div>
+                <h3 className="mt-3.5 text-[15px] font-semibold text-white">{name}</h3>
+                <p className="mt-1.5 text-[13px] leading-[1.5]" style={{ color: "#5A6A7A" }}>{d}</p>
+              </div>
+            </Reveal>
+          ))}
         </div>
-        <div className="mt-10 flex justify-center">
-          <Button asChild variant="outline" className="rounded-full border-white/20 bg-white/5 text-white hover:bg-white/10 hover:text-white">
-            <Link to="/products">Browse full catalogue <ArrowRight className="h-4 w-4" /></Link>
-          </Button>
+        <div className="mt-12 flex justify-center">
+          <Link
+            to="/products"
+            className="group inline-flex items-center gap-2 rounded-full border border-white/[0.12] text-white transition-all duration-200 hover:border-[#00C8FF]/40 hover:text-[#00C8FF] hover:shadow-[0_0_24px_rgba(0,200,255,0.2)]"
+            style={{ padding: "12px 28px" }}
+          >
+            Browse full catalogue <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+          </Link>
         </div>
       </div>
     </section>
@@ -346,7 +383,7 @@ function ProductCategories() {
    WHY US
 ================================================================= */
 const WHY = [
-  { i: ShieldCheck, t: "Single Procurement Partner", d: "Consolidate 8+ vendors into one accountable supplier." },
+  { i: ShieldCheck, t: "Single Procurement Partner", d: "Consolidate 8+ vendors into one accountable supplier. One PO, one catalogue, one accountable contact across every workplace category." },
   { i: Zap, t: "Sub-60-min Quote SLA", d: "Structured quotations within an hour of enquiry." },
   { i: Repeat, t: "Recurring Monthly Supply", d: "Locked quantities, scheduled dispatch, no follow-ups." },
   { i: ReceiptText, t: "Clean GST Invoicing", d: "Single tax invoice per cycle — finance-team friendly." },
@@ -355,28 +392,62 @@ const WHY = [
 ];
 function WhyUs() {
   return (
-    <section id="why" className="scroll-mt-24 relative mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-32">
-      <Reveal><SectionLabel kicker="// Why Businesses Choose Us" title="Built for procurement teams, not retail shoppers." /></Reveal>
-      <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {WHY.map(({ i: Icon, t, d }, idx) => (
-          <Reveal key={t} delay={idx * 60}>
-            <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 backdrop-blur transition hover:border-[color:var(--electric)]/40">
-              <div className="flex items-start gap-4">
-                <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg border border-[color:var(--electric)]/30 bg-[color:var(--electric)]/10 text-[color:var(--electric)]">
-                  <Icon className="h-5 w-5" />
+    <section
+      id="why"
+      className="scroll-mt-24 relative"
+      style={{ background: "radial-gradient(ellipse at 50% 0%, rgba(0,200,255,0.05) 0%, transparent 60%)" }}
+    >
+      <div className="mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-28">
+        <Reveal>
+          <div className="text-center">
+            <p className="text-[12px] font-medium tracking-[0.15em] text-[#00C8FF]">// WHY CRYSTAL</p>
+            <h2
+              className="mx-auto mt-3 font-semibold text-white"
+              style={{ fontSize: "clamp(32px, 5.5vw, 52px)", letterSpacing: "-0.03em", maxWidth: "700px", lineHeight: 1.15 }}
+            >
+              Built for procurement teams, <span className="italic text-[#00C8FF]">not retail shoppers.</span>
+            </h2>
+          </div>
+        </Reveal>
+        <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {WHY.map(({ i: Icon, t, d }, idx) => {
+            const isHero = idx === 0;
+            return (
+              <Reveal key={t} delay={idx * 80}>
+                <div
+                  className={`group h-full rounded-[20px] transition-all duration-300 ${isHero ? "lg:col-span-2" : ""}`}
+                  style={{
+                    padding: "28px 24px",
+                    background: isHero ? "rgba(0,200,255,0.05)" : "rgba(255,255,255,0.025)",
+                    border: isHero ? "1px solid rgba(0,200,255,0.15)" : "1px solid rgba(255,255,255,0.06)",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = "rgba(0,200,255,0.25)";
+                    e.currentTarget.style.background = "rgba(0,200,255,0.05)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = isHero ? "rgba(0,200,255,0.15)" : "rgba(255,255,255,0.06)";
+                    e.currentTarget.style.background = isHero ? "rgba(0,200,255,0.05)" : "rgba(255,255,255,0.025)";
+                  }}
+                >
+                  <div
+                    className="grid h-[52px] w-[52px] place-items-center rounded-full"
+                    style={{ background: "rgba(0,200,255,0.1)" }}
+                  >
+                    <Icon className="h-5 w-5 text-[#00C8FF]" />
+                  </div>
+                  <h3 className={`mt-4 font-semibold text-white ${isHero ? "text-[18px]" : "text-[15px]"}`}>{t}</h3>
+                  <p className="mt-2 text-[14px] leading-[1.6]" style={{ color: "#6B7FA3" }}>{d}</p>
                 </div>
-                <div>
-                  <h3 className="font-semibold text-white">{t}</h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-white/60">{d}</p>
-                </div>
-              </div>
-            </div>
-          </Reveal>
-        ))}
+              </Reveal>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
 }
+
 
 /* =================================================================
    TECHNOLOGY ENABLED PROCUREMENT
@@ -389,35 +460,55 @@ function TechProcurement() {
     { i: Zap, t: "Automated Quotations", d: "Templated RFQ responses with consistent pricing logic." },
   ];
   return (
-    <section className="relative border-y border-white/5 bg-[color:var(--ink)]">
-      <div aria-hidden className="absolute inset-0 bg-grid opacity-20 mask-fade-b" />
-      <div className="relative mx-auto grid max-w-7xl gap-14 px-6 py-24 md:px-8 md:py-32 lg:grid-cols-[1fr_1fr] lg:items-center">
-        <Reveal>
-          <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-[color:var(--electric)]">// Technology-Enabled Procurement</p>
-          <h2 className="mt-3 text-4xl font-semibold leading-tight text-white md:text-5xl">
-            A procurement platform —{" "}
-            <span className="bg-[image:var(--gradient-primary)] bg-clip-text text-transparent">not a vendor list.</span>
-          </h2>
-          <p className="mt-6 text-white/65 md:text-lg">
-            We're building Hyderabad's first procurement-first workplace consumables partner.
-            Operational rigour you'd expect from enterprise SaaS — applied to the supplies
-            your facility actually runs on.
-          </p>
-          <div className="mt-8 grid gap-3 sm:grid-cols-2">
-            {features.map(({ i: Icon, t, d }) => (
-              <div key={t} className="rounded-xl border border-white/10 bg-white/[0.03] p-4">
-                <Icon className="h-4.5 w-4.5 text-[color:var(--electric)]" />
-                <p className="mt-2.5 font-semibold text-white">{t}</p>
-                <p className="mt-1 text-xs leading-relaxed text-white/55">{d}</p>
-              </div>
+    <section className="relative">
+      <div className="relative mx-auto grid max-w-7xl gap-14 px-6 py-24 md:px-8 md:py-28 lg:grid-cols-[1fr_1fr] lg:items-center">
+        <div>
+          <Reveal>
+            <p className="text-[11px] font-medium tracking-[0.15em] text-[#00C8FF]">// TECHNOLOGY-ENABLED PROCUREMENT</p>
+            <h2
+              className="mt-3 font-semibold text-white"
+              style={{ fontSize: "clamp(30px, 4vw, 44px)", letterSpacing: "-0.025em", lineHeight: 1.15 }}
+            >
+              A procurement platform —
+              <br />
+              <span className="text-[#00C8FF]">not a vendor list.</span>
+            </h2>
+            <p className="mt-6 max-w-[420px] text-[16px] leading-[1.7]" style={{ color: "#6B7FA3" }}>
+              We're building Hyderabad's first procurement-first workplace consumables partner.
+              Operational rigour you'd expect from enterprise SaaS — applied to the supplies
+              your facility actually runs on.
+            </p>
+          </Reveal>
+          <div className="mt-8 divide-y divide-white/[0.05]">
+            {features.map(({ i: Icon, t, d }, idx) => (
+              <Reveal key={t} delay={idx * 80}>
+                <div className="flex items-start gap-4 py-5">
+                  <div
+                    className="grid h-10 w-10 shrink-0 place-items-center rounded-[10px]"
+                    style={{ background: "rgba(0,200,255,0.08)" }}
+                  >
+                    <Icon className="h-5 w-5 text-[#00C8FF]" />
+                  </div>
+                  <div>
+                    <p className="text-[15px] font-semibold text-white">{t}</p>
+                    <p className="mt-1 text-[13px] leading-[1.6]" style={{ color: "#6B7FA3" }}>{d}</p>
+                  </div>
+                </div>
+              </Reveal>
             ))}
           </div>
-        </Reveal>
+        </div>
 
         <Reveal delay={120}>
           <div className="relative">
-            <div className="absolute -inset-4 -z-10 rounded-3xl bg-[image:var(--gradient-primary)] opacity-30 blur-3xl" />
-            <LiveDashboard />
+            <div
+              aria-hidden
+              className="absolute inset-0 -z-10 rounded-3xl"
+              style={{ boxShadow: "0 30px 80px rgba(0,200,255,0.08)" }}
+            />
+            <div className="float-y">
+              <LiveDashboard />
+            </div>
           </div>
         </Reveal>
       </div>
@@ -426,84 +517,94 @@ function TechProcurement() {
 }
 
 function LiveDashboard() {
-  const [tick, setTick] = React.useState(0);
-  React.useEffect(() => {
-    const id = setInterval(() => setTick((t) => t + 1), 2400);
-    return () => clearInterval(id);
-  }, []);
-
-  // gently animated values
-  const spend = 84200 + (tick % 6) * 120;
-  const orders = 4;
-  const skus = 37;
-  const burn = 62 + ((tick * 3) % 18);
-
   return (
-    <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#0B1530]/80 shadow-[var(--shadow-elegant)] backdrop-blur">
-      <div className="flex items-center justify-between border-b border-white/10 px-5 py-3">
-        <div className="flex items-center gap-2">
-          <CrystalMark className="h-4 w-4" />
-          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/50">Account · ITSPL Corp</span>
-        </div>
-        <span className="rounded-full bg-emerald-400/15 px-2 py-0.5 text-[10px] font-medium text-emerald-300">
-          <span className="mr-1 inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400 align-middle" /> Live
+    <div
+      className="overflow-hidden rounded-[20px]"
+      style={{
+        padding: "24px",
+        background: "rgba(255,255,255,0.03)",
+        border: "1px solid rgba(255,255,255,0.08)",
+      }}
+    >
+      <div className="flex items-center justify-between border-b border-white/[0.06] pb-4">
+        <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-white">ITSPL CORP</span>
+        <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-400/15 px-2.5 py-1 text-[11px] font-medium text-emerald-300">
+          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" /> Active
         </span>
       </div>
-      <div className="grid gap-4 p-5">
-        <div className="grid grid-cols-3 gap-3">
-          <DashCell l="Monthly Spend" v={`₹${spend.toLocaleString("en-IN")}`} />
-          <DashCell l="Orders / Mo" v={`${orders}`} />
-          <DashCell l="SKUs Tracked" v={`${skus}`} />
+      <div className="mt-5 grid grid-cols-3 divide-x divide-white/[0.05]">
+        <DashCell l="Monthly Spend" v="₹84,200" />
+        <DashCell l="Orders / Mo" v="4" />
+        <DashCell l="SKUs Tracked" v="37" />
+      </div>
+      <div className="mt-6">
+        <div className="mb-3 flex items-center justify-between">
+          <p className="text-[10px] uppercase tracking-[0.15em]" style={{ color: "#4A5568" }}>Consumption · Last 6 mo</p>
+          <span className="text-[11px] text-[#00C8FF]">burn 68%</span>
         </div>
-        <div>
-          <div className="mb-2 flex items-center justify-between">
-            <p className="font-mono text-[10px] uppercase tracking-widest text-white/45">Consumption · Last 6 mo</p>
-            <span className="font-mono text-[10px] text-[color:var(--electric)]">burn {burn}%</span>
-          </div>
-          <SparkBars seed={tick} />
-        </div>
-        <div className="space-y-2">
-          {[
-            ["Washroom Tissue 2-ply", "40 bundles", "On schedule"],
-            ["Floor Cleaner 5L", "12 cans", "Dispatched"],
-            ["Hand Wash 5L", "8 cans", "Confirmed"],
-          ].map(([n, q, s]) => (
-            <div key={n} className="flex items-center justify-between rounded-lg bg-white/[0.03] px-3 py-2 text-sm">
+        <SparkBars />
+      </div>
+      <div className="mt-5 space-y-2">
+        {[
+          ["Washroom Tissue 2-ply", "40 bundles", "On schedule", "emerald"],
+          ["Floor Cleaner 5L", "12 cans", "Dispatched", "cyan"],
+          ["Hand Wash 5L", "8 cans", "Confirmed", "blue"],
+        ].map(([n, q, s, color]) => {
+          const palette: Record<string, string> = {
+            emerald: "bg-emerald-400/15 text-emerald-300",
+            cyan: "bg-[#00C8FF]/15 text-[#00C8FF]",
+            blue: "bg-blue-400/15 text-blue-300",
+          };
+          return (
+            <div key={n} className="flex items-center justify-between rounded-[10px] bg-white/[0.02] px-3 py-2.5 text-[13px]">
               <span className="text-white/85">{n}</span>
               <div className="flex items-center gap-3 text-[11px]">
-                <span className="font-mono text-white/50">{q}</span>
-                <span className="rounded-full bg-[color:var(--electric)]/15 px-2 py-0.5 text-[color:var(--electric)]">{s}</span>
+                <span className="font-mono text-white/45">{q}</span>
+                <span className={`rounded-full px-2 py-0.5 ${palette[color]}`}>{s}</span>
               </div>
             </div>
-          ))}
-        </div>
+          );
+        })}
       </div>
     </div>
   );
 }
 function DashCell({ l, v }: { l: string; v: string }) {
   return (
-    <div className="rounded-lg bg-white/[0.04] p-3">
-      <p className="font-mono text-[9px] uppercase tracking-widest text-white/40">{l}</p>
-      <p className="mt-1 text-base font-semibold text-white tabular-nums">{v}</p>
+    <div className="px-3 first:pl-0 last:pr-0">
+      <p className="text-[10px] uppercase tracking-[0.12em]" style={{ color: "#4A5568" }}>{l}</p>
+      <p className="mt-1.5 text-[20px] font-medium text-white tabular-nums">{v}</p>
     </div>
   );
 }
-function SparkBars({ seed }: { seed: number }) {
-  const base = [40, 55, 48, 70, 62, 85];
-  const data = base.map((v, i) => Math.max(20, Math.min(98, v + ((seed + i * 7) % 14) - 7)));
+function SparkBars() {
+  const ref = React.useRef<HTMLDivElement | null>(null);
+  const [show, setShow] = React.useState(false);
+  React.useEffect(() => {
+    const el = ref.current; if (!el) return;
+    const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setShow(true); io.disconnect(); } }, { rootMargin: "100px" });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+  const data = [40, 55, 48, 70, 62, 85, 72, 90, 68, 78, 88, 95];
   return (
-    <div className="flex h-20 items-end gap-1.5">
+    <div ref={ref} className="flex h-20 items-end gap-1.5">
       {data.map((v, i) => (
         <div
           key={i}
-          className="flex-1 rounded-t-sm bg-[image:var(--gradient-primary)] opacity-80 transition-[height] duration-700 ease-out"
-          style={{ height: `${v}%` }}
+          className="flex-1 rounded-t-[3px] transition-all ease-out"
+          style={{
+            height: show ? `${v}%` : "0%",
+            background: `linear-gradient(180deg, rgba(0,200,255,${0.4 + (v / 100) * 0.4}), rgba(0,200,255,${0.2 + (v / 100) * 0.3}))`,
+            transitionDuration: "800ms",
+            transitionDelay: `${i * 80}ms`,
+          }}
         />
       ))}
     </div>
   );
 }
+
 
 /* =================================================================
    HYDERABAD PRESENCE — interactive cluster map
@@ -652,21 +753,37 @@ const STEPS = [
 ];
 function ProcessTimeline() {
   return (
-    <section className="relative border-y border-white/5">
-      <div className="mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-32">
-        <Reveal><SectionLabel kicker="// Procurement Process" title="From enquiry to recurring supply — in days, not weeks." /></Reveal>
+    <section className="relative">
+      <div className="mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-28">
+        <Reveal>
+          <div className="text-center">
+            <p className="text-[12px] font-medium tracking-[0.15em] text-[#00C8FF]">// PROCUREMENT PROCESS</p>
+            <h2
+              className="mx-auto mt-3 font-semibold"
+              style={{ fontSize: "clamp(30px, 5vw, 48px)", letterSpacing: "-0.025em", maxWidth: "780px", lineHeight: 1.15, color: "#fff" }}
+            >
+              From enquiry to recurring supply — <span className="text-[#00C8FF]">in days, not weeks.</span>
+            </h2>
+          </div>
+        </Reveal>
         <div className="relative mt-16">
-          <div aria-hidden className="absolute left-0 right-0 top-7 hidden h-px bg-white/10 lg:block" />
-          <div aria-hidden className="timeline-pulse absolute left-0 right-0 top-7 hidden h-px lg:block" />
-          <div className="grid gap-8 lg:grid-cols-5">
+          <div aria-hidden className="absolute left-0 right-0 top-[22px] hidden h-px bg-white/[0.08] lg:block" />
+          <div aria-hidden className="timeline-pulse absolute left-0 right-0 top-[22px] hidden h-px lg:block" />
+          <div className="grid gap-10 lg:grid-cols-5 lg:gap-6">
             {STEPS.map((s, idx) => (
-              <Reveal key={s.n} delay={idx * 80}>
-                <div className="relative">
-                  <div className="mx-auto grid h-14 w-14 place-items-center rounded-full border border-[color:var(--electric)]/30 bg-[color:var(--card)] text-sm font-mono font-semibold text-[color:var(--electric)] shadow-[0_0_30px_-8px_rgba(92,225,230,0.5)]">
-                    {s.n}
+              <Reveal key={s.n} delay={idx * 120}>
+                <div className="relative flex flex-col items-center text-center">
+                  <div className="relative">
+                    <span aria-hidden className="absolute inset-0 rounded-full bg-[#00C8FF]/30" style={{ animation: `pulse-ring 1.8s ${idx * 0.15}s ease-out infinite` }} />
+                    <div
+                      className="relative grid h-11 w-11 place-items-center rounded-full font-mono text-[13px] font-semibold text-[#00C8FF]"
+                      style={{ border: "1.5px solid rgba(0,200,255,0.4)", background: "#050A0F" }}
+                    >
+                      {s.n}
+                    </div>
                   </div>
-                  <h3 className="mt-5 text-center font-semibold text-white">{s.t}</h3>
-                  <p className="mt-2 text-center text-sm leading-relaxed text-white/55">{s.d}</p>
+                  <h3 className="mt-3.5 text-[15px] font-semibold text-white">{s.t}</h3>
+                  <p className="mt-1.5 max-w-[180px] text-[13px] leading-[1.55]" style={{ color: "#6B7FA3" }}>{s.d}</p>
                 </div>
               </Reveal>
             ))}
@@ -682,21 +799,32 @@ function ProcessTimeline() {
 ================================================================= */
 function Vision() {
   return (
-    <section className="relative overflow-hidden border-y border-white/5">
-      <div aria-hidden className="absolute inset-0 -z-10 bg-[image:var(--gradient-ink)]" />
+    <section className="relative overflow-hidden">
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 opacity-70 animate-aurora"
-        style={{ background: "var(--gradient-nebula)" }}
+        className="absolute inset-0 -z-10"
+        style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(0,200,255,0.04) 0%, transparent 60%)" }}
       />
-      <div className="relative mx-auto max-w-4xl px-6 py-24 text-center md:px-8 md:py-32">
-        <CrystalMark className="mx-auto h-10 w-10" />
-        <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.25em] text-[color:var(--electric)]">// Our Vision</p>
-        <h2 className="mt-4 text-balance text-luxe text-4xl font-medium leading-[1.05] tracking-[-0.035em] md:text-6xl lg:text-7xl">
-          To become India's most trusted technology-enabled workplace procurement platform —
-          starting from Hyderabad.
+      <div className="relative mx-auto max-w-5xl px-6 py-24 text-center md:px-8 md:py-32">
+        <div className="mx-auto inline-flex spin-slow" style={{ width: 60, height: 60 }}>
+          <CrystalMark className="h-[60px] w-[60px]" cyan />
+        </div>
+        <h2
+          className="mt-8 text-balance font-semibold text-white"
+          style={{ fontSize: "clamp(32px, 5.5vw, 56px)", letterSpacing: "-0.03em", lineHeight: 1.15 }}
+        >
+          To become India's most trusted
+          <br />
+          technology-enabled workplace
+          <br />
+          <span className="text-[#00C8FF]">procurement platform</span>
+          <br />
+          <span className="text-[0.85em]">— starting from Hyderabad.</span>
         </h2>
-        <p className="mx-auto mt-6 max-w-2xl text-white/65 md:text-lg">
+        <p
+          className="mx-auto mt-6"
+          style={{ fontSize: "17px", color: "#6B7FA3", maxWidth: "560px", lineHeight: 1.7 }}
+        >
           We believe procurement should be invisible to your operations team — predictable,
           auditable and built for scale. Crystal Clean Solutions is engineering that future.
         </p>
@@ -714,8 +842,7 @@ function InquiryForm() {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
     const lines = [
-      `Hi Crystal Clean Solutions,`,
-      ``,
+      `Hi Crystal Clean Solutions,`, ``,
       `Company: ${fd.get("company")}`,
       `Contact: ${fd.get("name")} · ${fd.get("phone")}`,
       `Email: ${fd.get("email")}`,
@@ -727,55 +854,72 @@ function InquiryForm() {
     setSent(true);
   };
   return (
-    <section id="enquiry" className="scroll-mt-24 relative mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-32">
+    <section id="enquiry" className="scroll-mt-24 relative mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-28">
       <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr]">
         <Reveal>
-          <SectionLabel kicker="// Customer Inquiry" title="Request a quotation." align="left" />
-          <p className="mt-6 max-w-md text-white/65">
+          <p className="text-[12px] font-medium tracking-[0.15em] text-[#00C8FF]">// CUSTOMER INQUIRY</p>
+          <h2 className="mt-3 font-semibold text-white" style={{ fontSize: "clamp(30px, 4vw, 44px)", letterSpacing: "-0.025em" }}>
+            Request a quotation.
+          </h2>
+          <p className="mt-5 max-w-md text-[16px]" style={{ color: "#6B7FA3" }}>
             Share your requirement — typical quote turnaround is under 60 minutes during business hours.
           </p>
-          <div className="mt-10 space-y-4">
-            <ContactRow icon={Phone} label="Call" value={SITE.phone} href={`tel:+${SITE.phoneRaw}`} />
-            <ContactRow icon={MessageCircle} label="WhatsApp" value="Chat with procurement" href={WHATSAPP} />
-            <ContactRow icon={Mail} label="Email" value={SITE.email} href={`mailto:${SITE.email}`} />
-            <ContactRow icon={MapPin} label="Office" value={SITE.address} />
+          <div className="mt-10 grid gap-3 sm:grid-cols-2">
+            <ContactRow icon={Phone} label="CALL" value={SITE.phone} href={`tel:+${SITE.phoneRaw}`} copyText={SITE.phone} />
+            <ContactRow icon={MessageCircle} label="WHATSAPP" value="Chat with procurement" href={WHATSAPP} />
+            <ContactRow icon={Mail} label="EMAIL" value={SITE.email} href={`mailto:${SITE.email}`} copyText={SITE.email} />
+            <ContactRow icon={MapPin} label="OFFICE" value={SITE.address} />
           </div>
         </Reveal>
 
         <Reveal delay={120}>
           <form
             onSubmit={onSubmit}
-            className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur md:p-8"
+            className="rounded-[18px] p-6 md:p-8"
+            style={{ background: "rgba(255,255,255,0.025)", border: "1px solid rgba(255,255,255,0.06)" }}
           >
-            <div className="grid gap-2 sm:grid-cols-2 sm:gap-x-6">
-              <Field name="company" label="Company *" required />
-              <Field name="name" label="Your Name *" required />
-              <Field name="phone" label="Phone *" required />
-              <Field name="email" label="Email" type="email" />
-              <div className="field-floating is-filled sm:col-span-2">
+            <div className="grid gap-5 sm:grid-cols-2">
+              <FilledField name="company" label="COMPANY *" required />
+              <FilledField name="name" label="YOUR NAME *" required />
+              <FilledField name="phone" label="PHONE *" required />
+              <FilledField name="email" label="EMAIL" type="email" />
+              <div className="sm:col-span-2">
+                <label className="block text-[11px] font-medium uppercase tracking-[0.06em]" style={{ color: "#6B7FA3", marginBottom: 6 }}>INDUSTRY</label>
                 <select
                   name="industry"
                   defaultValue="Corporate / IT"
+                  className="w-full rounded-[10px] px-4 py-3 text-[14px] text-white outline-none transition focus:border-[#00C8FF] focus:shadow-[0_0_0_3px_rgba(0,200,255,0.1)]"
+                  style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
                 >
                   {["Corporate / IT", "Hospital / Clinic", "Hotel / Hospitality", "Education", "Co-working", "Other"].map((o) => (
-                    <option key={o} className="bg-[color:var(--card)]">{o}</option>
+                    <option key={o} className="bg-[#050A0F]">{o}</option>
                   ))}
                 </select>
-                <label>Industry</label>
               </div>
-              <div className="field-floating sm:col-span-2">
+              <div className="sm:col-span-2">
+                <label className="block text-[11px] font-medium uppercase tracking-[0.06em]" style={{ color: "#6B7FA3", marginBottom: 6 }}>REQUIREMENT *</label>
                 <textarea
                   name="message"
                   required
-                  placeholder=" "
+                  rows={4}
+                  className="w-full rounded-[10px] px-4 py-3 text-[14px] text-white outline-none transition focus:border-[#00C8FF] focus:shadow-[0_0_0_3px_rgba(0,200,255,0.1)]"
+                  style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
                 />
-                <label>Requirement *</label>
               </div>
             </div>
-            <Button type="submit" size="lg" className="btn-magnetic group mt-8 w-full rounded-full bg-[image:var(--gradient-primary)] text-white">
-              {sent ? "Opening WhatsApp…" : <>Send Enquiry <Send className="ico-arrow h-4 w-4" /></>}
-            </Button>
-            <p className="mt-3 text-center text-[11px] text-white/45">
+            <button
+              type="submit"
+              className="mt-7 w-full rounded-[12px] text-black transition-all duration-200 hover:scale-[1.01] hover:brightness-110 hover:shadow-[0_8px_30px_rgba(0,200,255,0.3)]"
+              style={{
+                background: "linear-gradient(135deg, #00C8FF, #0080FF)",
+                padding: "16px",
+                fontSize: "15px",
+                fontWeight: 700,
+              }}
+            >
+              {sent ? "Opening WhatsApp…" : "Send Enquiry"}
+            </button>
+            <p className="mt-3 text-center text-[12px]" style={{ color: "#4A5568" }}>
               Submissions open WhatsApp with your enquiry pre-filled.
             </p>
           </form>
@@ -785,38 +929,82 @@ function InquiryForm() {
   );
 }
 
-function Field({
+function FilledField({
   name, label, type = "text", required,
 }: { name: string; label: string; type?: string; required?: boolean }) {
   return (
-    <div className="field-floating">
+    <div>
+      <label className="block text-[11px] font-medium uppercase tracking-[0.06em]" style={{ color: "#6B7FA3", marginBottom: 6 }}>{label}</label>
       <input
         type={type}
         name={name}
         required={required}
-        placeholder=" "
+        className="w-full rounded-[10px] px-4 py-3 text-[14px] text-white outline-none transition focus:border-[#00C8FF] focus:shadow-[0_0_0_3px_rgba(0,200,255,0.1)]"
+        style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
       />
-      <label>{label}</label>
     </div>
   );
 }
 
 function ContactRow({
-  icon: Icon, label, value, href,
-}: { icon: React.ComponentType<{ className?: string }>; label: string; value: string; href?: string }) {
+  icon: Icon, label, value, href, copyText,
+}: { icon: React.ComponentType<{ className?: string }>; label: string; value: string; href?: string; copyText?: string }) {
+  const onClick = (e: React.MouseEvent) => {
+    if (!copyText) return;
+    e.preventDefault();
+    navigator.clipboard?.writeText(copyText).then(() => {
+      window.dispatchEvent(new CustomEvent("ccs:toast", { detail: `Copied ${copyText}` }));
+    });
+  };
   const inner = (
-    <div className="flex items-start gap-4 rounded-xl border border-white/10 bg-white/[0.02] p-4 transition hover:border-[color:var(--electric)]/30">
-      <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-[color:var(--electric)]/10 text-[color:var(--electric)]">
-        <Icon className="h-4.5 w-4.5" />
-      </div>
-      <div>
-        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/45">{label}</p>
-        <p className="mt-1 text-sm text-white/85">{value}</p>
+    <div
+      className="flex items-start gap-3 rounded-[14px] transition-all duration-200 hover:-translate-y-[3px]"
+      style={{ padding: "16px 20px", background: "rgba(255,255,255,0.025)", border: "1px solid rgba(255,255,255,0.06)" }}
+      onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(0,200,255,0.3)"; }}
+      onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.06)"; }}
+    >
+      <Icon className="mt-0.5 h-5 w-5 shrink-0 text-[#00C8FF]" />
+      <div className="min-w-0">
+        <p className="text-[11px] font-medium uppercase tracking-[0.08em]" style={{ color: "#4A5568" }}>{label}</p>
+        <p className="mt-1 truncate text-[14px] font-medium text-white">{value}</p>
       </div>
     </div>
   );
-  return href ? <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noreferrer">{inner}</a> : inner;
+  if (!href) return inner;
+  return (
+    <a href={href} onClick={onClick} target={href.startsWith("http") ? "_blank" : undefined} rel="noreferrer">
+      {inner}
+    </a>
+  );
 }
+
+/* =================================================================
+   COPY TOAST HOST
+================================================================= */
+function CopyToastHost() {
+  const [msg, setMsg] = React.useState<string | null>(null);
+  React.useEffect(() => {
+    const onToast = (e: Event) => {
+      setMsg((e as CustomEvent<string>).detail);
+      const id = setTimeout(() => setMsg(null), 2000);
+      return () => clearTimeout(id);
+    };
+    window.addEventListener("ccs:toast", onToast);
+    return () => window.removeEventListener("ccs:toast", onToast);
+  }, []);
+  if (!msg) return null;
+  return (
+    <div className="pointer-events-none fixed inset-x-0 bottom-24 z-[60] flex justify-center sm:bottom-10">
+      <div
+        className="rounded-full px-4 py-2 text-[13px] font-medium text-[#00C8FF] stagger-in"
+        style={{ background: "rgba(0,200,255,0.1)", border: "1px solid rgba(0,200,255,0.3)", backdropFilter: "blur(12px)" }}
+      >
+        {msg}
+      </div>
+    </div>
+  );
+}
+
 
 /* =================================================================
    SHARED

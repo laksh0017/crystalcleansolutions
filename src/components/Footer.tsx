@@ -7,8 +7,9 @@ import { ArrowRight, ShieldCheck, ReceiptText, BadgeCheck, Truck } from "lucide-
 export function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="relative overflow-hidden border-t border-white/10 bg-[image:var(--gradient-ink)] text-white/80">
-      <div aria-hidden className="absolute inset-0 -z-0 bg-grid opacity-15" />
+    <footer className="relative overflow-hidden border-t border-white/[0.05] bg-[#030608] text-[#6B7FA3]">
+      <div aria-hidden className="absolute inset-0 -z-0 bg-grid opacity-[0.08]" />
+
 
       {/* CTA strip */}
       <div className="relative border-b border-white/10">
@@ -79,8 +80,8 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="relative border-t border-white/10">
-        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-2 px-6 py-6 text-xs text-white/50 md:flex-row md:items-center md:px-8">
+      <div className="relative border-t border-white/[0.04]">
+        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-2 px-6 py-6 text-[12px] text-[#3A4A5A] md:flex-row md:items-center md:px-8">
           <p>© {year} {SITE.name} · GSTIN {SITE.gstin}</p>
           <p className="font-mono uppercase tracking-[0.22em]">B2B Workplace Hygiene Procurement · Hyderabad</p>
         </div>
@@ -94,11 +95,11 @@ function FooterCol({
 }: { title: string; links: { to: string; hash?: string; label: string }[] }) {
   return (
     <div>
-      <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-white/45">{title}</p>
-      <ul className="mt-4 space-y-2 text-sm">
+      <p className="text-[11px] uppercase tracking-[0.1em] text-[#4A5568]">{title}</p>
+      <ul className="mt-4 space-y-2.5 text-[13px]">
         {links.map((l, i) => (
           <li key={`${l.label}-${i}`}>
-            <Link to={l.to} hash={l.hash} className="text-white/70 transition hover:text-white">
+            <Link to={l.to} hash={l.hash} className="text-[#6B7FA3] transition-colors duration-200 hover:text-white">
               {l.label}
             </Link>
           </li>
@@ -107,3 +108,4 @@ function FooterCol({
     </div>
   );
 }
+

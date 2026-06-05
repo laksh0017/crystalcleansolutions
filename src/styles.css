@@ -285,3 +285,66 @@
   0% { background-position: 200% 0; }
   100% { background-position: -200% 0; }
 }
+@keyframes mesh-drift-a {
+  0%   { transform: translate(-50%, 0) scale(1); }
+  100% { transform: translate(-42%, 6%) scale(1.15); }
+}
+@keyframes mesh-drift-b {
+  0%   { transform: translate(0,0) scale(1); }
+  100% { transform: translate(8%, -4%) scale(1.2); }
+}
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.4; }
+}
+@keyframes shimmer-once {
+  0% { background-position: -150% 0; }
+  100% { background-position: 250% 0; }
+}
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.7; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+@keyframes stagger-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slide-up-in {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@utility pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
+@utility shimmer-text {
+  background: linear-gradient(90deg, #00C8FF 0%, #ffffff 50%, #00C8FF 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer-once 3s ease-out 1 forwards;
+}
+@utility float-y { animation: float-y 4s ease-in-out infinite; }
+@utility spin-slow { animation: spin-slow 12s linear infinite; }
+@utility section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+}
+@utility stagger-in { opacity: 0; animation: stagger-up 0.5s ease-out forwards; }
+@utility slide-up-in { opacity: 0; animation: slide-up-in 0.7s 0.3s cubic-bezier(0.16,1,0.3,1) forwards; }
+@utility nav-scrolled {
+  background: rgba(5, 10, 15, 0.85);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+@utility nav-top {
+  background: transparent;
+  border-bottom: 1px solid transparent;
+}
+@utility page-fade-in { animation: fadeUp 0.4s ease-out; }
+
