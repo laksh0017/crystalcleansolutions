@@ -112,7 +112,7 @@ export function ProcurementNetwork({ className = "" }: { className?: string }) {
                 cy={n.y}
                 r={r}
                 fill={isHub ? "#0A2540" : "#0F1B3A"}
-                stroke={isHub ? "#5CE1E6" : "rgba(92,225,230,0.55)"}
+                stroke={isHub ? "#5CE1E6" : "rgba(0,154,226,0.55)"}
                 strokeWidth={isHub ? 1.5 : 1}
               />
               {isHub && (

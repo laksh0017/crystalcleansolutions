@@ -40,8 +40,8 @@ export function Header() {
               key={n.label}
               to={n.to}
               hash={n.hash}
-              className="text-[14px] tracking-[0.01em] text-[#8A9BAD] transition-colors duration-200 hover:text-white"
-              activeProps={n.hash ? undefined : { className: "text-white" }}
+              className="text-[14px] tracking-[0.01em] text-[#64748B] transition-colors duration-200 hover:text-slate-900"
+              activeProps={n.hash ? undefined : { className: "text-slate-900" }}
             >
               {n.label}
             </Link>
@@ -52,19 +52,19 @@ export function Header() {
             href={WHATSAPP}
             target="_blank"
             rel="noreferrer"
-            className="hidden h-[34px] items-center gap-1.5 rounded-full border border-white/[0.12] px-4 text-[13px] text-white transition hover:border-[#00C8FF]/40 hover:text-[#00C8FF] sm:inline-flex"
+            className="hidden h-[34px] items-center gap-1.5 rounded-full border border-slate-300 px-4 text-[13px] text-slate-900 transition hover:border-[#009AE2]/40 hover:text-[#009AE2] sm:inline-flex"
           >
             <MessageCircle className="h-3.5 w-3.5" />
             WhatsApp
           </a>
           <Link
             to="/contact"
-            className="group inline-flex h-[36px] items-center gap-1 rounded-full bg-[#00C8FF] px-5 text-[13px] font-semibold text-black transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(0,200,255,0.4)]"
+            className="group inline-flex h-[36px] items-center gap-1 rounded-full bg-[#009AE2] px-5 text-[13px] font-semibold text-black transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(0,154,226,0.4)]"
           >
             Get Quotation <ArrowRight className="h-3.5 w-3.5 transition group-hover:translate-x-0.5" />
           </Link>
           <button
-            className="ml-1 grid h-9 w-9 place-items-center rounded-md border border-white/10 lg:hidden"
+            className="ml-1 grid h-9 w-9 place-items-center rounded-md border border-slate-200 lg:hidden"
             onClick={() => setMobile((v) => !v)}
             aria-label="Menu"
           >
@@ -73,7 +73,7 @@ export function Header() {
         </div>
       </div>
       {mobile && (
-        <div className="nav-scrolled border-t border-white/5 lg:hidden">
+        <div className="nav-scrolled border-t border-slate-200/70 lg:hidden">
           <div className="mx-auto grid max-w-7xl gap-1 px-5 py-3 text-sm">
             {NAV.map((n, i) => (
               <Link
@@ -81,7 +81,7 @@ export function Header() {
                 to={n.to}
                 hash={n.hash}
                 onClick={() => setMobile(false)}
-                className="stagger-in rounded-md px-3 py-2.5 text-[#8A9BAD] hover:bg-white/5 hover:text-white"
+                className="stagger-in rounded-md px-3 py-2.5 text-[#64748B] hover:bg-slate-100 hover:text-slate-900"
                 style={{ animationDelay: `${i * 60}ms` }}
               >
                 {n.label}
@@ -91,7 +91,7 @@ export function Header() {
               href={WHATSAPP}
               target="_blank"
               rel="noreferrer"
-              className="mt-1 flex items-center gap-2 rounded-md border border-white/10 px-3 py-2 text-white"
+              className="mt-1 flex items-center gap-2 rounded-md border border-slate-200 px-3 py-2 text-slate-900"
             >
               <MessageCircle className="h-4 w-4 text-emerald-400" /> WhatsApp
             </a>
