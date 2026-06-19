@@ -120,7 +120,7 @@ function Hero() {
           <div className="mt-9 flex flex-wrap items-center justify-center gap-3 stagger-in" style={{ animationDelay: "240ms" }}>
             <Link
               to="/contact"
-              className="group inline-flex items-center gap-2 rounded-full bg-[#009AE2] text-black font-semibold transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(0,154,226,0.5)]"
+              className="group inline-flex items-center gap-2 rounded-full bg-[#009AE2] text-white font-semibold transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(0,154,226,0.5)]"
               style={{ padding: "14px 28px" }}
             >
               Request Quotation <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
@@ -909,7 +909,7 @@ function InquiryForm() {
             </div>
             <button
               type="submit"
-              className="mt-7 w-full rounded-[12px] text-black transition-all duration-200 hover:scale-[1.01] hover:brightness-110 hover:shadow-[0_8px_30px_rgba(0,154,226,0.3)]"
+              className="mt-7 w-full rounded-[12px] text-white transition-all duration-200 hover:scale-[1.01] hover:brightness-110 hover:shadow-[0_8px_30px_rgba(0,154,226,0.3)]"
               style={{
                 background: "linear-gradient(135deg, #009AE2, #0080FF)",
                 padding: "16px",

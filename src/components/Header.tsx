@@ -59,7 +59,7 @@ export function Header() {
           </a>
           <Link
             to="/contact"
-            className="group inline-flex h-[36px] items-center gap-1 rounded-full bg-[#009AE2] px-5 text-[13px] font-semibold text-black transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(0,154,226,0.4)]"
+            className="group inline-flex h-[36px] items-center gap-1 rounded-full bg-[#009AE2] px-5 text-[13px] font-semibold text-white transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(0,154,226,0.4)]"
           >
             Get Quotation <ArrowRight className="h-3.5 w-3.5 transition group-hover:translate-x-0.5" />
           </Link>
