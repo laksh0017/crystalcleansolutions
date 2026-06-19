@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import markAsset from "@/assets/crystal-mark.png.asset.json";
+import markAsset from "@/assets/crystal-clean-mark.png.asset.json";
 
 export function Logo({
   className,
@@ -8,28 +8,32 @@ export function Logo({
   className?: string;
   variant?: "default" | "light";
 }) {
-  const headingClass = variant === "light" ? "text-white" : "text-white";
   return (
     <span className={cn("inline-flex items-center gap-2.5", className)}>
       <img
         src={markAsset.url}
         alt=""
         aria-hidden
-        className="h-7 w-7 select-none"
-        style={{ filter: "drop-shadow(0 0 8px rgba(0,200,255,0.45))" }}
+        className="h-8 w-8 select-none"
+        style={{ filter: "drop-shadow(0 4px 14px rgba(0,191,99,0.30))" }}
         draggable={false}
       />
-      <span className="flex items-baseline gap-1.5 leading-none">
+      <span className="flex flex-col leading-none">
         <span
           className={cn(
-            "font-display text-[15px] font-semibold tracking-[-0.01em]",
-            headingClass,
+            "font-display text-[16px] font-bold tracking-[-0.01em]",
+            variant === "light" ? "text-white" : "text-[#009AE2]",
           )}
         >
-          Crystal Clean
+          CRYSTAL
         </span>
-        <span className="font-display text-[15px] font-normal text-[#6B7FA3]">
-          Solutions
+        <span
+          className={cn(
+            "font-display text-[10px] font-semibold tracking-[0.18em] mt-0.5",
+            variant === "light" ? "text-white/80" : "text-[#00BF63]",
+          )}
+        >
+          CLEAN SOLUTIONS
         </span>
       </span>
     </span>
