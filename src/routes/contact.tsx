@@ -182,7 +182,7 @@ function ContactCard({
         <Icon className="h-5 w-5" />
       </div>
       <div>
-        <p className={`font-mono text-[10px] uppercase tracking-widest ${accent ? "text-white/70" : "text-muted-foreground"}`}>{label}</p>
+        <p className={`font-mono text-[10px] uppercase tracking-widest ${accent ? "text-slate-600" : "text-muted-foreground"}`}>{label}</p>
         <p className={`mt-1 text-sm font-medium ${accent ? "" : ""}`}>{value}</p>
       </div>
     </a>

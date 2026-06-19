@@ -25,7 +25,7 @@ export function GalaxyBackground({ className = "" }: { className?: string }) {
         className="absolute -top-32 left-1/2 h-[700px] w-[1100px] -translate-x-1/2 rounded-full opacity-60 animate-aurora"
         style={{
           background:
-            "radial-gradient(ellipse at center, rgba(92,225,230,0.28) 0%, rgba(0,123,255,0.18) 35%, transparent 70%)",
+            "radial-gradient(ellipse at center, rgba(0,154,226,0.28) 0%, rgba(0,123,255,0.18) 35%, transparent 70%)",
           filter: "blur(40px)",
         }}
       />
