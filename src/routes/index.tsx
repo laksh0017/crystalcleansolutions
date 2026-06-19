@@ -120,14 +120,18 @@ function Hero() {
           <div className="mt-9 flex flex-wrap items-center justify-center gap-3 stagger-in" style={{ animationDelay: "240ms" }}>
             <Link
               to="/contact"
-              className="group inline-flex items-center gap-2 rounded-full bg-[#009AE2] text-white font-semibold transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(0,154,226,0.5)]"
-              style={{ padding: "14px 28px" }}
+              className="group inline-flex items-center gap-2 rounded-full text-white font-semibold transition-all duration-200 hover:scale-[1.02]"
+              style={{
+                padding: "14px 28px",
+                background: "linear-gradient(135deg, #009AE2 0%, #00BF63 100%)",
+                boxShadow: "0 14px 36px -14px rgba(0,154,226,0.6)",
+              }}
             >
               Request Quotation <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
             </Link>
             <Link
               to="/products"
-              className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-transparent text-slate-900 transition-all duration-200 hover:border-[#009AE2]/40 hover:bg-[#009AE2]/[0.05]"
+              className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white text-slate-900 transition-all duration-200 hover:border-[#009AE2] hover:text-[#009AE2]"
               style={{ padding: "14px 28px" }}
             >
               <FileText className="h-4 w-4" /> Download Catalogue
@@ -909,12 +913,13 @@ function InquiryForm() {
             </div>
             <button
               type="submit"
-              className="mt-7 w-full rounded-[12px] text-white transition-all duration-200 hover:scale-[1.01] hover:brightness-110 hover:shadow-[0_8px_30px_rgba(0,154,226,0.3)]"
+              className="mt-7 w-full rounded-[12px] text-white transition-all duration-200 hover:scale-[1.01] hover:brightness-110 hover:shadow-[0_14px_40px_rgba(0,154,226,0.35)]"
               style={{
-                background: "linear-gradient(135deg, #009AE2, #0080FF)",
+                background: "linear-gradient(135deg, #009AE2 0%, #00BF63 100%)",
                 padding: "16px",
                 fontSize: "15px",
                 fontWeight: 700,
+                boxShadow: "0 10px 30px -10px rgba(0,154,226,0.45)",
               }}
             >
               {sent ? "Opening WhatsApp…" : "Send Enquiry"}
