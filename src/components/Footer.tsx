@@ -80,7 +80,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="relative border-t border-white/[0.04]">
+      <div className="relative border-t border-slate-200/70">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-2 px-6 py-6 text-[12px] text-[#94A3B8] md:flex-row md:items-center md:px-8">
           <p>© {year} {SITE.name} · GSTIN {SITE.gstin}</p>
           <p className="font-mono uppercase tracking-[0.22em]">B2B Workplace Hygiene Procurement · Hyderabad</p>

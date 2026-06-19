@@ -646,7 +646,7 @@ function HyderabadPresence() {
                   className="group absolute -translate-x-1/2 -translate-y-1/2"
                   aria-label={c.name}
                 >
-                  <span className={`relative grid h-3 w-3 place-items-center rounded-full ${isActive ? "bg-[color:var(--electric)]" : "bg-white/40"} transition`}>
+                  <span className={`relative grid h-3 w-3 place-items-center rounded-full ${isActive ? "bg-[color:var(--electric)]" : "bg-slate-300"} transition`}>
                     {isActive && <span className="absolute inset-0 animate-ping rounded-full bg-[color:var(--electric)] opacity-60" />}
                   </span>
                   <span className={`absolute left-4 top-1/2 -translate-y-1/2 whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.18em] transition ${isActive ? "text-slate-900" : "text-slate-400 group-hover:text-slate-600"}`}>
@@ -767,7 +767,7 @@ function ProcessTimeline() {
           </div>
         </Reveal>
         <div className="relative mt-16">
-          <div aria-hidden className="absolute left-0 right-0 top-[22px] hidden h-px bg-white/[0.08] lg:block" />
+          <div aria-hidden className="absolute left-0 right-0 top-[22px] hidden h-px bg-slate-200 lg:block" />
           <div aria-hidden className="timeline-pulse absolute left-0 right-0 top-[22px] hidden h-px lg:block" />
           <div className="grid gap-10 lg:grid-cols-5 lg:gap-6">
             {STEPS.map((s, idx) => (
