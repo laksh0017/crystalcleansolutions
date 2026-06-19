@@ -528,7 +528,7 @@ function LiveDashboard() {
     >
       <div className="flex items-center justify-between border-b border-slate-200/70 pb-4">
         <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-slate-900">ITSPL CORP</span>
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-400/15 px-2.5 py-1 text-[11px] font-medium text-emerald-300">
+        <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-100 px-2.5 py-1 text-[11px] font-medium text-emerald-700">
           <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" /> Active
         </span>
       </div>
@@ -551,9 +551,9 @@ function LiveDashboard() {
           ["Hand Wash 5L", "8 cans", "Confirmed", "blue"],
         ].map(([n, q, s, color]) => {
           const palette: Record<string, string> = {
-            emerald: "bg-emerald-400/15 text-emerald-300",
+            emerald: "bg-emerald-100 text-emerald-700",
             cyan: "bg-[#009AE2]/15 text-[#009AE2]",
-            blue: "bg-blue-400/15 text-blue-300",
+            blue: "bg-blue-100 text-blue-700",
           };
           return (
             <div key={n} className="flex items-center justify-between rounded-[10px] bg-slate-50 px-3 py-2.5 text-[13px]">
@@ -627,7 +627,7 @@ function HyderabadPresence() {
       <Reveal><SectionLabel kicker="// Hyderabad Presence" title="On the ground, across every business cluster." /></Reveal>
       <div className="mt-14 grid items-center gap-10 lg:grid-cols-[1.3fr_1fr]">
         <Reveal>
-          <div className="relative aspect-[16/11] overflow-hidden rounded-2xl border border-slate-200 bg-[color:var(--ink)]">
+          <div className="relative aspect-[16/11] overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 ring-1 ring-slate-200">
             <div aria-hidden className="absolute inset-0 bg-grid-sm opacity-25" />
             <svg viewBox="0 0 100 100" className="absolute inset-0 h-full w-full" preserveAspectRatio="none">
               {/* faint river / outline path */}
@@ -892,7 +892,7 @@ function InquiryForm() {
                   style={{ background: "rgba(15,23,42,0.04)", border: "1px solid rgba(15,23,42,0.08)" }}
                 >
                   {["Corporate / IT", "Hospital / Clinic", "Hotel / Hospitality", "Education", "Co-working", "Other"].map((o) => (
-                    <option key={o} className="bg-[#FFFFFF]">{o}</option>
+                    <option key={o} className="bg-white text-slate-900">{o}</option>
                   ))}
                 </select>
               </div>
