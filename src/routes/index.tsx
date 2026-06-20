@@ -100,7 +100,7 @@ function Hero() {
               animationDelay: "80ms",
             }}
           >
-            Hyderabad's Technology-Enabled B2B
+            Hyderabad's B2B
             <br />
             <span className="shimmer-text">Procurement Partner</span>
           </h1>
