@@ -11,7 +11,7 @@ export function Footer() {
       <div className="relative border-b border-slate-200/80">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-5 px-6 py-12 md:flex-row md:items-center md:px-8">
           <div>
-            <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#009AE2]">// Procurement Made Invisible</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#0078B8]">// Procurement Made Invisible</p>
             <h3 className="mt-2 max-w-xl text-2xl font-semibold text-slate-900 md:text-3xl tracking-tight">
               Ready to consolidate your workplace consumables?
             </h3>
@@ -39,9 +39,9 @@ export function Footer() {
             </p>
             <ul className="mt-6 space-y-2 text-[12px] text-slate-600">
               <li className="flex items-center gap-2"><ShieldCheck className="h-3.5 w-3.5 text-[#00BF63]" /> GST-Compliant Billing</li>
-              <li className="flex items-center gap-2"><ReceiptText className="h-3.5 w-3.5 text-[#009AE2]" /> GSTIN {SITE.gstin}</li>
+              <li className="flex items-center gap-2"><ReceiptText className="h-3.5 w-3.5 text-[#0078B8]" /> GSTIN {SITE.gstin}</li>
               <li className="flex items-center gap-2"><BadgeCheck className="h-3.5 w-3.5 text-[#00BF63]" /> Brand-Authorised Distributor</li>
-              <li className="flex items-center gap-2"><Truck className="h-3.5 w-3.5 text-[#009AE2]" /> Pan-Hyderabad Logistics</li>
+              <li className="flex items-center gap-2"><Truck className="h-3.5 w-3.5 text-[#0078B8]" /> Pan-Hyderabad Logistics</li>
             </ul>
           </div>
 
@@ -74,8 +74,8 @@ export function Footer() {
           <div>
             <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-400">Reach us</p>
             <ul className="mt-4 space-y-2 text-[13px]">
-              <li><a className="text-slate-700 hover:text-[#009AE2]" href={`tel:+${SITE.phoneRaw}`}>{SITE.phone}</a></li>
-              <li><a className="text-slate-700 hover:text-[#009AE2] break-all" href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
+              <li><a className="text-slate-700 hover:text-[#0078B8]" href={`tel:+${SITE.phoneRaw}`}>{SITE.phone}</a></li>
+              <li><a className="text-slate-700 hover:text-[#0078B8] break-all" href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
               <li><a className="text-slate-700 hover:text-[#00BF63]" href={WHATSAPP} target="_blank" rel="noreferrer">WhatsApp Enquiry</a></li>
             </ul>
             <p className="mt-5 text-[12px] leading-relaxed text-slate-500">{SITE.address}</p>
@@ -102,7 +102,7 @@ function FooterCol({
       <ul className="mt-4 space-y-2 text-[13px]">
         {links.map((l, i) => (
           <li key={`${l.label}-${i}`}>
-            <Link to={l.to} hash={l.hash} className="text-slate-600 transition-colors duration-200 hover:text-[#009AE2]">
+            <Link to={l.to} hash={l.hash} className="text-slate-600 transition-colors duration-200 hover:text-[#0078B8]">
               {l.label}
             </Link>
           </li>

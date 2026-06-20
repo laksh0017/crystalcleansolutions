@@ -22,7 +22,7 @@ export function Logo({
         <span
           className={cn(
             "font-display text-[16px] font-bold tracking-[-0.01em]",
-            variant === "light" ? "text-white" : "text-[#009AE2]",
+            variant === "light" ? "text-white" : "text-[#0078B8]",
           )}
         >
           CRYSTAL
