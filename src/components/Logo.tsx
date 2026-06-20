@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import markAsset from "@/assets/crystal-clean-mark.png.asset.json";
+import markUrl from "@/assets/crystal-logo.png";
 
 export function Logo({
   className,
@@ -11,9 +11,9 @@ export function Logo({
   return (
     <span className={cn("inline-flex items-center gap-2.5", className)}>
       <img
-        src={markAsset.url}
+        src={markUrl}
         alt=""
-        aria-hidden
+        aria-hidden="true"
         className="h-8 w-8 select-none"
         style={{ filter: "drop-shadow(0 4px 14px rgba(0,191,99,0.30))" }}
         draggable={false}
@@ -43,9 +43,9 @@ export function Logo({
 export function CrystalMark({ className }: { className?: string; cyan?: boolean }) {
   return (
     <img
-      src={markAsset.url}
+      src={markUrl}
       alt=""
-      aria-hidden
+      aria-hidden="true"
       className={cn("select-none", className)}
       draggable={false}
     />
