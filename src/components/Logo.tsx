@@ -30,7 +30,7 @@ export function Logo({
         <span
           className={cn(
             "font-display text-[10px] font-semibold tracking-[0.18em] mt-0.5",
-            variant === "light" ? "text-white/80" : "text-[#00BF63]",
+            variant === "light" ? "text-white/80" : "text-[#00834A]",
           )}
         >
           CLEAN SOLUTIONS
