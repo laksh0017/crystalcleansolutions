@@ -63,7 +63,7 @@ export function Footer() {
           ]} />
 
           <div>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-400">Service Regions</p>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">Service Regions</p>
             <ul className="mt-4 grid grid-cols-2 gap-y-1.5 text-[12px] text-slate-600">
               {SITE.clusters.map((c) => (
                 <li key={c}>{c}</li>
@@ -72,7 +72,7 @@ export function Footer() {
           </div>
 
           <div>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-400">Reach us</p>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">Reach us</p>
             <ul className="mt-4 space-y-2 text-[13px]">
               <li><a className="text-slate-700 hover:text-[#0078B8]" href={`tel:+${SITE.phoneRaw}`}>{SITE.phone}</a></li>
               <li><a className="text-slate-700 hover:text-[#0078B8] break-all" href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
@@ -86,7 +86,7 @@ export function Footer() {
       <div className="relative border-t border-slate-200/80">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-2 px-6 py-6 text-[12px] text-slate-500 md:flex-row md:items-center md:px-8">
           <p>© {year} {SITE.name} · GSTIN {SITE.gstin}</p>
-          <p className="font-mono uppercase tracking-[0.22em] text-slate-400">B2B Workplace Hygiene Procurement · Hyderabad</p>
+          <p className="font-mono uppercase tracking-[0.22em] text-slate-500">B2B Workplace Hygiene Procurement · Hyderabad</p>
         </div>
       </div>
     </footer>
@@ -98,7 +98,7 @@ function FooterCol({
 }: { title: string; links: { to: string; hash?: string; label: string }[] }) {
   return (
     <div>
-      <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-400">{title}</p>
+      <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">{title}</p>
       <ul className="mt-4 space-y-2 text-[13px]">
         {links.map((l, i) => (
           <li key={`${l.label}-${i}`}>
