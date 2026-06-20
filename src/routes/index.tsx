@@ -131,7 +131,7 @@ function Hero() {
             </Link>
             <Link
               to="/products"
-              className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white text-slate-900 transition-all duration-200 hover:border-[#009AE2] hover:text-[#009AE2]"
+              className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white text-slate-900 transition-all duration-200 hover:border-[#009AE2] hover:text-[#0078B8]"
               style={{ padding: "14px 28px" }}
             >
               <FileText className="h-4 w-4" /> Download Catalogue
@@ -144,7 +144,7 @@ function Hero() {
                 className="stagger-in inline-flex items-center gap-1.5 px-4 text-[13px] [&:not(:last-child)]:border-r [&:not(:last-child)]:border-slate-200"
                 style={{ color: "#64748B", animationDelay: `${320 + i * 100}ms` }}
               >
-                <Check className="h-3.5 w-3.5 text-[#009AE2]" /> {b}
+                <Check className="h-3.5 w-3.5 text-[#0078B8]" /> {b}
               </li>
             ))}
           </ul>
@@ -184,8 +184,8 @@ function Stat({ label, value, Icon }: { label: string; value: React.ReactNode; I
   return (
     <div className="rounded-xl border border-slate-200/70 bg-slate-50 p-4">
       <div className="flex items-center justify-between">
-        <p className="text-[10px] uppercase tracking-[0.12em]" style={{ color: "#94A3B8" }}>{label}</p>
-        <Icon className="h-3.5 w-3.5 text-[#009AE2]" />
+        <p className="text-[10px] uppercase tracking-[0.12em]" style={{ color: "#64748B" }}>{label}</p>
+        <Icon className="h-3.5 w-3.5 text-[#0078B8]" />
       </div>
       <p className="mt-2 text-[28px] font-medium tracking-tight text-slate-900 tabular-nums">{value}</p>
     </div>
@@ -211,7 +211,7 @@ function TrustBar() {
         <div className="grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-3 lg:grid-cols-6">
           {items.map(({ i: Icon, t }) => (
             <div key={t} className="flex items-center gap-2.5 text-[12.5px] text-slate-600">
-              <Icon className="h-4 w-4 text-[color:var(--electric)]" />
+              <Icon className="h-4 w-4 text-[#0078B8]" />
               <span>{t}</span>
             </div>
           ))}
@@ -267,7 +267,7 @@ function Industries() {
     <section className="relative mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-28">
       <Reveal>
         <div className="text-center">
-          <p className="text-[12px] font-medium tracking-[0.15em] text-[#009AE2]">// INDUSTRIES</p>
+          <p className="text-[12px] font-medium tracking-[0.15em] text-[#0078B8]">// INDUSTRIES</p>
           <h2
             className="mx-auto mt-3 font-semibold text-slate-900"
             style={{ fontSize: "clamp(32px, 5vw, 48px)", letterSpacing: "-0.025em", maxWidth: "600px", lineHeight: 1.15 }}
@@ -298,7 +298,7 @@ function Industries() {
                 className="grid h-11 w-11 place-items-center rounded-[12px]"
                 style={{ background: "rgba(0,154,226,0.1)" }}
               >
-                <Icon className="h-5 w-5 text-[#009AE2]" />
+                <Icon className="h-5 w-5 text-[#0078B8]" />
               </div>
               <h3 className="mt-4 text-[16px] font-semibold text-slate-900">{t}</h3>
               <p className="mt-1.5 text-[14px] leading-[1.6]" style={{ color: "#64748B" }}>{d}</p>
@@ -330,12 +330,12 @@ function ProductCategories() {
       <div className="mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-28">
         <Reveal>
           <div className="text-center">
-            <p className="text-[12px] font-medium tracking-[0.15em] text-[#009AE2]">// CATEGORY EXPLORER</p>
+            <p className="text-[12px] font-medium tracking-[0.15em] text-[#0078B8]">// CATEGORY EXPLORER</p>
             <h2
               className="mx-auto mt-3 font-semibold text-slate-900"
               style={{ fontSize: "clamp(32px, 5vw, 48px)", letterSpacing: "-0.025em", maxWidth: "720px", lineHeight: 1.15 }}
             >
-              One catalogue. <span className="text-[#009AE2]">Every workplace consumable.</span>
+              One catalogue. <span className="text-[#0078B8]">Every workplace consumable.</span>
             </h2>
           </div>
         </Reveal>
@@ -361,7 +361,7 @@ function ProductCategories() {
                   className="grid h-[52px] w-[52px] place-items-center rounded-[14px] transition-colors duration-300 group-hover:bg-[rgba(0,154,226,0.15)]"
                   style={{ background: "rgba(0,154,226,0.08)" }}
                 >
-                  <Icon className="h-[26px] w-[26px] text-[#009AE2]" />
+                  <Icon className="h-[26px] w-[26px] text-[#0078B8]" />
                 </div>
                 <h3 className="mt-3.5 text-[15px] font-semibold text-slate-900">{name}</h3>
                 <p className="mt-1.5 text-[13px] leading-[1.5]" style={{ color: "#64748B" }}>{d}</p>
@@ -372,7 +372,7 @@ function ProductCategories() {
         <div className="mt-12 flex justify-center">
           <Link
             to="/products"
-            className="group inline-flex items-center gap-2 rounded-full border border-slate-300 text-slate-900 transition-all duration-200 hover:border-[#009AE2]/40 hover:text-[#009AE2] hover:shadow-[0_0_24px_rgba(0,154,226,0.2)]"
+            className="group inline-flex items-center gap-2 rounded-full border border-slate-300 text-slate-900 transition-all duration-200 hover:border-[#009AE2]/40 hover:text-[#0078B8] hover:shadow-[0_0_24px_rgba(0,154,226,0.2)]"
             style={{ padding: "12px 28px" }}
           >
             Browse full catalogue <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
@@ -404,12 +404,12 @@ function WhyUs() {
       <div className="mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-28">
         <Reveal>
           <div className="text-center">
-            <p className="text-[12px] font-medium tracking-[0.15em] text-[#009AE2]">// WHY CRYSTAL</p>
+            <p className="text-[12px] font-medium tracking-[0.15em] text-[#0078B8]">// WHY CRYSTAL</p>
             <h2
               className="mx-auto mt-3 font-semibold text-slate-900"
               style={{ fontSize: "clamp(32px, 5.5vw, 52px)", letterSpacing: "-0.03em", maxWidth: "700px", lineHeight: 1.15 }}
             >
-              Built for procurement teams, <span className="italic text-[#009AE2]">not retail shoppers.</span>
+              Built for procurement teams, <span className="italic text-[#0078B8]">not retail shoppers.</span>
             </h2>
           </div>
         </Reveal>
@@ -438,7 +438,7 @@ function WhyUs() {
                     className="grid h-[52px] w-[52px] place-items-center rounded-full"
                     style={{ background: "rgba(0,154,226,0.1)" }}
                   >
-                    <Icon className="h-5 w-5 text-[#009AE2]" />
+                    <Icon className="h-5 w-5 text-[#0078B8]" />
                   </div>
                   <h3 className={`mt-4 font-semibold text-slate-900 ${isHero ? "text-[18px]" : "text-[15px]"}`}>{t}</h3>
                   <p className="mt-2 text-[14px] leading-[1.6]" style={{ color: "#64748B" }}>{d}</p>
@@ -468,14 +468,14 @@ function TechProcurement() {
       <div className="relative mx-auto grid max-w-7xl gap-14 px-6 py-24 md:px-8 md:py-28 lg:grid-cols-[1fr_1fr] lg:items-center">
         <div>
           <Reveal>
-            <p className="text-[11px] font-medium tracking-[0.15em] text-[#009AE2]">// TECHNOLOGY-ENABLED PROCUREMENT</p>
+            <p className="text-[11px] font-medium tracking-[0.15em] text-[#0078B8]">// TECHNOLOGY-ENABLED PROCUREMENT</p>
             <h2
               className="mt-3 font-semibold text-slate-900"
               style={{ fontSize: "clamp(30px, 4vw, 44px)", letterSpacing: "-0.025em", lineHeight: 1.15 }}
             >
               A procurement platform —
               <br />
-              <span className="text-[#009AE2]">not a vendor list.</span>
+              <span className="text-[#0078B8]">not a vendor list.</span>
             </h2>
             <p className="mt-6 max-w-[420px] text-[16px] leading-[1.7]" style={{ color: "#64748B" }}>
               We're building Hyderabad's first procurement-first workplace consumables partner.
@@ -491,7 +491,7 @@ function TechProcurement() {
                     className="grid h-10 w-10 shrink-0 place-items-center rounded-[10px]"
                     style={{ background: "rgba(0,154,226,0.08)" }}
                   >
-                    <Icon className="h-5 w-5 text-[#009AE2]" />
+                    <Icon className="h-5 w-5 text-[#0078B8]" />
                   </div>
                   <div>
                     <p className="text-[15px] font-semibold text-slate-900">{t}</p>
@@ -543,8 +543,8 @@ function LiveDashboard() {
       </div>
       <div className="mt-6">
         <div className="mb-3 flex items-center justify-between">
-          <p className="text-[10px] uppercase tracking-[0.15em]" style={{ color: "#94A3B8" }}>Consumption · Last 6 mo</p>
-          <span className="text-[11px] text-[#009AE2]">burn 68%</span>
+          <p className="text-[10px] uppercase tracking-[0.15em]" style={{ color: "#64748B" }}>Consumption · Last 6 mo</p>
+          <span className="text-[11px] text-[#0078B8]">burn 68%</span>
         </div>
         <SparkBars />
       </div>
@@ -556,14 +556,14 @@ function LiveDashboard() {
         ].map(([n, q, s, color]) => {
           const palette: Record<string, string> = {
             emerald: "bg-emerald-100 text-emerald-700",
-            cyan: "bg-[#009AE2]/15 text-[#009AE2]",
+            cyan: "bg-[#009AE2]/15 text-[#0078B8]",
             blue: "bg-blue-100 text-blue-700",
           };
           return (
             <div key={n} className="flex items-center justify-between rounded-[10px] bg-slate-50 px-3 py-2.5 text-[13px]">
               <span className="text-slate-700">{n}</span>
               <div className="flex items-center gap-3 text-[11px]">
-                <span className="font-mono text-slate-400">{q}</span>
+                <span className="font-mono text-slate-500">{q}</span>
                 <span className={`rounded-full px-2 py-0.5 ${palette[color]}`}>{s}</span>
               </div>
             </div>
@@ -576,7 +576,7 @@ function LiveDashboard() {
 function DashCell({ l, v }: { l: string; v: string }) {
   return (
     <div className="px-3 first:pl-0 last:pr-0">
-      <p className="text-[10px] uppercase tracking-[0.12em]" style={{ color: "#94A3B8" }}>{l}</p>
+      <p className="text-[10px] uppercase tracking-[0.12em]" style={{ color: "#64748B" }}>{l}</p>
       <p className="mt-1.5 text-[20px] font-medium text-slate-900 tabular-nums">{v}</p>
     </div>
   );
@@ -653,7 +653,7 @@ function HyderabadPresence() {
                   <span className={`relative grid h-3 w-3 place-items-center rounded-full ${isActive ? "bg-[color:var(--electric)]" : "bg-slate-300"} transition`}>
                     {isActive && <span className="absolute inset-0 animate-ping rounded-full bg-[color:var(--electric)] opacity-60" />}
                   </span>
-                  <span className={`absolute left-4 top-1/2 -translate-y-1/2 whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.18em] transition ${isActive ? "text-slate-900" : "text-slate-400 group-hover:text-slate-600"}`}>
+                  <span className={`absolute left-4 top-1/2 -translate-y-1/2 whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.18em] transition ${isActive ? "text-slate-900" : "text-slate-500 group-hover:text-slate-600"}`}>
                     {c.name}
                   </span>
                 </button>
@@ -664,17 +664,17 @@ function HyderabadPresence() {
 
         <Reveal delay={120}>
           <div className="rounded-2xl border border-slate-200 bg-slate-50 p-7 backdrop-blur">
-            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[color:var(--electric)]">Active cluster</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#0078B8]">Active cluster</p>
             <h3 className="mt-2 text-3xl font-semibold text-slate-900">{current.name}</h3>
             <p className="mt-2 text-sm text-slate-600">{current.accounts} accounts supplied · same-day & next-day delivery windows.</p>
             <div className="mt-6 grid grid-cols-2 gap-3 text-sm">
               {["Same-day pickup", "Scheduled dispatch", "Local warehouse", "Dedicated route"].map((b) => (
                 <div key={b} className="flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2.5 text-slate-700">
-                  <CheckCircle2 className="h-3.5 w-3.5 text-[color:var(--electric)]" />{b}
+                  <CheckCircle2 className="h-3.5 w-3.5 text-[#0078B8]" />{b}
                 </div>
               ))}
             </div>
-            <p className="mt-6 text-xs text-slate-400">Hover any pin to explore the cluster.</p>
+            <p className="mt-6 text-xs text-slate-500">Hover any pin to explore the cluster.</p>
           </div>
         </Reveal>
       </div>
@@ -701,10 +701,10 @@ function SuccessStory() {
             <Reveal key={k} delay={idx * 100}>
               <div className="relative h-full rounded-2xl border border-slate-200 bg-slate-50 p-6">
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[color:var(--electric)]">{`0${idx + 1}`}</span>
-                  <Icon className="h-4 w-4 text-[color:var(--electric)]" />
+                  <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#0078B8]">{`0${idx + 1}`}</span>
+                  <Icon className="h-4 w-4 text-[#0078B8]" />
                 </div>
-                <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.22em] text-slate-400">{k}</p>
+                <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.22em] text-slate-500">{k}</p>
                 <h3 className="mt-1 text-base font-semibold text-slate-900">{t}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-500">{d}</p>
               </div>
@@ -761,12 +761,12 @@ function ProcessTimeline() {
       <div className="mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-28">
         <Reveal>
           <div className="text-center">
-            <p className="text-[12px] font-medium tracking-[0.15em] text-[#009AE2]">// PROCUREMENT PROCESS</p>
+            <p className="text-[12px] font-medium tracking-[0.15em] text-[#0078B8]">// PROCUREMENT PROCESS</p>
             <h2
               className="mx-auto mt-3 font-semibold"
               style={{ fontSize: "clamp(30px, 5vw, 48px)", letterSpacing: "-0.025em", maxWidth: "780px", lineHeight: 1.15, color: "#fff" }}
             >
-              From enquiry to recurring supply — <span className="text-[#009AE2]">in days, not weeks.</span>
+              From enquiry to recurring supply — <span className="text-[#0078B8]">in days, not weeks.</span>
             </h2>
           </div>
         </Reveal>
@@ -780,7 +780,7 @@ function ProcessTimeline() {
                   <div className="relative">
                     <span aria-hidden className="absolute inset-0 rounded-full bg-[#009AE2]/30" style={{ animation: `pulse-ring 1.8s ${idx * 0.15}s ease-out infinite` }} />
                     <div
-                      className="relative grid h-11 w-11 place-items-center rounded-full font-mono text-[13px] font-semibold text-[#009AE2]"
+                      className="relative grid h-11 w-11 place-items-center rounded-full font-mono text-[13px] font-semibold text-[#0078B8]"
                       style={{ border: "1.5px solid rgba(0,154,226,0.4)", background: "#FFFFFF" }}
                     >
                       {s.n}
@@ -821,7 +821,7 @@ function Vision() {
           <br />
           technology-enabled workplace
           <br />
-          <span className="text-[#009AE2]">procurement platform</span>
+          <span className="text-[#0078B8]">procurement platform</span>
           <br />
           <span className="text-[0.85em]">— starting from Hyderabad.</span>
         </h2>
@@ -861,7 +861,7 @@ function InquiryForm() {
     <section id="enquiry" className="scroll-mt-24 relative mx-auto max-w-7xl px-6 py-24 md:px-8 md:py-28">
       <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr]">
         <Reveal>
-          <p className="text-[12px] font-medium tracking-[0.15em] text-[#009AE2]">// CUSTOMER INQUIRY</p>
+          <p className="text-[12px] font-medium tracking-[0.15em] text-[#0078B8]">// CUSTOMER INQUIRY</p>
           <h2 className="mt-3 font-semibold text-slate-900" style={{ fontSize: "clamp(30px, 4vw, 44px)", letterSpacing: "-0.025em" }}>
             Request a quotation.
           </h2>
@@ -888,8 +888,9 @@ function InquiryForm() {
               <FilledField name="phone" label="PHONE *" required />
               <FilledField name="email" label="EMAIL" type="email" />
               <div className="sm:col-span-2">
-                <label className="block text-[11px] font-medium uppercase tracking-[0.06em]" style={{ color: "#64748B", marginBottom: 6 }}>INDUSTRY</label>
+                <label htmlFor="ccs-industry" className="block text-[11px] font-medium uppercase tracking-[0.06em]" style={{ color: "#64748B", marginBottom: 6 }}>INDUSTRY</label>
                 <select
+                  id="ccs-industry"
                   name="industry"
                   defaultValue="Corporate / IT"
                   className="w-full rounded-[10px] px-4 py-3 text-[14px] text-slate-900 outline-none transition focus:border-[#009AE2] focus:shadow-[0_0_0_3px_rgba(0,154,226,0.1)]"
@@ -901,8 +902,9 @@ function InquiryForm() {
                 </select>
               </div>
               <div className="sm:col-span-2">
-                <label className="block text-[11px] font-medium uppercase tracking-[0.06em]" style={{ color: "#64748B", marginBottom: 6 }}>REQUIREMENT *</label>
+                <label htmlFor="ccs-message" className="block text-[11px] font-medium uppercase tracking-[0.06em]" style={{ color: "#64748B", marginBottom: 6 }}>REQUIREMENT *</label>
                 <textarea
+                  id="ccs-message"
                   name="message"
                   required
                   rows={4}
@@ -924,7 +926,7 @@ function InquiryForm() {
             >
               {sent ? "Opening WhatsApp…" : "Send Enquiry"}
             </button>
-            <p className="mt-3 text-center text-[12px]" style={{ color: "#94A3B8" }}>
+            <p className="mt-3 text-center text-[12px]" style={{ color: "#64748B" }}>
               Submissions open WhatsApp with your enquiry pre-filled.
             </p>
           </form>
@@ -937,10 +939,12 @@ function InquiryForm() {
 function FilledField({
   name, label, type = "text", required,
 }: { name: string; label: string; type?: string; required?: boolean }) {
+  const id = `ccs-${name}`;
   return (
     <div>
-      <label className="block text-[11px] font-medium uppercase tracking-[0.06em]" style={{ color: "#64748B", marginBottom: 6 }}>{label}</label>
+      <label htmlFor={id} className="block text-[11px] font-medium uppercase tracking-[0.06em]" style={{ color: "#64748B", marginBottom: 6 }}>{label}</label>
       <input
+        id={id}
         type={type}
         name={name}
         required={required}
@@ -968,9 +972,9 @@ function ContactRow({
       onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(0,154,226,0.3)"; }}
       onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(15,23,42,0.07)"; }}
     >
-      <Icon className="mt-0.5 h-5 w-5 shrink-0 text-[#009AE2]" />
+      <Icon className="mt-0.5 h-5 w-5 shrink-0 text-[#0078B8]" />
       <div className="min-w-0">
-        <p className="text-[11px] font-medium uppercase tracking-[0.08em]" style={{ color: "#94A3B8" }}>{label}</p>
+        <p className="text-[11px] font-medium uppercase tracking-[0.08em]" style={{ color: "#64748B" }}>{label}</p>
         <p className="mt-1 truncate text-[14px] font-medium text-slate-900">{value}</p>
       </div>
     </div>
@@ -1001,7 +1005,7 @@ function CopyToastHost() {
   return (
     <div className="pointer-events-none fixed inset-x-0 bottom-24 z-[60] flex justify-center sm:bottom-10">
       <div
-        className="rounded-full px-4 py-2 text-[13px] font-medium text-[#009AE2] stagger-in"
+        className="rounded-full px-4 py-2 text-[13px] font-medium text-[#0078B8] stagger-in"
         style={{ background: "rgba(0,154,226,0.1)", border: "1px solid rgba(0,154,226,0.3)", backdropFilter: "blur(12px)" }}
       >
         {msg}
@@ -1019,7 +1023,7 @@ function SectionLabel({
 }: { kicker: string; title: string; align?: "center" | "left" }) {
   return (
     <div className={align === "center" ? "text-center" : "text-left"}>
-      <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-[color:var(--electric)]">{kicker}</p>
+      <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-[#0078B8]">{kicker}</p>
       <h2 className={`mt-3 text-balance text-3xl font-semibold leading-tight text-slate-900 md:text-5xl ${align === "center" ? "mx-auto max-w-3xl" : ""}`}>
         {title}
       </h2>
