@@ -563,7 +563,7 @@ function LiveDashboard() {
             <div key={n} className="flex items-center justify-between rounded-[10px] bg-slate-50 px-3 py-2.5 text-[13px]">
               <span className="text-slate-700">{n}</span>
               <div className="flex items-center gap-3 text-[11px]">
-                <span className="font-mono text-slate-400">{q}</span>
+                <span className="font-mono text-slate-500">{q}</span>
                 <span className={`rounded-full px-2 py-0.5 ${palette[color]}`}>{s}</span>
               </div>
             </div>
@@ -653,7 +653,7 @@ function HyderabadPresence() {
                   <span className={`relative grid h-3 w-3 place-items-center rounded-full ${isActive ? "bg-[color:var(--electric)]" : "bg-slate-300"} transition`}>
                     {isActive && <span className="absolute inset-0 animate-ping rounded-full bg-[color:var(--electric)] opacity-60" />}
                   </span>
-                  <span className={`absolute left-4 top-1/2 -translate-y-1/2 whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.18em] transition ${isActive ? "text-slate-900" : "text-slate-400 group-hover:text-slate-600"}`}>
+                  <span className={`absolute left-4 top-1/2 -translate-y-1/2 whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.18em] transition ${isActive ? "text-slate-900" : "text-slate-500 group-hover:text-slate-600"}`}>
                     {c.name}
                   </span>
                 </button>
@@ -674,7 +674,7 @@ function HyderabadPresence() {
                 </div>
               ))}
             </div>
-            <p className="mt-6 text-xs text-slate-400">Hover any pin to explore the cluster.</p>
+            <p className="mt-6 text-xs text-slate-500">Hover any pin to explore the cluster.</p>
           </div>
         </Reveal>
       </div>
@@ -704,7 +704,7 @@ function SuccessStory() {
                   <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[color:var(--electric)]">{`0${idx + 1}`}</span>
                   <Icon className="h-4 w-4 text-[color:var(--electric)]" />
                 </div>
-                <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.22em] text-slate-400">{k}</p>
+                <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.22em] text-slate-500">{k}</p>
                 <h3 className="mt-1 text-base font-semibold text-slate-900">{t}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-500">{d}</p>
               </div>
