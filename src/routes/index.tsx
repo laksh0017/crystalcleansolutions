@@ -888,8 +888,9 @@ function InquiryForm() {
               <FilledField name="phone" label="PHONE *" required />
               <FilledField name="email" label="EMAIL" type="email" />
               <div className="sm:col-span-2">
-                <label className="block text-[11px] font-medium uppercase tracking-[0.06em]" style={{ color: "#64748B", marginBottom: 6 }}>INDUSTRY</label>
+                <label htmlFor="ccs-industry" className="block text-[11px] font-medium uppercase tracking-[0.06em]" style={{ color: "#64748B", marginBottom: 6 }}>INDUSTRY</label>
                 <select
+                  id="ccs-industry"
                   name="industry"
                   defaultValue="Corporate / IT"
                   className="w-full rounded-[10px] px-4 py-3 text-[14px] text-slate-900 outline-none transition focus:border-[#009AE2] focus:shadow-[0_0_0_3px_rgba(0,154,226,0.1)]"
@@ -901,8 +902,9 @@ function InquiryForm() {
                 </select>
               </div>
               <div className="sm:col-span-2">
-                <label className="block text-[11px] font-medium uppercase tracking-[0.06em]" style={{ color: "#64748B", marginBottom: 6 }}>REQUIREMENT *</label>
+                <label htmlFor="ccs-message" className="block text-[11px] font-medium uppercase tracking-[0.06em]" style={{ color: "#64748B", marginBottom: 6 }}>REQUIREMENT *</label>
                 <textarea
+                  id="ccs-message"
                   name="message"
                   required
                   rows={4}
