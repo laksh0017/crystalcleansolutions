@@ -939,10 +939,12 @@ function InquiryForm() {
 function FilledField({
   name, label, type = "text", required,
 }: { name: string; label: string; type?: string; required?: boolean }) {
+  const id = `ccs-${name}`;
   return (
     <div>
-      <label className="block text-[11px] font-medium uppercase tracking-[0.06em]" style={{ color: "#64748B", marginBottom: 6 }}>{label}</label>
+      <label htmlFor={id} className="block text-[11px] font-medium uppercase tracking-[0.06em]" style={{ color: "#64748B", marginBottom: 6 }}>{label}</label>
       <input
+        id={id}
         type={type}
         name={name}
         required={required}
