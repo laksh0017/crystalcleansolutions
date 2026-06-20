@@ -184,7 +184,7 @@ function Stat({ label, value, Icon }: { label: string; value: React.ReactNode; I
   return (
     <div className="rounded-xl border border-slate-200/70 bg-slate-50 p-4">
       <div className="flex items-center justify-between">
-        <p className="text-[10px] uppercase tracking-[0.12em]" style={{ color: "#94A3B8" }}>{label}</p>
+        <p className="text-[10px] uppercase tracking-[0.12em]" style={{ color: "#64748B" }}>{label}</p>
         <Icon className="h-3.5 w-3.5 text-[#009AE2]" />
       </div>
       <p className="mt-2 text-[28px] font-medium tracking-tight text-slate-900 tabular-nums">{value}</p>
@@ -543,7 +543,7 @@ function LiveDashboard() {
       </div>
       <div className="mt-6">
         <div className="mb-3 flex items-center justify-between">
-          <p className="text-[10px] uppercase tracking-[0.15em]" style={{ color: "#94A3B8" }}>Consumption · Last 6 mo</p>
+          <p className="text-[10px] uppercase tracking-[0.15em]" style={{ color: "#64748B" }}>Consumption · Last 6 mo</p>
           <span className="text-[11px] text-[#009AE2]">burn 68%</span>
         </div>
         <SparkBars />
@@ -576,7 +576,7 @@ function LiveDashboard() {
 function DashCell({ l, v }: { l: string; v: string }) {
   return (
     <div className="px-3 first:pl-0 last:pr-0">
-      <p className="text-[10px] uppercase tracking-[0.12em]" style={{ color: "#94A3B8" }}>{l}</p>
+      <p className="text-[10px] uppercase tracking-[0.12em]" style={{ color: "#64748B" }}>{l}</p>
       <p className="mt-1.5 text-[20px] font-medium text-slate-900 tabular-nums">{v}</p>
     </div>
   );
@@ -926,7 +926,7 @@ function InquiryForm() {
             >
               {sent ? "Opening WhatsApp…" : "Send Enquiry"}
             </button>
-            <p className="mt-3 text-center text-[12px]" style={{ color: "#94A3B8" }}>
+            <p className="mt-3 text-center text-[12px]" style={{ color: "#64748B" }}>
               Submissions open WhatsApp with your enquiry pre-filled.
             </p>
           </form>
@@ -974,7 +974,7 @@ function ContactRow({
     >
       <Icon className="mt-0.5 h-5 w-5 shrink-0 text-[#009AE2]" />
       <div className="min-w-0">
-        <p className="text-[11px] font-medium uppercase tracking-[0.08em]" style={{ color: "#94A3B8" }}>{label}</p>
+        <p className="text-[11px] font-medium uppercase tracking-[0.08em]" style={{ color: "#64748B" }}>{label}</p>
         <p className="mt-1 truncate text-[14px] font-medium text-slate-900">{value}</p>
       </div>
     </div>
