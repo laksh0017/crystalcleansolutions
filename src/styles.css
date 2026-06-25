@@ -37,7 +37,7 @@
   --color-cyan-glow: var(--cyan-glow);
   --color-brand-azure: var(--brand-azure);
   --color-brand-green: var(--brand-green);
-  --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
   --font-sans: "Inter", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
